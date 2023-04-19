@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { Box, Button, Container, Text } from '@chakra-ui/react';
+import { Box, Button, Container } from '@chakra-ui/react';
 import Layout from '../components/layout';
 import { theme } from '../styles/theme';
 import BasicLoader from '../components/BasicLoader';
 import { useUserSignIn } from '../hooks/use-user-sign-in.hook';
+import Character from '../components/Character/Character';
 
 export default function Home() {
   const [isLoading, currentUser] = useUserSignIn();
@@ -15,7 +16,12 @@ export default function Home() {
       <Container pos="relative" mt={5} p={0} width="100%" maxW="inherit">
         {currentUser ? (
           <Box mt="2">
-            <Text>Hey {currentUser.email}!</Text>
+            {currentUser.characters.map((character) => (
+              <>
+                {character._id.toString()}
+                <Character key={character._id.toString()} {...character} />
+              </>
+            ))}
             <Link href="/api/auth/logout?returnTo=http%3A%2F%2Flocalhost%3A3000">
               Logout
             </Link>

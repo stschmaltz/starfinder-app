@@ -3,25 +3,25 @@ import { ObjectId } from 'bson';
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
-  baseDetails: CharacterDetails;
+  baseDetails: BaseCharacterDetails;
   healthStats: HealthStats;
 }
 
-interface CharacterDetails {
+export interface BaseCharacterDetails {
   name: string;
   level: number;
-  class: 'SOLARIAN';
-  size: 'MEDIUM';
-  race: 'VESK';
-  alignment: 'LAWFUL_GOOD';
-  deity: 'DESNA';
+  class: 'SOLARIAN'; // TODO: make enum
+  size: 'SMALL' | 'MEDIUM' | 'LARGE'; // TODO: make enum
+  race: 'VESK'; // TODO: make enum
+  alignment: 'LAWFUL_GOOD'; // TODO: make enum
+  deity: 'DESNA'; // TODO: make enum
   speed: number;
   initiative: number;
-  languages: string[];
+  languages: string[]; // TODO: make enum
   homeWorld: string;
 }
 
-interface HealthStats {
+export interface HealthStats {
   maxHp: number;
   currentHp: number;
   maxStamina: number;

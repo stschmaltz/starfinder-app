@@ -5,6 +5,32 @@ import { CharacterObject } from '../types/character';
 
 const collectionName = 'placeholder';
 
+const testCharacter: CharacterObject = {
+  _id: new ObjectId(),
+  userId: new ObjectId(),
+  baseDetails: {
+    name: 'Korthax Ironcrest',
+    level: 1,
+    class: 'SOLARIAN',
+    size: 'MEDIUM',
+    alignment: 'LAWFUL_GOOD',
+    deity: 'DESNA',
+    speed: 30,
+    initiative: 0,
+    languages: ['Common', 'Vesk'],
+    homeWorld: 'Vesk Prime',
+    race: 'VESK',
+  },
+  healthStats: {
+    maxHp: 13,
+    currentHp: 13,
+    maxStamina: 9,
+    currentStamina: 9,
+    maxResolve: 3,
+    currentResolve: 3,
+  },
+};
+
 async function getCharactersForUser(
   userId: string
 ): Promise<CharacterObject[]> {
@@ -15,9 +41,10 @@ async function getCharactersForUser(
     .find({ userId: new ObjectId(userId) })
     .toArray()) as CharacterObject[];
 
+  // TODO: use the db
   console.log(characters);
 
-  return characters;
+  return [testCharacter];
 }
 
 export { getCharactersForUser };

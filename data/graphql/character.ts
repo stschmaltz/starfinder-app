@@ -1,12 +1,38 @@
 import { getCharactersForUser } from '../../providers/character-database.provider';
 import { UserObject } from '../../types/user';
 
-const placeholderTypeDefs = /* GraphQL */ `
+const characterTypeDefs = /* GraphQL */ `
+  type CharacterBaseDetails {
+    name: String!
+    level: Int!
+    class: String!
+    size: String!
+    alignment: String!
+    deity: String!
+    speed: Int!
+    initiative: Int!
+    languages: [String!]!
+    homeWorld: String!
+    race: String!
+  }
+
+  type CharacterHealthStats {
+    maxHp: Int!
+    currentHp: Int!
+    maxStamina: Int!
+    currentStamina: Int!
+    maxResolve: Int!
+    currentResolve: Int!
+  }
+
   type Character {
     _id: String!
     userId: String!
+    baseDetails: CharacterBaseDetails!
+    healthStats: CharacterHealthStats!
   }
 `;
+
 const characterResolver = {
   User: {
     async characters(parent: Omit<UserObject, '_id'> & { _id: string }) {
@@ -23,4 +49,4 @@ const characterResolver = {
   },
 };
 
-export { placeholderTypeDefs, characterResolver };
+export { characterTypeDefs, characterResolver };
