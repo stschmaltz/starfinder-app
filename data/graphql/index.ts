@@ -1,6 +1,6 @@
 import { mutationResolver, mutationTypeDefs } from './mutation';
 import { queryResolver, queryTypeDefs } from './query';
-import { placeholderResolver, placeholderTypeDefs } from './placeholder';
+import { characterResolver, placeholderTypeDefs } from './character';
 import { userTypeDefs } from './user';
 
 const typeDefs = [
@@ -9,6 +9,6 @@ const typeDefs = [
   userTypeDefs,
   placeholderTypeDefs,
 ];
-const resolvers = [queryResolver, placeholderResolver, mutationResolver];
+const resolvers = [queryResolver, characterResolver, mutationResolver];
 
 export { typeDefs, resolvers };

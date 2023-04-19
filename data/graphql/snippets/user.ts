@@ -1,12 +1,12 @@
-import { fullPlaceholder } from './placeholder';
-import { PlaceholderObject } from '../../../types/placeholder';
+import { fullCharacters } from './character';
+import { CharacterObject } from '../../../types/character';
 
-const fullUser = `{ _id, email, placeholders { ${fullPlaceholder} } }`;
+const fullUser = `{ _id, email, characters { ${fullCharacters} } }`;
 
 export interface ApiUser {
   _id: string;
   email: string;
-  placeholders: PlaceholderObject[];
+  characters: CharacterObject[];
 }
 
 export { fullUser };

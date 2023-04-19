@@ -1,3 +1,3 @@
 export const TYPES = {
-  PlaceholderProvider: Symbol.for('PlaceholderProvider'),
+  CharacterProvider: Symbol.for('CharacterProvider'),
 };

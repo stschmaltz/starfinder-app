@@ -2,7 +2,7 @@ const userTypeDefs = /* GraphQL */ `
   type User {
     _id: String!
     email: String!
-    placeholders: [Placeholder!]!
+    characters: [Character!]!
   }
 
   type UserSignInResponse {

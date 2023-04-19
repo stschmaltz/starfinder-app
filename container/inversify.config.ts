@@ -2,12 +2,12 @@ import 'reflect-metadata';
 
 import { Container } from 'inversify';
 import { TYPES } from './types';
-import { PlaceholderProvider } from '../providers/placeholder.provider/placeholder.provider';
-import { PlaceholderProviderInterface } from '../providers/placeholder.provider/placeholder.provider.interface';
+import { CharacterProvider } from '../providers/character.provider/character.provider';
+import { CharacterProviderInterface } from '../providers/character.provider/character.provider.interface';
 
 const appContainer = new Container();
 
 appContainer
-  .bind<PlaceholderProviderInterface>(TYPES.PlaceholderProvider)
-  .toConstantValue(new PlaceholderProvider());
+  .bind<CharacterProviderInterface>(TYPES.CharacterProvider)
+  .toConstantValue(new CharacterProvider());
 export { appContainer };
