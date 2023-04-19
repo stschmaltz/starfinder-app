@@ -14,13 +14,13 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
-          <meta name="application-name" content="Placeholder App" />
+          <meta name="application-name" content="Starfinder App" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
             content="default"
           />
-          <meta name="apple-mobile-web-app-title" content="Placeholder App" />
+          <meta name="apple-mobile-web-app-title" content="Starfinder App" />
           <meta
             name="description"
             content="Organize your workouts, join the fam."
@@ -60,27 +60,27 @@ export default class MyDocument extends Document {
           />
 
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="https://placeholder.app" />
-          <meta name="twitter:title" content="Placeholder App" />
+          <meta name="twitter:url" content="https://starfinder.app" />
+          <meta name="twitter:title" content="Starfinder App" />
           <meta
             name="twitter:description"
             content="Organize your workouts, join the fam."
           />
           <meta
             name="twitter:image"
-            content="https://placeholder.app/images/profile.png"
+            content="https://starfinder.app/images/profile.png"
           />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="PlaceholderApp.app" />
+          <meta property="og:title" content="starfinder.app" />
           <meta
             property="og:description"
             content="Placeholder app for getting started quickly."
           />
-          <meta property="og:site_name" content="Placeholder App" />
-          <meta property="og:url" content="https://placeholder.app" />
+          <meta property="og:site_name" content="Starfinder App" />
+          <meta property="og:url" content="https://starfinder.app" />
           <meta
             property="og:image"
-            content="https://placeholder.app/images/profile.png"
+            content="https://starfinder.app/images/profile.png"
           />
         </Head>
         <body>

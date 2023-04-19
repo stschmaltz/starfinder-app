@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { ReactNode } from 'react';
 import styles from '../styles/layout.module.css';
 
-export const siteTitle = 'PlaceholderApp.app';
+export const siteTitle = 'starfinder.app';
 
 export default function Layout(input: {
   children: ReactNode | undefined;
@@ -18,7 +18,7 @@ export default function Layout(input: {
         <meta name="description" content="App to help organize exercises" />
         <meta
           property="og:image"
-          content={`https://placeholder.app/images/profile.png`}
+          content={`https://starfinder.app/images/profile.png`}
         />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
