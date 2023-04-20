@@ -2,11 +2,17 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { displayCase } from '../../lib/string-helpers';
 import { theme } from '../../styles/theme';
-import { BaseCharacterDetails } from '../../types/character';
+import { BaseCharacterDetails, HealthStats } from '../../types/character';
 
-function BaseDetails({ baseDetails }: { baseDetails: BaseCharacterDetails }) {
+function BaseDetails({
+  baseDetails,
+  healthStats,
+}: {
+  baseDetails: BaseCharacterDetails;
+  healthStats: HealthStats;
+}) {
   return (
-    <Box p={4} bgColor={theme.colors.brandPrimary['50']}>
+    <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
       <Text as="b" fontSize="2xl">
         {baseDetails.name}
       </Text>
@@ -26,11 +32,20 @@ function BaseDetails({ baseDetails }: { baseDetails: BaseCharacterDetails }) {
             Home World: <b>{baseDetails.homeWorld}</b>
           </Text>
         </Box>
+        <Box border={'2px'} borderRadius={4} p={2}>
+          <Text fontSize="lg">
+            Stamina: {healthStats.currentStamina}/{healthStats.maxStamina}
+          </Text>
+          <Text fontSize="lg">
+            Health: {healthStats.currentHp}/{healthStats.maxHp}
+          </Text>
+          <Text fontSize="lg">
+            Resolve: {healthStats.currentResolve}/{healthStats.maxResolve}
+          </Text>
+        </Box>
       </Flex>
     </Box>
   );
 }
-
-BaseDetails.propTypes = {};
 
 export default BaseDetails;

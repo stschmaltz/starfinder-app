@@ -1,12 +1,5 @@
 import { ObjectId } from 'bson';
 
-export interface CharacterObject {
-  _id: ObjectId;
-  userId: ObjectId;
-  baseDetails: BaseCharacterDetails;
-  healthStats: HealthStats;
-}
-
 export interface BaseCharacterDetails {
   name: string;
   level: number;
@@ -28,4 +21,21 @@ export interface HealthStats {
   currentStamina: number;
   maxResolve: number;
   currentResolve: number;
+}
+
+export interface AbilityScoresObject {
+  str: number;
+  dex: number;
+  con: number;
+  int: number;
+  wis: number;
+  cha: number;
+}
+
+export interface CharacterObject {
+  _id: ObjectId;
+  userId: ObjectId;
+  baseDetails: BaseCharacterDetails;
+  healthStats: HealthStats;
+  abilityScores: AbilityScoresObject;
 }

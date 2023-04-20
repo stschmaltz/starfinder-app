@@ -25,11 +25,21 @@ const characterTypeDefs = /* GraphQL */ `
     currentResolve: Int!
   }
 
+  type AbilityScoresObject {
+    str: Int!
+    dex: Int!
+    con: Int!
+    int: Int!
+    wis: Int!
+    cha: Int!
+  }
+
   type Character {
     _id: String!
     userId: String!
     baseDetails: CharacterBaseDetails!
     healthStats: CharacterHealthStats!
+    abilityScores: AbilityScoresObject!
   }
 `;
 

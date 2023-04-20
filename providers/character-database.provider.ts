@@ -29,6 +29,14 @@ const testCharacter: CharacterObject = {
     maxResolve: 3,
     currentResolve: 3,
   },
+  abilityScores: {
+    str: 16,
+    dex: 10,
+    con: 14,
+    cha: 14,
+    int: 8,
+    wis: 10,
+  },
 };
 
 async function getCharactersForUser(

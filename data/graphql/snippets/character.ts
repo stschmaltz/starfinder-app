@@ -22,6 +22,14 @@ const fullCharacters = `
       maxResolve
       currentResolve
     }
+    abilityScores {
+      str
+      dex
+      con
+      int
+      wis
+      cha
+    }
   `;
 
 export { fullCharacters };
