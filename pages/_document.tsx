@@ -60,7 +60,7 @@ export default class MyDocument extends Document {
           />
 
           <meta name="twitter:card" content="summary" />
-          <meta name="twitter:url" content="https://starfinder.app" />
+          <meta name="twitter:url" content="https://shanefindsthestars.app" />
           <meta name="twitter:title" content="Starfinder App" />
           <meta
             name="twitter:description"
@@ -68,19 +68,19 @@ export default class MyDocument extends Document {
           />
           <meta
             name="twitter:image"
-            content="https://starfinder.app/images/profile.png"
+            content="https://shanefindsthestars.app/images/profile.png"
           />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content="starfinder.app" />
+          <meta property="og:title" content="shanefindsthestars.app" />
           <meta
             property="og:description"
             content="Placeholder app for getting started quickly."
           />
           <meta property="og:site_name" content="Starfinder App" />
-          <meta property="og:url" content="https://starfinder.app" />
+          <meta property="og:url" content="https://shanefindsthestars.app" />
           <meta
             property="og:image"
-            content="https://starfinder.app/images/profile.png"
+            content="https://shanefindsthestars.app/images/profile.png"
           />
         </Head>
         <body>
