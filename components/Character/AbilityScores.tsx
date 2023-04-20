@@ -38,12 +38,7 @@ function AbilityScores({
   };
 
   return (
-    <Box
-      borderRadius={12}
-      p={4}
-      bgColor={theme.colors.brandPrimary['50']}
-      mt={4}
-    >
+    <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
       <Text as="b" fontSize="md">
         Ability Scores
       </Text>
