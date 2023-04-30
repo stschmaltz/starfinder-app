@@ -57,6 +57,13 @@ export interface SavingThrowsDetailsObject {
   willMisc: number;
 }
 
+export interface AttackBonusDetailsObject {
+  baseAttackBonus: number;
+  meleeMisc: number;
+  rangedMisc: number;
+  thrownMisc: number;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
@@ -66,4 +73,5 @@ export interface CharacterObject {
   abilityScoreModifiers: AbilityScoreModifiersObject;
   armorClassDetails: ArmorClassDetailsObject;
   savingThrowsDetails: SavingThrowsDetailsObject;
+  attackBonusDetails: AttackBonusDetailsObject;
 }

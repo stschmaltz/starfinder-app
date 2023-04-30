@@ -40,7 +40,7 @@ export default function SavingThrowsRow({
       </GridItem>
       <GridItem>
         <Text
-          fontWeight={isHeader ? 'normal' : 'bold'}
+          fontWeight={isHeader ? 'normal' : 'normal'}
           textAlign={'center'}
           fontSize={isHeader ? 'xs' : 'md'}
         >
@@ -49,7 +49,7 @@ export default function SavingThrowsRow({
       </GridItem>
       <GridItem>
         <Text
-          fontWeight={isHeader ? 'normal' : 'bold'}
+          fontWeight={isHeader ? 'normal' : 'normal'}
           textAlign={'center'}
           fontSize={isHeader ? 'xs' : 'md'}
         >

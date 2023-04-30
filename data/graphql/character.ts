@@ -66,6 +66,13 @@ const characterTypeDefs = /* GraphQL */ `
     willMisc: Int!
   }
 
+  type AttackBonusDetailsObject {
+    baseAttackBonus: Int!
+    meleeMisc: Int!
+    rangedMisc: Int!
+    thrownMisc: Int!
+  }
+
   type Character {
     _id: String!
     userId: String!
@@ -75,6 +82,7 @@ const characterTypeDefs = /* GraphQL */ `
     abilityScoreModifiers: AbilityScoreModifiersObject!
     armorClassDetails: ArmorClassDetailsObject!
     savingThrowsDetails: SavingThrowsDetailsObject!
+    attackBonusDetails: AttackBonusDetailsObject!
   }
 `;
 

@@ -51,6 +51,12 @@ const testCharacter: Omit<CharacterObject, 'abilityScoreModifiers'> = {
     willBaseSave: 2,
     willMisc: 0,
   },
+  attackBonusDetails: {
+    baseAttackBonus: 1,
+    meleeMisc: 1,
+    rangedMisc: 0,
+    thrownMisc: 0,
+  },
 };
 
 async function getCharactersForUser(

@@ -3,6 +3,7 @@ import React from 'react';
 import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
 import SavingThrows from './SavingThrows/SavingThrows';
+import AttackBonus from './AttackBonus/AttackBonus';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 
@@ -56,7 +57,10 @@ export default function CombatTabContent({
           bg="brandPrimary.50"
           area={'attackBonus'}
         >
-          <StatContainer header="Attack Bonus" content={<></>}></StatContainer>
+          <AttackBonus
+            abilityScoreModifiers={character.abilityScoreModifiers}
+            attackBonusDetails={character.attackBonusDetails}
+          />
         </GridItem>
         <GridItem borderRadius={'2xl'} bg="brandPrimary.50" area={'equipment'}>
           <StatContainer header="Equipment" content={<></>}></StatContainer>

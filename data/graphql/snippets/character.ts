@@ -52,6 +52,12 @@ const fullCharacters = `
       willBaseSave
       willMisc
     }
+    attackBonusDetails {
+      baseAttackBonus
+      meleeMisc
+      rangedMisc
+      thrownMisc
+    }
   `;
 
 export { fullCharacters };

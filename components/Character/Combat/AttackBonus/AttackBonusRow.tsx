@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, GridItem, Text } from '@chakra-ui/react';
 
-export default function ArmorClassRow({
+export default function AttackBonusRow({
   firstColumnContent,
   headerTitle,
   secondColumnContent,
@@ -23,7 +23,7 @@ export default function ArmorClassRow({
         <Text
           fontWeight={'bold'}
           textAlign={'left'}
-          fontSize={isHeader ? '' : 'md'}
+          fontSize={isHeader ? 'xs' : 'md'}
           lineHeight={1}
         >
           {headerTitle}
@@ -41,7 +41,6 @@ export default function ArmorClassRow({
       <GridItem>
         <Text
           fontWeight={isHeader ? 'normal' : 'normal'}
-          lineHeight={isHeader ? 1 : 1.6}
           textAlign={'center'}
           fontSize={isHeader ? 'xs' : 'md'}
         >
