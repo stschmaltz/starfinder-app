@@ -5,7 +5,7 @@ import { CharacterObject } from '../types/character';
 
 const collectionName = 'placeholder';
 
-const testCharacter: CharacterObject = {
+const testCharacter: Omit<CharacterObject, 'abilityScoreModifiers'> = {
   _id: new ObjectId(),
   userId: new ObjectId(),
   baseDetails: {
@@ -37,17 +37,23 @@ const testCharacter: CharacterObject = {
     int: 8,
     wis: 10,
   },
+  armorClassDetails: {
+    eacBonus: 1,
+    kacBonus: 2,
+    eacMisc: 1,
+    kacMisc: 1,
+  },
 };
 
 async function getCharactersForUser(
   userId: string
-): Promise<CharacterObject[]> {
+): Promise<Omit<CharacterObject, 'abilityScoreModifiers'>[]> {
   const { db } = await getDbClient();
 
-  const characters: CharacterObject[] = (await db
+  const characters: Omit<CharacterObject, 'abilityScoreModifiers'>[] = (await db
     .collection(collectionName)
     .find({ userId: new ObjectId(userId) })
-    .toArray()) as CharacterObject[];
+    .toArray()) as Omit<CharacterObject, 'abilityScoreModifiers'>[];
 
   // TODO: use the db
   console.log(characters);

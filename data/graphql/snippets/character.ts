@@ -30,6 +30,20 @@ const fullCharacters = `
       wis
       cha
     }
+    abilityScoreModifiers {
+      strMod
+      dexMod
+      conMod
+      intMod
+      wisMod
+      chaMod
+    }
+    armorClassDetails {
+      eacBonus
+      kacBonus
+      eacMisc
+      kacMisc
+    }
   `;
 
 export { fullCharacters };

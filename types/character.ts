@@ -32,10 +32,28 @@ export interface AbilityScoresObject {
   cha: number;
 }
 
+export interface AbilityScoreModifiersObject {
+  strMod: number;
+  dexMod: number;
+  conMod: number;
+  intMod: number;
+  wisMod: number;
+  chaMod: number;
+}
+
+export interface ArmorClassDetailsObject {
+  eacBonus: number;
+  kacBonus: number;
+  eacMisc: number;
+  kacMisc: number;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
   baseDetails: BaseCharacterDetails;
   healthStats: HealthStats;
   abilityScores: AbilityScoresObject;
+  abilityScoreModifiers: AbilityScoreModifiersObject;
+  armorClassDetails: ArmorClassDetailsObject;
 }

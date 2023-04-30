@@ -17,10 +17,10 @@ export default function Home() {
         {currentUser ? (
           <Box mt="2">
             {currentUser.characters.map((character) => (
-              <>
+              <Box key={character._id.toString()}>
                 {character._id.toString()}
-                <Character key={character._id.toString()} {...character} />
-              </>
+                <Character {...character} />
+              </Box>
             ))}
             <Link href="/api/auth/logout?returnTo=http%3A%2F%2Flocalhost%3A3000">
               Logout

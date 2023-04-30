@@ -1,42 +1,18 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import { theme } from '../../styles/theme';
-import { AbilityScoresObject } from '../../types/character';
+import {
+  AbilityScoreModifiersObject,
+  AbilityScoresObject,
+} from '../../types/character';
 
 function AbilityScores({
   abilityScores,
+  abilityScoreModifiers,
 }: {
   abilityScores: AbilityScoresObject;
+  abilityScoreModifiers: AbilityScoreModifiersObject;
 }) {
-  const abilityScoreToModifierMap: Record<number, string> = {
-    1: '-5',
-    2: '-4',
-    3: '-4',
-    4: '-3',
-    5: '-3',
-    6: '-2',
-    7: '-2',
-    8: '-1',
-    9: '-1',
-    10: '0',
-    11: '0',
-    12: '+1',
-    13: '+1',
-    14: '+2',
-    15: '+2',
-    16: '+3',
-    17: '+3',
-    18: '+4',
-    19: '+4',
-    20: '+5',
-    21: '+5',
-    22: '+6',
-    23: '+6',
-    24: '+7',
-    25: '+7',
-    26: '+8',
-  };
-
   return (
     <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
       <Text as="b" fontSize="md">
@@ -44,28 +20,22 @@ function AbilityScores({
       </Text>
       <Flex justifyContent={'space-between'}>
         <Box>
-          Str: {abilityScores.str} (
-          {abilityScoreToModifierMap[abilityScores.str]})
+          Str: {abilityScores.str} ({abilityScoreModifiers.strMod})
         </Box>
         <Box>
-          Dex: {abilityScores.dex} (
-          {abilityScoreToModifierMap[abilityScores.dex]})
+          Dex: {abilityScores.dex} ({abilityScoreModifiers.dexMod})
         </Box>
         <Box>
-          Con: {abilityScores.con} (
-          {abilityScoreToModifierMap[abilityScores.con]})
+          Con: {abilityScores.con} ({abilityScoreModifiers.conMod})
         </Box>
         <Box>
-          Int: {abilityScores.int} (
-          {abilityScoreToModifierMap[abilityScores.int]})
+          Int: {abilityScores.int} ({abilityScoreModifiers.intMod})
         </Box>
         <Box>
-          Wis: {abilityScores.wis} (
-          {abilityScoreToModifierMap[abilityScores.wis]})
+          Wis: {abilityScores.wis} ({abilityScoreModifiers.wisMod})
         </Box>
         <Box>
-          Cha: {abilityScores.cha} (
-          {abilityScoreToModifierMap[abilityScores.cha]})
+          Cha: {abilityScores.cha}({abilityScoreModifiers.chaMod})
         </Box>
       </Flex>
     </Box>

@@ -7,7 +7,7 @@ import { CharacterObject } from '../../types/character';
 
 function Character(props: CharacterObject) {
   if (!props) {
-    return;
+    return <></>;
   }
 
   return (
@@ -17,9 +17,12 @@ function Character(props: CharacterObject) {
         healthStats={props.healthStats}
       />
       <Box mt={2}></Box>
-      <AbilityScores abilityScores={props.abilityScores} />
+      <AbilityScores
+        abilityScores={props.abilityScores}
+        abilityScoreModifiers={props.abilityScoreModifiers}
+      />
       <Box mt={2}></Box>
-      <CharacterTabs />
+      <CharacterTabs character={props} />
     </>
   );
 }

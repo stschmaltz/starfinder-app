@@ -165,7 +165,6 @@ const theme = extendTheme({
     teal: colors.accent1,
     blue: colors.brandSecondaryColors,
     red: colors.brandPrimaryColors,
-    purple: colors.accent2,
     orange: colors.accent3,
   },
 

@@ -1,0 +1,108 @@
+import { Box, Flex, IconButton, Progress } from '@chakra-ui/react';
+import { CloseIcon } from '@chakra-ui/icons';
+
+import React from 'react';
+import AttunementButton from './AttunementButton';
+import { useCharacterAttunement } from '../../../../hooks/use-character-attunement';
+import StatContainer from '../../StatContainer';
+import BasicLoader from '../../../BasicLoader';
+
+export default function AttunementTracker() {
+  const { currentAttunement, setCurrentAttunement, defaultAttunement } =
+    useCharacterAttunement();
+
+  return (
+    <StatContainer
+      header="Attunement Tracker"
+      content={
+        currentAttunement ? (
+          <Flex width={'100%'} maxWidth="100%" justifyContent={'space-between'}>
+            <Box>
+              <AttunementButton
+                colorScheme="purple"
+                text={'G'}
+                currentValue={currentAttunement.currentGraviton}
+                maxValue={currentAttunement.maxGraviton}
+                setCurrentValue={() =>
+                  setCurrentAttunement({
+                    ...currentAttunement,
+                    currentPhoton: 0,
+                    currentGraviton: Math.min(
+                      currentAttunement.currentGraviton + 1,
+                      currentAttunement.maxGraviton
+                    ),
+                  })
+                }
+              />
+            </Box>
+            <Box w="100%">
+              <Flex
+                w="100%"
+                flexDir={'column'}
+                h="100%"
+                justifyContent={'center'}
+              >
+                <Progress
+                  backgroundColor={'whiteAlpha'}
+                  transform={'scaleX(-1)'}
+                  colorScheme="purple"
+                  size="lg"
+                  max={currentAttunement.maxGraviton}
+                  value={currentAttunement.currentGraviton}
+                />
+              </Flex>
+            </Box>
+            <Box>
+              <IconButton
+                borderRadius={'3xl'}
+                size="md"
+                colorScheme="blackAlpha"
+                aria-label="Reset Attunement"
+                icon={<CloseIcon color={'white'} />}
+                onClick={() => {
+                  setCurrentAttunement(defaultAttunement);
+                }}
+              />
+            </Box>
+            <Box w="100%">
+              <Flex
+                w="100%"
+                flexDir={'column'}
+                h="100%"
+                justifyContent={'center'}
+              >
+                <Progress
+                  backgroundColor={'whiteAlpha'}
+                  colorScheme="orange"
+                  size="lg"
+                  max={currentAttunement.maxPhoton}
+                  value={currentAttunement.currentPhoton}
+                ></Progress>
+              </Flex>
+            </Box>
+            <Box>
+              <AttunementButton
+                colorScheme="orange"
+                text={'P'}
+                currentValue={currentAttunement.currentPhoton}
+                maxValue={currentAttunement.maxPhoton}
+                setCurrentValue={() =>
+                  setCurrentAttunement({
+                    ...currentAttunement,
+                    currentGraviton: 0,
+                    currentPhoton: Math.min(
+                      currentAttunement.currentPhoton + 1,
+                      currentAttunement.maxPhoton
+                    ),
+                  })
+                }
+              />
+            </Box>
+          </Flex>
+        ) : (
+          <BasicLoader />
+        )
+      }
+    />
+  );
+}
