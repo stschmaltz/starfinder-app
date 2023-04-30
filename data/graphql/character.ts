@@ -57,6 +57,15 @@ const characterTypeDefs = /* GraphQL */ `
     kacMisc: Int!
   }
 
+  type SavingThrowsDetailsObject {
+    fortitudeBaseSave: Int!
+    fortitudeMisc: Int!
+    reflexBaseSave: Int!
+    reflexMisc: Int!
+    willBaseSave: Int!
+    willMisc: Int!
+  }
+
   type Character {
     _id: String!
     userId: String!
@@ -65,6 +74,7 @@ const characterTypeDefs = /* GraphQL */ `
     abilityScores: AbilityScoresObject!
     abilityScoreModifiers: AbilityScoreModifiersObject!
     armorClassDetails: ArmorClassDetailsObject!
+    savingThrowsDetails: SavingThrowsDetailsObject!
   }
 `;
 

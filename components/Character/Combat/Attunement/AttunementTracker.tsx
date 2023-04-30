@@ -16,7 +16,13 @@ export default function AttunementTracker() {
       header="Attunement Tracker"
       content={
         currentAttunement ? (
-          <Flex width={'100%'} maxWidth="100%" justifyContent={'space-between'}>
+          <Flex
+            h={'100%'}
+            width={'100%'}
+            maxWidth="100%"
+            alignItems={'center'}
+            justifyContent={'space-between'}
+          >
             <Box>
               <AttunementButton
                 colorScheme="purple"

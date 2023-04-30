@@ -43,6 +43,14 @@ const testCharacter: Omit<CharacterObject, 'abilityScoreModifiers'> = {
     eacMisc: 1,
     kacMisc: 1,
   },
+  savingThrowsDetails: {
+    fortitudeBaseSave: 2,
+    fortitudeMisc: 0,
+    reflexBaseSave: 0,
+    reflexMisc: 0,
+    willBaseSave: 2,
+    willMisc: 0,
+  },
 };
 
 async function getCharactersForUser(

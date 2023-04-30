@@ -48,6 +48,15 @@ export interface ArmorClassDetailsObject {
   kacMisc: number;
 }
 
+export interface SavingThrowsDetailsObject {
+  fortitudeBaseSave: number;
+  fortitudeMisc: number;
+  reflexBaseSave: number;
+  reflexMisc: number;
+  willBaseSave: number;
+  willMisc: number;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
@@ -56,4 +65,5 @@ export interface CharacterObject {
   abilityScores: AbilityScoresObject;
   abilityScoreModifiers: AbilityScoreModifiersObject;
   armorClassDetails: ArmorClassDetailsObject;
+  savingThrowsDetails: SavingThrowsDetailsObject;
 }

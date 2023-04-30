@@ -2,7 +2,7 @@ import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
-import SavingThrows from './SavingThrows';
+import SavingThrows from './SavingThrows/SavingThrows';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 
@@ -18,7 +18,7 @@ export default function CombatTabContent({
                   "abilities armorClass"
                   "abilities weapons"
                   "equipment attackBonus"`}
-        gridTemplateRows={'115px 1fr 1fr 1fr'}
+        gridTemplateRows={'0.5fr 1fr 1fr 1fr'}
         gridTemplateColumns={'1fr 1fr'}
         h="60vh"
         rowGap="3"
@@ -46,7 +46,10 @@ export default function CombatTabContent({
           bg="brandPrimary.50"
           area={'savingThrows'}
         >
-          <SavingThrows />
+          <SavingThrows
+            abilityScoreModifiers={character.abilityScoreModifiers}
+            savingThrowsDetails={character.savingThrowsDetails}
+          />
         </GridItem>
         <GridItem
           borderRadius={'2xl'}

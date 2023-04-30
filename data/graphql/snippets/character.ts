@@ -44,6 +44,14 @@ const fullCharacters = `
       eacMisc
       kacMisc
     }
+    savingThrowsDetails {
+      fortitudeBaseSave
+      fortitudeMisc
+      reflexBaseSave
+      reflexMisc
+      willBaseSave
+      willMisc
+    }
   `;
 
 export { fullCharacters };
