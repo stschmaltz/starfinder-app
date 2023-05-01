@@ -15,17 +15,18 @@ export default function Home() {
     <Layout home>
       <Container pos="relative" mt={5} p={0} width="100%" maxW="inherit">
         {currentUser ? (
-          <Box mt="2">
-            {currentUser.characters.map((character) => (
-              <Box key={character._id.toString()}>
-                {character._id.toString()}
-                <Character {...character} />
-              </Box>
-            ))}
+          <>
+            <Box mt="2">
+              {currentUser.characters.map((character) => (
+                <Box key={character._id.toString()}>
+                  <Character {...character} />
+                </Box>
+              ))}
+            </Box>
             <Link href="/api/auth/logout?returnTo=http%3A%2F%2Flocalhost%3A3000">
               Logout
             </Link>
-          </Box>
+          </>
         ) : (
           <Link href="/api/auth/login">
             <Button

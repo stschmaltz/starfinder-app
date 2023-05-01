@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
 import React from 'react';
 import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
@@ -30,39 +30,42 @@ export default function CombatTabContent({
         <GridItem area={'attunement'}>
           <AttunementTracker />
         </GridItem>
-        <GridItem borderRadius={'2xl'} bg="brandPrimary.50" area={'armorClass'}>
+        <GridItem area={'armorClass'}>
           <ArmorClass
             abilityScoreModifiers={character.abilityScoreModifiers}
             armorClassDetails={character.armorClassDetails}
           />
         </GridItem>
-        <GridItem borderRadius={'2xl'} bg="brandPrimary.50" area={'weapons'}>
-          <StatContainer header="Weapons" content={<></>}></StatContainer>
+        <GridItem overflowY={'auto'} minH={'150px'} area={'weapons'}>
+          <StatContainer
+            header="Weapons"
+            content={
+              <>
+                <Text>hey</Text>
+                <Text>hey</Text>
+                <Text>hey</Text>
+                <Text>hey</Text>
+                <Text>hey</Text>
+              </>
+            }
+          ></StatContainer>
         </GridItem>
-        <GridItem borderRadius={'2xl'} bg="brandPrimary.50" area={'abilities'}>
+        <GridItem area={'abilities'}>
           <StatContainer header="Abilities" content={<></>}></StatContainer>
         </GridItem>
-        <GridItem
-          borderRadius={'2xl'}
-          bg="brandPrimary.50"
-          area={'savingThrows'}
-        >
+        <GridItem area={'savingThrows'}>
           <SavingThrows
             abilityScoreModifiers={character.abilityScoreModifiers}
             savingThrowsDetails={character.savingThrowsDetails}
           />
         </GridItem>
-        <GridItem
-          borderRadius={'2xl'}
-          bg="brandPrimary.50"
-          area={'attackBonus'}
-        >
+        <GridItem area={'attackBonus'}>
           <AttackBonus
             abilityScoreModifiers={character.abilityScoreModifiers}
             attackBonusDetails={character.attackBonusDetails}
           />
         </GridItem>
-        <GridItem borderRadius={'2xl'} bg="brandPrimary.50" area={'equipment'}>
+        <GridItem area={'equipment'}>
           <StatContainer header="Equipment" content={<></>}></StatContainer>
         </GridItem>
       </Grid>
