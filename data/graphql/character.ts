@@ -73,6 +73,19 @@ const characterTypeDefs = /* GraphQL */ `
     thrownMisc: Int!
   }
 
+  type WeaponObject {
+    name: String!
+    level: Int!
+    ammoUsage: String!
+    attackBonus: Int!
+    damage: String!
+    critical: String
+    range: String
+    type: String!
+    special: String
+    damageBonusStat: String
+  }
+
   type Character {
     _id: String!
     userId: String!
@@ -83,6 +96,7 @@ const characterTypeDefs = /* GraphQL */ `
     armorClassDetails: ArmorClassDetailsObject!
     savingThrowsDetails: SavingThrowsDetailsObject!
     attackBonusDetails: AttackBonusDetailsObject!
+    weapons: [WeaponObject!]!
   }
 `;
 

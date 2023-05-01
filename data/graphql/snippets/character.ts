@@ -58,6 +58,18 @@ const fullCharacters = `
       rangedMisc
       thrownMisc
     }
+    weapons {
+      name
+      level
+      ammoUsage
+      attackBonus
+      damage
+      critical
+      range
+      type
+      special
+      damageBonusStat
+    }
   `;
 
 export { fullCharacters };

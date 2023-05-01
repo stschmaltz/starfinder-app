@@ -1,9 +1,10 @@
-import { Box, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
 import SavingThrows from './SavingThrows/SavingThrows';
 import AttackBonus from './AttackBonus/AttackBonus';
+import Weapons from './Weapons/Weapons';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 
@@ -36,19 +37,11 @@ export default function CombatTabContent({
             armorClassDetails={character.armorClassDetails}
           />
         </GridItem>
-        <GridItem overflowY={'auto'} minH={'150px'} area={'weapons'}>
-          <StatContainer
-            header="Weapons"
-            content={
-              <>
-                <Text>hey</Text>
-                <Text>hey</Text>
-                <Text>hey</Text>
-                <Text>hey</Text>
-                <Text>hey</Text>
-              </>
-            }
-          ></StatContainer>
+        <GridItem overflowY={'auto'} h={'150px'} area={'weapons'}>
+          <Weapons
+            weapons={character.weapons}
+            abilityScoreModifiers={character.abilityScoreModifiers}
+          />
         </GridItem>
         <GridItem area={'abilities'}>
           <StatContainer header="Abilities" content={<></>}></StatContainer>

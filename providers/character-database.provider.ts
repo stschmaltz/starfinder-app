@@ -57,6 +57,20 @@ const testCharacter: Omit<CharacterObject, 'abilityScoreModifiers'> = {
     rangedMisc: 0,
     thrownMisc: 0,
   },
+  weapons: [
+    {
+      name: 'Solar Comet Flair',
+      attackBonus: 6,
+      damage: '1d6+3',
+      damageBonusStat: 'str',
+      critical: undefined,
+      range: undefined,
+      type: 'Bludgeoning',
+      special: undefined,
+      ammoUsage: undefined,
+      level: 1,
+    },
+  ],
 };
 
 async function getCharactersForUser(

@@ -64,6 +64,19 @@ export interface AttackBonusDetailsObject {
   thrownMisc: number;
 }
 
+export interface WeaponObject {
+  name: string;
+  level: number;
+  type: string;
+  attackBonus: number;
+  damage: string;
+  damageBonusStat?: keyof AbilityScoresObject;
+  ammoUsage?: string;
+  critical?: string;
+  range?: string;
+  special?: string;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
@@ -74,4 +87,5 @@ export interface CharacterObject {
   armorClassDetails: ArmorClassDetailsObject;
   savingThrowsDetails: SavingThrowsDetailsObject;
   attackBonusDetails: AttackBonusDetailsObject;
+  weapons: WeaponObject[];
 }
