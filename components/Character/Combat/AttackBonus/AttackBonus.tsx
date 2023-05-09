@@ -30,21 +30,21 @@ export default function AttackBonus({
   return (
     <StatContainer
       header="Attack Bonus"
-      content={
+      headerContent={
+        <AttackBonusRow
+          isHeader
+          firstColumnContent={'Total'}
+          secondColumnContent={'Base'}
+          thirdColumnContent={'Misc'}
+          headerTitle={''}
+        />
+      }
+      bodyContent={
         <Grid
-          templateAreas={`"header" "melee" "ranged" "thrown"`}
+          templateAreas={`"melee" "ranged" "thrown"`}
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem key={'header'} area={'header'}>
-            <AttackBonusRow
-              isHeader
-              firstColumnContent={'Total'}
-              secondColumnContent={'Base'}
-              thirdColumnContent={'Misc'}
-              headerTitle={''}
-            />
-          </GridItem>
           <GridItem area={'melee'}>
             <AttackBonusRow
               firstColumnContent={totalMeleeAttack.toString()}

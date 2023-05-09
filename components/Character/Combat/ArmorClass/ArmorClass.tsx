@@ -31,22 +31,23 @@ export default function ArmorClass({
   return (
     <StatContainer
       header="Armor Class"
-      content={
+      headerContent={
+        <ArmorClassRow
+          isHeader
+          firstColumnContent={'Total'}
+          secondColumnContent={'Armor Bonus'}
+          thirdColumnContent={'Misc'}
+          headerTitle={''}
+        />
+      }
+      bodyContent={
         <Grid
-          templateAreas={`"header" "energyAC" "kineticAC" "combatManeuvers"`}
-          rowGap="2"
+          templateAreas={`"energyAC" "kineticAC" "combatManeuvers"`}
+          rowGap="0.5"
           color="blackAlpha.700"
           fontWeight="bold"
+          overflowY={'clip'}
         >
-          <GridItem key={'header'} area={'header'}>
-            <ArmorClassRow
-              isHeader
-              firstColumnContent={'Total'}
-              secondColumnContent={'Armor Bonus'}
-              thirdColumnContent={'Misc'}
-              headerTitle={''}
-            />
-          </GridItem>
           <GridItem area={'energyAC'}>
             <ArmorClassRow
               firstColumnContent={totalEnergyAC.toString()}

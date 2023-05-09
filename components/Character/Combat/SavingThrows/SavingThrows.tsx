@@ -30,21 +30,22 @@ export default function SavingThrows({
   return (
     <StatContainer
       header="Saving Throws"
-      content={
+      headerContent={
+        <SavingThrowsRow
+          isHeader
+          firstColumnContent={'Total'}
+          secondColumnContent={'Base'}
+          thirdColumnContent={'Misc'}
+          headerTitle={''}
+        />
+      }
+      bodyContent={
         <Grid
           templateAreas={`"header" "fortitude" "reflex" "will"`}
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem key={'header'} area={'header'}>
-            <SavingThrowsRow
-              isHeader
-              firstColumnContent={'Total'}
-              secondColumnContent={'Base'}
-              thirdColumnContent={'Misc'}
-              headerTitle={''}
-            />
-          </GridItem>
+          <GridItem key={'header'} area={'header'}></GridItem>
           <GridItem area={'fortitude'}>
             <SavingThrowsRow
               firstColumnContent={totalFortitude.toString()}

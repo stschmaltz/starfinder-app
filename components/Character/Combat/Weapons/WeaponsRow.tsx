@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, GridItem, Text } from '@chakra-ui/react';
+import { titleCase } from 'title-case';
 
 export default function WeaponsRow({
   firstColumnContent,
@@ -17,36 +18,17 @@ export default function WeaponsRow({
   return (
     <Grid
       alignItems={isHeader ? 'end' : 'center'}
-      templateColumns="1fr 1fr 1fr 1fr"
-      templateRows="1fr 1fr"
+      templateColumns="2fr 2fr 1fr 1fr"
+      templateRows="1fr"
     >
       <GridItem alignSelf={'center'}>
         <Text
           fontWeight={'bold'}
           textAlign={'left'}
-          fontSize={isHeader ? '' : 'md'}
+          fontSize={isHeader ? 'xs' : 'md'}
           lineHeight={1}
         >
-          {headerTitle}
-        </Text>
-      </GridItem>
-      <GridItem>
-        <Text
-          fontWeight={isHeader ? 'normal' : 'bold'}
-          textAlign={'center'}
-          fontSize={isHeader ? 'xs' : 'lg'}
-        >
-          {firstColumnContent}
-        </Text>
-      </GridItem>
-      <GridItem>
-        <Text
-          fontWeight={isHeader ? 'normal' : 'normal'}
-          lineHeight={isHeader ? 1 : 1.6}
-          textAlign={'center'}
-          fontSize={isHeader ? 'xs' : 'md'}
-        >
-          {secondColumnContent}
+          {titleCase(headerTitle)}
         </Text>
       </GridItem>
       <GridItem>
@@ -55,7 +37,25 @@ export default function WeaponsRow({
           textAlign={'center'}
           fontSize={isHeader ? 'xs' : 'md'}
         >
-          {thirdColumnContent}
+          {titleCase(firstColumnContent)}
+        </Text>
+      </GridItem>
+      <GridItem>
+        <Text
+          fontWeight={isHeader ? 'normal' : 'normal'}
+          textAlign={'center'}
+          fontSize={isHeader ? 'xs' : 'md'}
+        >
+          {titleCase(secondColumnContent)}
+        </Text>
+      </GridItem>
+      <GridItem>
+        <Text
+          fontWeight={isHeader ? 'normal' : 'normal'}
+          textAlign={'center'}
+          fontSize={isHeader ? 'xs' : 'md'}
+        >
+          {titleCase(thirdColumnContent)}
         </Text>
       </GridItem>
     </Grid>

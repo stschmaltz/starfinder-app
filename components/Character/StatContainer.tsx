@@ -3,14 +3,16 @@ import React, { ReactNode } from 'react';
 
 export default function StatContainer({
   header,
-  content,
+  bodyContent,
+  headerContent,
 }: {
   header: string;
-  content: ReactNode | undefined;
+  bodyContent?: ReactNode;
+  headerContent?: ReactNode;
 }) {
   return (
     <Box
-      overflow={'auto'}
+      overflowY="hidden"
       h="100%"
       borderRadius={'2xl'}
       bg="brandPrimary.50"
@@ -23,7 +25,12 @@ export default function StatContainer({
             {header}
           </Text>
         </Flex>
-        {content}
+        {headerContent}
+        {bodyContent && (
+          <Box overflow={'auto'} width="100%">
+            {bodyContent}
+          </Box>
+        )}
       </Flex>
     </Box>
   );

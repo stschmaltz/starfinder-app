@@ -1,5 +1,6 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
+import WeaponsRow from './WeaponsRow';
 import {
   AbilityScoreModifiersObject,
   WeaponObject,
@@ -18,14 +19,46 @@ export default function Weapons({
   return (
     <StatContainer
       header="Weapons"
-      content={
+      headerContent={
+        <WeaponsRow
+          isHeader
+          headerTitle="name"
+          firstColumnContent="damage"
+          secondColumnContent="range"
+          thirdColumnContent="ammo"
+        />
+      }
+      bodyContent={
         <Grid
-          templateAreas={`"header" "energyAC" "kineticAC" "combatManeuvers"`}
-          rowGap="2"
+          gridTemplateRows={`repeat(${weapons.length}, 1fr)`}
+          rowGap="1.5"
           color="blackAlpha.700"
           fontWeight="bold"
         >
-          <GridItem key={'header'} area={'header'}></GridItem>
+          <GridItem key={'1'}>
+            <WeaponsRow
+              headerTitle="Comet Flail"
+              firstColumnContent="1d8+6"
+              secondColumnContent="10"
+              thirdColumnContent="0"
+            />
+          </GridItem>
+          <GridItem key={'2'}>
+            <WeaponsRow
+              headerTitle="test1"
+              firstColumnContent="1d6+5"
+              secondColumnContent="75ft"
+              thirdColumnContent="20(1)"
+            />
+          </GridItem>
+          <GridItem key={'3'}>
+            <WeaponsRow
+              headerTitle="test1"
+              firstColumnContent="1d6+5"
+              secondColumnContent="75ft"
+              thirdColumnContent="20(1)"
+            />
+          </GridItem>
         </Grid>
       }
     ></StatContainer>
