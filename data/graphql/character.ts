@@ -76,7 +76,7 @@ const characterTypeDefs = /* GraphQL */ `
   type WeaponObject {
     name: String!
     level: Int!
-    ammoUsage: String!
+    ammoUsage: String
     attackBonus: Int!
     damage: String!
     critical: String
