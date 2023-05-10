@@ -60,7 +60,7 @@ const testCharacter: Omit<CharacterObject, 'abilityScoreModifiers'> = {
   weapons: [
     {
       name: 'Solar Comet Flair',
-      attackBonus: 6,
+      hit: 6,
       damage: '1d6+3',
       damageBonusStat: 'str',
       critical: undefined,

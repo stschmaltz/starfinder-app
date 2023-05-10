@@ -77,7 +77,7 @@ const characterTypeDefs = /* GraphQL */ `
     name: String!
     level: Int!
     ammoUsage: String
-    attackBonus: Int!
+    hit: Int!
     damage: String!
     critical: String
     range: String

@@ -44,6 +44,7 @@ export default function SavingThrows({
           templateAreas={`"header" "fortitude" "reflex" "will"`}
           color="blackAlpha.700"
           fontWeight="bold"
+          rowGap={0}
         >
           <GridItem key={'header'} area={'header'}></GridItem>
           <GridItem area={'fortitude'}>

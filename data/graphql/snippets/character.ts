@@ -62,7 +62,7 @@ const fullCharacters = `
       name
       level
       ammoUsage
-      attackBonus
+      hit
       damage
       critical
       range

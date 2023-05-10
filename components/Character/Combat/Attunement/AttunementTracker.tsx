@@ -14,7 +14,7 @@ export default function AttunementTracker() {
   return (
     <StatContainer
       header="Attunement Tracker"
-      content={
+      bodyContent={
         currentAttunement ? (
           <Flex
             h={'100%'}
@@ -23,7 +23,7 @@ export default function AttunementTracker() {
             alignItems={'center'}
             justifyContent={'space-between'}
           >
-            <Box>
+            <Box mt={3}>
               <AttunementButton
                 colorScheme="purple"
                 text={'G'}

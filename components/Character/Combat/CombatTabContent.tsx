@@ -4,11 +4,11 @@ import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
 import SavingThrows from './SavingThrows/SavingThrows';
 import AttackBonus from './AttackBonus/AttackBonus';
-import Weapons from './Weapons/Weapons';
+import WeaponsList from './Weapons/WeaponsList';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 
-export default function CombatTabContent({
+export default function CombatTabbodyContent({
   character,
 }: {
   character: CharacterObject;
@@ -19,7 +19,7 @@ export default function CombatTabContent({
         templateAreas={`"attunement savingThrows"
                   "abilities armorClass"
                   "abilities weapons"
-                  "equipment attackBonus"`}
+                  "equipment hit"`}
         gridTemplateRows={'0.5fr 1fr 1fr 1fr'}
         gridTemplateColumns={'1fr 1fr'}
         h="60vh"
@@ -38,13 +38,13 @@ export default function CombatTabContent({
           />
         </GridItem>
         <GridItem overflowY={'auto'} h={'150px'} area={'weapons'}>
-          <Weapons
+          <WeaponsList
             weapons={character.weapons}
             abilityScoreModifiers={character.abilityScoreModifiers}
           />
         </GridItem>
         <GridItem area={'abilities'}>
-          <StatContainer header="Abilities" content={<></>}></StatContainer>
+          <StatContainer header="Abilities" bodyContent={<></>}></StatContainer>
         </GridItem>
         <GridItem area={'savingThrows'}>
           <SavingThrows
@@ -52,14 +52,14 @@ export default function CombatTabContent({
             savingThrowsDetails={character.savingThrowsDetails}
           />
         </GridItem>
-        <GridItem area={'attackBonus'}>
+        <GridItem area={'hit'}>
           <AttackBonus
             abilityScoreModifiers={character.abilityScoreModifiers}
             attackBonusDetails={character.attackBonusDetails}
           />
         </GridItem>
         <GridItem area={'equipment'}>
-          <StatContainer header="Equipment" content={<></>}></StatContainer>
+          <StatContainer header="Equipment" bodyContent={<></>}></StatContainer>
         </GridItem>
       </Grid>
     </Box>
