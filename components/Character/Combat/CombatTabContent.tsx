@@ -37,7 +37,7 @@ export default function CombatTabbodyContent({
             armorClassDetails={character.armorClassDetails}
           />
         </GridItem>
-        <GridItem overflowY={'auto'} h={'150px'} area={'weapons'}>
+        <GridItem overflowY={'auto'} area={'weapons'} minH={'140px'}>
           <WeaponsList
             weapons={character.weapons}
             abilityScoreModifiers={character.abilityScoreModifiers}

@@ -20,16 +20,6 @@ export default function WeaponsList({
   return (
     <StatContainer
       header="WeaponsList"
-      headerContent={
-        <></>
-        // <WeaponRow
-        //   isHeader
-        //   headerTitle="name"
-        //   firstColumnContent="damage"
-        //   secondColumnContent="range"
-        //   thirdColumnContent="ammo"
-        // />
-      }
       bodyContent={
         <Grid
           gridTemplateRows={`repeat(${weapons.length}, 1fr)`}
