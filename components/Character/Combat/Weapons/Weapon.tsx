@@ -29,7 +29,13 @@ export default function Weapon({
 }) {
   return (
     <Accordion defaultIndex={undefined} allowMultiple>
-      <AccordionItem overflow={'hidden'}>
+      <AccordionItem
+        py={0.5}
+        px={2}
+        borderRadius={7}
+        overflow={'hidden'}
+        border={'1px'}
+      >
         <AccordionButton p={0}>
           <WeaponRow
             isMainRow

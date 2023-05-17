@@ -10,7 +10,7 @@ import BasicLoader from '../../../BasicLoader';
 export default function AttunementTracker() {
   const { currentAttunement, setCurrentAttunement, defaultAttunement } =
     useCharacterAttunement();
-
+  console.log('AttunementTracker - currentAttunement', currentAttunement);
   return (
     <StatContainer
       header="Attunement Tracker"

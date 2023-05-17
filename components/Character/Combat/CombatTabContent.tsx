@@ -5,6 +5,7 @@ import AttunementTracker from './Attunement/AttunementTracker';
 import SavingThrows from './SavingThrows/SavingThrows';
 import AttackBonus from './AttackBonus/AttackBonus';
 import WeaponsList from './Weapons/WeaponsList';
+import Abilities from './Abilities/Abilities';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 
@@ -44,7 +45,7 @@ export default function CombatTabbodyContent({
           />
         </GridItem>
         <GridItem area={'abilities'}>
-          <StatContainer header="Abilities" bodyContent={<></>}></StatContainer>
+          <Abilities />
         </GridItem>
         <GridItem area={'savingThrows'}>
           <SavingThrows

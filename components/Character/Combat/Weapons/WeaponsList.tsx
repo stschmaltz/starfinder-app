@@ -22,8 +22,8 @@ export default function WeaponsList({
       header="WeaponsList"
       bodyContent={
         <Grid
-          gridTemplateRows={`repeat(${weapons.length}, 1fr)`}
-          rowGap="1.5"
+          gridTemplateRows={`repeat(${weapons.length})`}
+          rowGap="0.5"
           color="blackAlpha.700"
           fontWeight="bold"
         >
@@ -33,7 +33,7 @@ export default function WeaponsList({
                 <Weapon
                   name={weapon.name}
                   damage={weapon.damage}
-                  range={weapon.range}
+                  range={weapon.range?.toString()}
                   special={weapon.special}
                   ammoUsage={weapon.ammoUsage}
                   critical={weapon.critical}
