@@ -1,6 +1,6 @@
 import { InfoIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, Input } from '@chakra-ui/react';
-import React, { use, useEffect } from 'react';
+import React from 'react';
 import { AbilityObject } from './Abilities';
 import { AttunementTrackerProps } from '../../../../hooks/use-character-attunement';
 import BasicLoader from '../../../BasicLoader';

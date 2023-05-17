@@ -24,7 +24,11 @@ export default function Abilities() {
       description: 'Bight weapon light 20ft',
       type: 'NEUTRAL',
     },
-    { name: 'Supernova', description: 'heyo', type: 'PHOTON' },
+    {
+      name: 'Supernova',
+      description: '1d6+1d6 fire to all (10ft)',
+      type: 'PHOTON',
+    },
     {
       name: 'Blackhole',
       description: 'Pull 20ft (fort save for 10).',
