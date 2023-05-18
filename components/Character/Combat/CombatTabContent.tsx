@@ -45,7 +45,7 @@ export default function CombatTabbodyContent({
           />
         </GridItem>
         <GridItem area={'abilities'}>
-          <Abilities />
+          <Abilities abilities={character.abilities} />
         </GridItem>
         <GridItem area={'savingThrows'}>
           <SavingThrows

@@ -70,6 +70,11 @@ const fullCharacters = `
       special
       damageBonusStat
     }
+    abilities {
+      name
+      type
+      description
+    }
   `;
 
 export { fullCharacters };

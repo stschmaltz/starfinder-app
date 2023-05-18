@@ -86,11 +86,18 @@ const characterTypeDefs = /* GraphQL */ `
     damageBonusStat: String
   }
 
+  type CharacterAbilities {
+    description: String!
+    name: String!
+    type: String!
+  }
+
   type Character {
     _id: String!
     userId: String!
     baseDetails: CharacterBaseDetails!
     healthStats: CharacterHealthStats!
+    abilities: [CharacterAbilities!]!
     abilityScores: AbilityScoresObject!
     abilityScoreModifiers: AbilityScoreModifiersObject!
     armorClassDetails: ArmorClassDetailsObject!

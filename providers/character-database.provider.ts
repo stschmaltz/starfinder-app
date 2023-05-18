@@ -1,7 +1,7 @@
 import { ObjectId } from 'bson';
 
 import { getDbClient } from '../data/database/mongodb';
-import { CharacterObject } from '../types/character';
+import { AbilityType, CharacterObject } from '../types/character';
 
 const collectionName = 'placeholder';
 
@@ -93,6 +93,28 @@ const testCharacter: Omit<CharacterObject, 'abilityScoreModifiers'> = {
       special: 'Quick Reload',
       ammoUsage: '20',
       level: 1,
+    },
+  ],
+  abilities: [
+    {
+      name: 'Low-light Viz',
+      description: 'Can see in light up to 60ft',
+      type: AbilityType.NEUTRAL,
+    },
+    {
+      name: 'Solar Manifestation',
+      description: 'Bight weapon light 20ft',
+      type: AbilityType.NEUTRAL,
+    },
+    {
+      name: 'Supernova',
+      description: '1d6+1d6 fire to all (10ft)',
+      type: AbilityType.PHOTON,
+    },
+    {
+      name: 'Blackhole',
+      description: 'Pull 20ft (fort save for 10).',
+      type: AbilityType.GRAVITON,
     },
   ],
 };

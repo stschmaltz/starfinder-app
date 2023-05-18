@@ -77,11 +77,24 @@ export interface WeaponObject {
   special?: string;
 }
 
+export enum AbilityType {
+  GRAVITON = 'GRAVITON',
+  PHOTON = 'PHOTON',
+  NEUTRAL = 'NEUTRAL',
+}
+
+export interface AbilityObject {
+  description: string;
+  name: string;
+  type: AbilityType;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
   baseDetails: BaseCharacterDetails;
   healthStats: HealthStats;
+  abilities: AbilityObject[];
   abilityScores: AbilityScoresObject;
   abilityScoreModifiers: AbilityScoreModifiersObject;
   armorClassDetails: ArmorClassDetailsObject;

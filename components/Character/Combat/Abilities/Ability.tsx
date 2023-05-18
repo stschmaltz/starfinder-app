@@ -1,9 +1,15 @@
 import { InfoIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, Input } from '@chakra-ui/react';
 import React from 'react';
-import { AbilityObject } from './Abilities';
 import { AttunementTrackerProps } from '../../../../hooks/use-character-attunement';
+import { AbilityObject, AbilityType } from '../../../../types/character';
 import BasicLoader from '../../../BasicLoader';
+
+const typeToBackgroundColor: Record<AbilityType, string> = {
+  GRAVITON: 'purple.100',
+  PHOTON: 'orange.50',
+  NEUTRAL: 'white',
+};
 
 export default function Ability({
   ability,
@@ -13,15 +19,21 @@ export default function Ability({
   currentAttunement: AttunementTrackerProps;
 }) {
   const isHighlighted =
-    (ability.type === 'GRAVITON' && currentAttunement.currentGraviton >= 3) ||
-    (ability.type === 'PHOTON' && currentAttunement.currentPhoton >= 3);
+    (ability.type === AbilityType.GRAVITON &&
+      currentAttunement.currentGraviton >= 3) ||
+    (ability.type === AbilityType.PHOTON &&
+      currentAttunement.currentPhoton >= 3);
 
   console.log('Ability', currentAttunement);
 
   return currentAttunement ? (
     <Flex
+      p={1}
       flexDir={'column'}
-      backgroundColor={isHighlighted ? 'purple.200' : 'white'}
+      borderRadius={'lg'}
+      backgroundColor={
+        isHighlighted ? 'purple.200' : typeToBackgroundColor[ability.type]
+      }
       key={ability.name + '-flex'}
     >
       <Flex>
