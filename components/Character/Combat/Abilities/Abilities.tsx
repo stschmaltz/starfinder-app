@@ -13,8 +13,6 @@ export default function Abilities({
 }) {
   const { currentAttunement } = useCharacterAttunement();
 
-  console.log('Abilities', currentAttunement);
-
   return (
     <StatContainer
       header="Abilities"

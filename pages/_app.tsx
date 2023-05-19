@@ -30,6 +30,7 @@ const customTheme = {
 };
 export default function App({ Component, pageProps }: AppProps) {
   usePWASetup();
+
   return (
     <>
       <Head>

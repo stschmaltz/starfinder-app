@@ -7,6 +7,7 @@ export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const page = await ctx.renderPage();
     const initialProps = await Document.getInitialProps(ctx);
+
     return { ...initialProps, ...page };
   }
 

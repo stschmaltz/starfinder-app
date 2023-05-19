@@ -31,6 +31,7 @@ export default function Ability({
       if (item.name === ability.name) {
         return { ...item, [field]: value };
       }
+
       return item;
     });
 
@@ -45,8 +46,6 @@ export default function Ability({
       currentAttunement.currentGraviton >= 3) ||
     (ability.type === AbilityType.PHOTON &&
       currentAttunement.currentPhoton >= 3);
-
-  console.log('Ability', currentAttunement);
 
   return currentAttunement ? (
     <Flex
@@ -75,6 +74,7 @@ export default function Ability({
           aria-label="Reset Attunement"
           icon={<InfoIcon color={'primary'} />}
           onClick={() => {
+            // TODO: Make modal
             console.log(description);
           }}
         />

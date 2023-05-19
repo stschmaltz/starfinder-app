@@ -1,23 +1,28 @@
 import React, { useContext } from 'react';
-import { Box, Button } from '@chakra-ui/react';
+import { Box, Button, Flex } from '@chakra-ui/react';
 import BaseDetails from './BaseDetails';
 import AbilityScores from './AbilityScores';
 import CharacterTabs from './Tabs';
 import { CharacterObject } from '../../types/character';
 import { CharacterContext } from '../../context/CharacterContext';
+import { useHandleSaveCharacter } from '../../hooks/use-save-character.hook';
 
 function Character(props: CharacterObject) {
-  const [state, dispatch] = useContext(CharacterContext);
+  const [characterState, dispatch] = useContext(CharacterContext);
+  const handleSaveCharacter = useHandleSaveCharacter();
 
   const saveCharacter = async () => {
-    console.log('saveCharacter', state);
-
-    if (state.isDirty) {
+    if (characterState.isDirty) {
       try {
-        console.log('Saving character: ', state.character);
+        const newCharacter = await handleSaveCharacter(
+          characterState.character
+        );
 
-        if (true) {
-          dispatch({ type: 'SET_CHARACTER', payload: state.character });
+        if (newCharacter) {
+          dispatch({
+            type: 'SET_CHARACTER',
+            payload: characterState.character,
+          });
         }
       } catch (err) {
         console.error('Failed to save character: ', err);
@@ -28,11 +33,28 @@ function Character(props: CharacterObject) {
   if (!props) {
     return <></>;
   }
-  const { character } = state;
+  const { character } = characterState;
 
   return (
     <>
-      <Button onClick={saveCharacter}>Save</Button>
+      <Flex>
+        <Button
+          colorScheme={'brandPrimary'}
+          isDisabled={!characterState.isDirty}
+          onClick={saveCharacter}
+        >
+          Save
+        </Button>
+        <Button
+          ml={2}
+          mb={2}
+          colorScheme={'brandSecondary'}
+          isDisabled={!characterState.isDirty}
+          onClick={saveCharacter}
+        >
+          Reset
+        </Button>
+      </Flex>
 
       <BaseDetails
         baseDetails={character.baseDetails}

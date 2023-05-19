@@ -139,6 +139,7 @@ const characterResolver = {
         return abilityScoreModifiers;
       } catch (error) {
         console.log(error);
+
         return {
           chaMod: 0,
           conMod: 0,

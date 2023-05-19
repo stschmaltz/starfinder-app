@@ -19,7 +19,7 @@ export default function WeaponsList({
 
   return (
     <StatContainer
-      header="WeaponsList"
+      header="Weapons"
       bodyContent={
         <Grid
           gridTemplateRows={`repeat(${weapons.length})`}
