@@ -1,6 +1,7 @@
 import { InfoIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, Input } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { CharacterContext } from '../../../../context/CharacterContext';
 import { AttunementTrackerProps } from '../../../../hooks/use-character-attunement';
 import { AbilityObject, AbilityType } from '../../../../types/character';
 import BasicLoader from '../../../BasicLoader';
@@ -18,6 +19,27 @@ export default function Ability({
   ability: AbilityObject;
   currentAttunement: AttunementTrackerProps;
 }) {
+  const [characterState, dispatch] = useContext(CharacterContext);
+  const [name, setName] = useState(ability.name);
+  const [description, setDescription] = useState(ability.description);
+
+  const handleInputChange = (field: string, value: string) => {
+    if (field === 'name') setName(value);
+    else setDescription(value);
+
+    const updatedAbilities = characterState.character.abilities.map((item) => {
+      if (item.name === ability.name) {
+        return { ...item, [field]: value };
+      }
+      return item;
+    });
+
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: { abilities: updatedAbilities },
+    });
+  };
+
   const isHighlighted =
     (ability.type === AbilityType.GRAVITON &&
       currentAttunement.currentGraviton >= 3) ||
@@ -39,8 +61,8 @@ export default function Ability({
       <Flex>
         <Input
           flex={1}
-          value={ability.name}
-          key={ability.name}
+          value={name}
+          key={name} // TODO: Use an id
           variant={'flushed'}
           fontWeight={'bold'}
         ></Input>
@@ -53,7 +75,7 @@ export default function Ability({
           aria-label="Reset Attunement"
           icon={<InfoIcon color={'primary'} />}
           onClick={() => {
-            console.log(ability.description);
+            console.log(description);
           }}
         />
       </Flex>
@@ -62,8 +84,9 @@ export default function Ability({
         overflow={'hidden'}
         textOverflow={'ellipsis'}
         whiteSpace={'nowrap'}
-        value={`${ability.description}`}
-        key={ability.description}
+        value={description}
+        key={`${name}-description`}
+        onChange={(e) => handleInputChange('description', e.target.value)}
         variant={'flushed'}
       ></Input>
     </Flex>

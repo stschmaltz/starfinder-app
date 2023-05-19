@@ -5,6 +5,7 @@ import { theme } from '../styles/theme';
 import BasicLoader from '../components/BasicLoader';
 import { useUserSignIn } from '../hooks/use-user-sign-in.hook';
 import Character from '../components/Character/Character';
+import { CharacterProvider } from '../context/CharacterContext';
 
 export default function Home() {
   const [isLoading, currentUser] = useUserSignIn();
@@ -18,9 +19,12 @@ export default function Home() {
           <>
             <Box mt="2">
               {currentUser.characters.map((character) => (
-                <Box key={character._id.toString()}>
+                <CharacterProvider
+                  key={character._id.toString()}
+                  initialState={{ character, isDirty: false }}
+                >
                   <Character {...character} />
-                </Box>
+                </CharacterProvider>
               ))}
             </Box>
             <Link href="/api/auth/logout?returnTo=http%3A%2F%2Flocalhost%3A3000">

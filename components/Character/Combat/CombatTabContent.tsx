@@ -9,7 +9,7 @@ import Abilities from './Abilities/Abilities';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 
-export default function CombatTabbodyContent({
+export default function CombatTabContent({
   character,
 }: {
   character: CharacterObject;
