@@ -19,9 +19,22 @@ function useHandleSaveCharacter(): (
         input: saveCharacterApiInput,
       });
 
-      if (result?.errors.length > 0) throw new Error('Something went wrong.');
+      console.log('result', result);
 
-      return result.data.saveCharacter.character as CharacterObject;
+      if (result.errors && result.errors.length > 0)
+        throw new Error('Something went wrong.');
+      console.log('result', result?.errors);
+
+      const returnResult = result.saveCharacter.character as CharacterObject;
+
+      characterSaveToast({
+        title: 'Character Saved.',
+        status: 'success',
+        duration: 3000,
+        isClosable: true,
+      });
+
+      return returnResult;
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : error;
 
@@ -33,14 +46,8 @@ function useHandleSaveCharacter(): (
         isClosable: true,
       });
     }
-
-    characterSaveToast({
-      title: 'Character Saved.',
-      status: 'success',
-      duration: 3000,
-      isClosable: true,
-    });
   };
+
   return handleSaveCharacter;
 }
 

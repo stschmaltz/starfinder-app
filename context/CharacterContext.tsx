@@ -27,7 +27,6 @@ const characterReducer = (
         isDirty: false,
       };
     case 'UPDATE_CHARACTER':
-      'UPDATE_CHARACTER';
       return {
         ...state,
         character: {

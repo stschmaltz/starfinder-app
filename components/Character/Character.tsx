@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { Box, Button, Flex } from '@chakra-ui/react';
-import BaseDetails from './BaseDetails';
+import BaseDetails from './Combat/BaseDetails/BaseDetails';
 import AbilityScores from './AbilityScores';
 import CharacterTabs from './Tabs';
 import { CharacterObject } from '../../types/character';
