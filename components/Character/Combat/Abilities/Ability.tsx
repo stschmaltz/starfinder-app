@@ -57,11 +57,12 @@ export default function Ability({
       }
       key={ability.name + '-flex'}
     >
-      <Flex h={35}>
+      <Flex h={30}>
         <Input
-          h={30}
+          h={25}
           flex={1}
           value={name}
+          fontSize={'sm'}
           key={name} // TODO: Use an id
           variant={'flushed'}
           fontWeight={'bold'}
@@ -85,6 +86,7 @@ export default function Ability({
         overflow={'hidden'}
         textOverflow={'ellipsis'}
         whiteSpace={'nowrap'}
+        fontSize={'sm'}
         value={description}
         key={`${name}-description`}
         onChange={(e) => handleInputChange('description', e.target.value)}

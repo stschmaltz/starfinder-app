@@ -5,6 +5,7 @@ import { getCharactersForUser } from '../../providers/character-database.provide
 import {
   AbilityScoreModifiersObject,
   CharacterObject,
+  SkillObject,
 } from '../../types/character';
 import { UserObject } from '../../types/user';
 
@@ -92,6 +93,15 @@ const characterTypeDefs = /* GraphQL */ `
     type: String!
   }
 
+  type CharacterSkills {
+    name: String!
+    abilityScoreModifiersObject: String!
+    ranks: Int!
+    miscBonus: Int!
+    classBonus: Int!
+    isProficient: Boolean!
+  }
+
   type Character {
     _id: String!
     userId: String!
@@ -104,6 +114,7 @@ const characterTypeDefs = /* GraphQL */ `
     savingThrowsDetails: SavingThrowsDetailsObject!
     attackBonusDetails: AttackBonusDetailsObject!
     weapons: [WeaponObject!]!
+    skills: [CharacterSkills!]!
   }
 `;
 
@@ -112,11 +123,26 @@ const characterResolver = {
     async characters(parent: Omit<UserObject, '_id'> & { _id: string }) {
       try {
         const characters = await getCharactersForUser(parent._id);
-        console.log('characters', characters);
+        const mockSkills: SkillObject[] = [
+          {
+            name: 'Acrobatics',
+            abilityScoreModifiersObject: 'dexMod',
+            ranks: 1,
+            miscBonus: 0,
+            classBonus: 3,
+            isProficient: true,
+          },
+        ];
 
-        return characters;
+        const charactersWithSkills = characters.map((character) => ({
+          ...character,
+          skills: mockSkills,
+        }));
+
+        return charactersWithSkills;
       } catch (error) {
         console.log(error);
+
         return [];
       }
     },

@@ -75,6 +75,14 @@ const fullCharacters = `
       type
       description
     }
+    skills {
+      name
+      abilityScoreModifiersObject
+      ranks
+      miscBonus
+      classBonus
+      isProficient
+    } 
   `;
 
 export { fullCharacters };
