@@ -57,8 +57,9 @@ export default function Ability({
       }
       key={ability.name + '-flex'}
     >
-      <Flex>
+      <Flex h={35}>
         <Input
+          h={30}
           flex={1}
           value={name}
           key={name} // TODO: Use an id

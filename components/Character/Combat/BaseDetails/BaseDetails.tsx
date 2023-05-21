@@ -15,7 +15,6 @@ function BaseDetails({
 }) {
   const [_characterState, dispatch] = useContext(CharacterContext);
 
-  // function to dispatch update whenever current or max health, stamina or resolve is updated
   const updateHealthStats = (healthStats: HealthStats) => {
     dispatch({
       type: 'UPDATE_CHARACTER',

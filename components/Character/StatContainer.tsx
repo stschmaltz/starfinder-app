@@ -21,7 +21,7 @@ export default function StatContainer({
     >
       <Flex h="100%" flexDir="column" width="100%">
         <Flex justifyContent={'center'}>
-          <Text fontSize={'md'} mb={2}>
+          <Text fontWeight="bold" fontSize={'md'} mb={2}>
             {header}
           </Text>
         </Flex>

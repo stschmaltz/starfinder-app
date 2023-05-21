@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Button, Flex } from '@chakra-ui/react';
 import BaseDetails from './Combat/BaseDetails/BaseDetails';
-import AbilityScores from './AbilityScores';
+import AbilityScores from './AbilityScores/AbilityScores';
 import CharacterTabs from './Tabs';
 import { CharacterObject } from '../../types/character';
 import { CharacterContext } from '../../context/CharacterContext';
@@ -33,6 +33,7 @@ function Character(props: CharacterObject) {
   if (!props) {
     return <></>;
   }
+
   const { character } = characterState;
 
   return (

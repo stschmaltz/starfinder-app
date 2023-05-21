@@ -27,7 +27,6 @@ export default function CombatTabContent({
         rowGap="3"
         columnGap="3"
         color="blackAlpha.700"
-        fontWeight="bold"
       >
         <GridItem area={'attunement'}>
           <AttunementTracker />
