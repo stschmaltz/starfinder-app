@@ -20,6 +20,7 @@ const mutationTypeDefs = /* GraphQL */ `
     languages: [String!]!
     homeWorld: String!
     race: String!
+    expEarned: Int!
   }
 
   input CharacterHealthStatsInput {
@@ -91,6 +92,14 @@ const mutationTypeDefs = /* GraphQL */ `
     type: String!
   }
 
+  input CharacterSkillsInput {
+    name: String!
+    abilityScoreModifiersObject: String!
+    ranks: Int!
+    miscBonus: Int!
+    isProficient: Boolean!
+  }
+
   input CharacterInput {
     _id: String!
     userId: String!
@@ -102,6 +111,8 @@ const mutationTypeDefs = /* GraphQL */ `
     savingThrowsDetails: SavingThrowsDetailsObjectInput!
     attackBonusDetails: AttackBonusDetailsObjectInput!
     weapons: [WeaponObjectInput!]!
+    skills: [CharacterSkillsInput!]!
+    languages: [String!]!
   }
 
   type Mutation {

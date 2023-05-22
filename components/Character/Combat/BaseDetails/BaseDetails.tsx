@@ -1,4 +1,10 @@
-import { Box, Flex, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  NumberInput,
+  NumberInputField,
+  Text,
+} from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import HealthDetailRow from './HealthDetailRow';
 import { displayCase } from '../../../../lib/string-helpers';
@@ -22,6 +28,13 @@ function BaseDetails({
     });
   };
 
+  const updateExpEarned = (expEarned: number) => {
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: { baseDetails: { ...baseDetails, expEarned } },
+    });
+  };
+
   return (
     <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
       <Text as="b" fontSize="2xl">
@@ -35,6 +48,25 @@ function BaseDetails({
           <Text mr={1} as="b" fontSize="md">
             Level {baseDetails.level}
           </Text>
+
+          <Flex justifyContent={'center'} alignItems={'center'}>
+            <Text fontSize="md">
+              <b> Exp Earned:</b>
+            </Text>
+            <NumberInput
+              variant="unstyled"
+              size="md"
+              min={0}
+              defaultValue={baseDetails.expEarned}
+              max={100000}
+              onChange={(_, valueAsNumber) => {
+                updateExpEarned(valueAsNumber);
+              }}
+              w={10}
+            >
+              <NumberInputField textAlign={'center'} p={1} />
+            </NumberInput>
+          </Flex>
         </Flex>
         <Box>
           <Text fontSize="lg">

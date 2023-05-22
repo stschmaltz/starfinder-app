@@ -13,6 +13,7 @@ const fullCharacters = `
       languages
       homeWorld
       race
+      expEarned
     }
     healthStats {
       maxHp
@@ -80,9 +81,9 @@ const fullCharacters = `
       abilityScoreModifiersObject
       ranks
       miscBonus
-      classBonus
       isProficient
     } 
+    languages
   `;
 
 export { fullCharacters };

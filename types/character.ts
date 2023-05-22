@@ -12,6 +12,7 @@ export interface BaseCharacterDetails {
   initiative: number;
   languages: string[]; // TODO: make enum
   homeWorld: string;
+  expEarned: number;
 }
 
 export interface HealthStats {
@@ -92,7 +93,6 @@ export interface AbilityObject {
 export interface SkillObject {
   name: string;
   ranks: number;
-  classBonus: number;
   miscBonus: number;
   abilityScoreModifiersObject: keyof AbilityScoreModifiersObject;
   isProficient: boolean;
@@ -111,4 +111,5 @@ export interface CharacterObject {
   attackBonusDetails: AttackBonusDetailsObject;
   weapons: WeaponObject[];
   skills: SkillObject[];
+  languages: string[];
 }

@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem } from '@chakra-ui/react';
+import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 import React from 'react';
 import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
@@ -59,7 +59,21 @@ export default function CombatTabContent({
           />
         </GridItem>
         <GridItem area={'equipment'}>
-          <StatContainer header="Equipment" bodyContent={<></>}></StatContainer>
+          <StatContainer
+            header="Equipment"
+            bodyContent={
+              <Flex justifyContent={'center'} alignItems={'center'} h={50}>
+                <Text
+                  textAlign={'center'}
+                  fontSize={'md'}
+                  as="i"
+                  color={'gray.600'}
+                >
+                  You have no equipment
+                </Text>
+              </Flex>
+            }
+          ></StatContainer>
         </GridItem>
       </Grid>
     </Box>

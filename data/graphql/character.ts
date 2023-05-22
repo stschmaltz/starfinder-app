@@ -5,7 +5,6 @@ import { getCharactersForUser } from '../../providers/character-database.provide
 import {
   AbilityScoreModifiersObject,
   CharacterObject,
-  SkillObject,
 } from '../../types/character';
 import { UserObject } from '../../types/user';
 
@@ -22,6 +21,7 @@ const characterTypeDefs = /* GraphQL */ `
     languages: [String!]!
     homeWorld: String!
     race: String!
+    expEarned: Int!
   }
 
   type CharacterHealthStats {
@@ -98,7 +98,6 @@ const characterTypeDefs = /* GraphQL */ `
     abilityScoreModifiersObject: String!
     ranks: Int!
     miscBonus: Int!
-    classBonus: Int!
     isProficient: Boolean!
   }
 
@@ -115,6 +114,7 @@ const characterTypeDefs = /* GraphQL */ `
     attackBonusDetails: AttackBonusDetailsObject!
     weapons: [WeaponObject!]!
     skills: [CharacterSkills!]!
+    languages: [String!]!
   }
 `;
 
@@ -123,23 +123,8 @@ const characterResolver = {
     async characters(parent: Omit<UserObject, '_id'> & { _id: string }) {
       try {
         const characters = await getCharactersForUser(parent._id);
-        const mockSkills: SkillObject[] = [
-          {
-            name: 'Acrobatics',
-            abilityScoreModifiersObject: 'dexMod',
-            ranks: 1,
-            miscBonus: 0,
-            classBonus: 3,
-            isProficient: true,
-          },
-        ];
 
-        const charactersWithSkills = characters.map((character) => ({
-          ...character,
-          skills: mockSkills,
-        }));
-
-        return charactersWithSkills;
+        return characters;
       } catch (error) {
         console.log(error);
 

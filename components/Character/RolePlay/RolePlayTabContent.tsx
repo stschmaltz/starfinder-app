@@ -2,6 +2,8 @@ import { Box, Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 
 import Skills from './Skills/Skills';
+import Languages from './Languages/Languages';
+import CarryContainer from './CarryContainer/CarryContainer';
 import StatContainer from '../StatContainer';
 import { CharacterObject } from '../../../types/character';
 import Abilities from '../Combat/Abilities/Abilities';
@@ -20,7 +22,7 @@ export default function RolePlayTabContent({
                   "skills characterNotes"
                   "skills languages"
                   "skills carry"`}
-        gridTemplateRows={'1fr 1fr 1fr 0.5fr'}
+        gridTemplateRows={'1fr 1fr 0.4fr 0.4fr'}
         gridTemplateColumns={'1fr 1fr'}
         h="60vh"
         rowGap="3"
@@ -28,10 +30,13 @@ export default function RolePlayTabContent({
         color="blackAlpha.700"
       >
         <GridItem area={'skills'}>
-          <Skills skills={character.skills} />
+          <Skills
+            skills={character.skills}
+            abilityScoreModifiersObject={character.abilityScoreModifiers}
+          />
         </GridItem>
         <GridItem area={'carry'}>
-          <StatContainer header="Carry" bodyContent={<></>}></StatContainer>
+          <CarryContainer />
         </GridItem>
         <GridItem area={'abilities'} maxH={60}>
           <Abilities
@@ -47,7 +52,7 @@ export default function RolePlayTabContent({
           ></StatContainer>
         </GridItem>
         <GridItem area={'languages'}>
-          <StatContainer header="Languages" bodyContent={<></>}></StatContainer>
+          <Languages languages={character.languages} />
         </GridItem>
       </Grid>
     </Box>
