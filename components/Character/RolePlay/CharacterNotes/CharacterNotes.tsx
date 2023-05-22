@@ -15,7 +15,7 @@ export default function CharacterNotes({
           {characterNotes.map((note) => {
             return (
               <Text fontSize={'sm'} key={note.slice(0, 10)}>
-                {note}
+                ▸ {note}
               </Text>
             );
           })}

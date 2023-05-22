@@ -54,14 +54,13 @@ export default function RolePlayTabContent({
             characterNotes={[
               'Values rugged self-reliance and natural beauty.',
               'Always curious, ready for the next adventure.',
-              'Honors parents through his blacksmithing and combat skills.',
+              'Honors parents through his combat skills and justice.',
               'Fearless in combat, prioritizes melee engagement.',
               'Highly protective of crew members.',
               'Prefers straightforward, honest negotiations.',
               'Respects strength and resolve in others.',
               'Strong sense of justice, intolerant of theft and deceit.',
               'Weapon Focus (adv)',
-              'Light Armor',
             ]}
           />
         </GridItem>
