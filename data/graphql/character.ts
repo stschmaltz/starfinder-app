@@ -101,6 +101,12 @@ const characterTypeDefs = /* GraphQL */ `
     isProficient: Boolean!
   }
 
+  type CarryObject {
+    currentCarry: Float!
+    maxCarry: Float!
+    credits: Float!
+  }
+
   type Character {
     _id: String!
     userId: String!
@@ -115,6 +121,7 @@ const characterTypeDefs = /* GraphQL */ `
     weapons: [WeaponObject!]!
     skills: [CharacterSkills!]!
     languages: [String!]!
+    carry: CarryObject!
   }
 `;
 

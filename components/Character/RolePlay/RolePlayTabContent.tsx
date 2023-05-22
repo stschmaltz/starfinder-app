@@ -4,7 +4,7 @@ import React from 'react';
 import Skills from './Skills/Skills';
 import Languages from './Languages/Languages';
 import CarryContainer from './CarryContainer/CarryContainer';
-import StatContainer from '../StatContainer';
+import CharacterNotes from './CharacterNotes/CharacterNotes';
 import { CharacterObject } from '../../../types/character';
 import Abilities from '../Combat/Abilities/Abilities';
 
@@ -36,7 +36,11 @@ export default function RolePlayTabContent({
           />
         </GridItem>
         <GridItem area={'carry'}>
-          <CarryContainer />
+          <CarryContainer
+            maxCarry={character.carry.maxCarry}
+            currentCarry={character.carry.currentCarry}
+            credits={character.carry.credits}
+          />
         </GridItem>
         <GridItem area={'abilities'} maxH={60}>
           <Abilities
@@ -46,10 +50,20 @@ export default function RolePlayTabContent({
           />
         </GridItem>
         <GridItem area={'characterNotes'}>
-          <StatContainer
-            header="Character Notes"
-            bodyContent={<></>}
-          ></StatContainer>
+          <CharacterNotes
+            characterNotes={[
+              'Values rugged self-reliance and natural beauty.',
+              'Always curious, ready for the next adventure.',
+              'Honors parents through his blacksmithing and combat skills.',
+              'Fearless in combat, prioritizes melee engagement.',
+              'Highly protective of crew members.',
+              'Prefers straightforward, honest negotiations.',
+              'Respects strength and resolve in others.',
+              'Strong sense of justice, intolerant of theft and deceit.',
+              'Weapon Focus (adv)',
+              'Light Armor',
+            ]}
+          />
         </GridItem>
         <GridItem area={'languages'}>
           <Languages languages={character.languages} />

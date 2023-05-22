@@ -98,6 +98,12 @@ export interface SkillObject {
   isProficient: boolean;
 }
 
+export interface CarryObject {
+  currentCarry: number;
+  maxCarry: number;
+  credits: number;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
@@ -112,4 +118,5 @@ export interface CharacterObject {
   weapons: WeaponObject[];
   skills: SkillObject[];
   languages: string[];
+  carry: CarryObject;
 }

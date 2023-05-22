@@ -84,6 +84,11 @@ const fullCharacters = `
       isProficient
     } 
     languages
+    carry {
+      currentCarry
+      maxCarry
+      credits
+    }
   `;
 
 export { fullCharacters };

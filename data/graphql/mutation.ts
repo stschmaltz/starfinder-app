@@ -100,6 +100,12 @@ const mutationTypeDefs = /* GraphQL */ `
     isProficient: Boolean!
   }
 
+  input CarryInput {
+    currentCarry: Float!
+    maxCarry: Float!
+    credits: Float!
+  }
+
   input CharacterInput {
     _id: String!
     userId: String!
@@ -113,6 +119,7 @@ const mutationTypeDefs = /* GraphQL */ `
     weapons: [WeaponObjectInput!]!
     skills: [CharacterSkillsInput!]!
     languages: [String!]!
+    carry: CarryInput!
   }
 
   type Mutation {
