@@ -65,6 +65,9 @@ export default function Ability({
           fontSize={'sm'}
           key={name} // TODO: Use an id
           variant={'flushed'}
+          onChange={(e) => {
+            console.log(e.target.value);
+          }}
           fontWeight={'bold'}
         ></Input>
 

@@ -71,7 +71,7 @@ export interface WeaponObject {
   type: string;
   hit: number;
   damage: string;
-  damageBonusStat?: keyof AbilityScoresObject;
+  damageBonusStat?: keyof AbilityScoreModifiersObject;
   ammoUsage?: string;
   critical?: string;
   range?: number;

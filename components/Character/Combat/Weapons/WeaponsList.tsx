@@ -32,7 +32,15 @@ export default function WeaponsList({
               <GridItem key={weapon.name}>
                 <Weapon
                   name={weapon.name}
-                  damage={weapon.damage}
+                  damage={
+                    weapon.damageBonusStat
+                      ? `${weapon.damage}+${
+                          weapon.damageBonusStat
+                            ? abilityScoreModifiers[weapon.damageBonusStat]
+                            : 0
+                        }`
+                      : weapon.damage
+                  }
                   range={weapon.range?.toString()}
                   special={weapon.special}
                   ammoUsage={weapon.ammoUsage}
