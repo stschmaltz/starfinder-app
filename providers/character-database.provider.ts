@@ -22,8 +22,6 @@ async function getCharactersForUser(
 async function saveCharacter(
   character: CharacterObject
 ): Promise<Omit<CharacterObject, 'abilityScoreModifiers'>> {
-  console.log('Saving character DB', character);
-
   const { db } = await getDbClient();
 
   const { abilityScoreModifiers: _, _id, ...rest } = character;

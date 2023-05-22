@@ -39,7 +39,6 @@ function useCharacterAttunement(): {
     };
 
     const attunementMode = getAttunementMode(attunement);
-    console.log('currentAttunement', attunement, attunementMode);
     _setCurrentAttunement({ ...attunement, attunementMode });
   };
 

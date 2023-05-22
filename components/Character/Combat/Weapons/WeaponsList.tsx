@@ -15,8 +15,6 @@ export default function WeaponsList({
   abilityScoreModifiers: AbilityScoreModifiersObject;
   weapons: WeaponObject[];
 }) {
-  console.log({ abilityScoreModifiers, weapons });
-
   return (
     <StatContainer
       header="Weapons"
