@@ -109,7 +109,7 @@ export default function CarryContainer({
                   credits: valueAsNumber,
                 });
               }}
-              w={12}
+              w={14}
             >
               <NumberInputField
                 fontWeight={'bold'}

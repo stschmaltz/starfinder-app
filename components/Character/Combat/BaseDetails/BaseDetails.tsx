@@ -5,7 +5,7 @@ import {
   NumberInputField,
   Text,
 } from '@chakra-ui/react';
-import React, { useContext } from 'react';
+import React, { useCallback, useContext } from 'react';
 import HealthDetailRow from './HealthDetailRow';
 import { displayCase } from '../../../../lib/string-helpers';
 import { theme } from '../../../../styles/theme';
@@ -21,19 +21,25 @@ function BaseDetails({
 }) {
   const [_characterState, dispatch] = useContext(CharacterContext);
 
-  const updateHealthStats = (healthStats: HealthStats) => {
-    dispatch({
-      type: 'UPDATE_CHARACTER',
-      payload: { healthStats },
-    });
-  };
+  const updateHealthStats = useCallback(
+    (healthStats: HealthStats) => {
+      dispatch({
+        type: 'UPDATE_CHARACTER',
+        payload: { healthStats },
+      });
+    },
+    [dispatch]
+  );
 
-  const updateExpEarned = (expEarned: number) => {
-    dispatch({
-      type: 'UPDATE_CHARACTER',
-      payload: { baseDetails: { ...baseDetails, expEarned } },
-    });
-  };
+  const updateExpEarned = useCallback(
+    (expEarned: number) => {
+      dispatch({
+        type: 'UPDATE_CHARACTER',
+        payload: { baseDetails: { ...baseDetails, expEarned } },
+      });
+    },
+    [dispatch, baseDetails]
+  );
 
   return (
     <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
@@ -62,7 +68,7 @@ function BaseDetails({
               onChange={(_, valueAsNumber) => {
                 updateExpEarned(valueAsNumber);
               }}
-              w={10}
+              w={14}
             >
               <NumberInputField textAlign={'center'} p={1} />
             </NumberInput>
