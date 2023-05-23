@@ -56,7 +56,6 @@ export default function CarryContainer({
                   });
                 }}
                 w={10}
-                mr={2}
               >
                 <NumberInputField
                   fontWeight={'bold'}
@@ -89,7 +88,12 @@ export default function CarryContainer({
               </NumberInput>
             </Flex>
           </Flex>
-          <Flex justifyContent={'center'} flexDir={'column'}>
+          <Flex
+            w={'95px'}
+            justifyContent={'center'}
+            flexDir={'column'}
+            alignItems={'center'}
+          >
             <Text fontWeight={'semibold'} textAlign={'center'} fontSize={'xs'}>
               Credits
             </Text>

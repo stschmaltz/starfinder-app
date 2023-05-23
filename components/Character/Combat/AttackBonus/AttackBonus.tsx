@@ -1,11 +1,13 @@
 import { Grid, GridItem } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import AttackBonusRow from './AttackBonusRow';
+import AttackBonusRowHeader from './AttackBonusRowHeader';
 import {
   AbilityScoreModifiersObject,
   AttackBonusDetailsObject,
 } from '../../../../types/character';
 import StatContainer from '../../StatContainer';
+import { CharacterContext } from '../../../../context/CharacterContext';
 
 export default function AttackBonus({
   attackBonusDetails,
@@ -14,29 +16,36 @@ export default function AttackBonus({
   attackBonusDetails: AttackBonusDetailsObject;
   abilityScoreModifiers: AbilityScoreModifiersObject;
 }) {
+  const [_, dispatch] = useContext(CharacterContext);
+
   const totalMeleeAttack =
-    attackBonusDetails.baseAttackBonus +
+    (attackBonusDetails.baseAttackBonus || 0) +
     abilityScoreModifiers.strMod +
     attackBonusDetails.meleeMisc;
   const totalRangedAttack =
-    attackBonusDetails.baseAttackBonus +
+    (attackBonusDetails.baseAttackBonus || 0) +
     abilityScoreModifiers.dexMod +
     attackBonusDetails.rangedMisc;
   const totalThrownAttack =
-    attackBonusDetails.baseAttackBonus +
+    (attackBonusDetails.baseAttackBonus || 0) +
     abilityScoreModifiers.strMod +
     attackBonusDetails.thrownMisc;
+
+  const updateAttackBonus = (attackBonusDetails: AttackBonusDetailsObject) => {
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: { attackBonusDetails },
+    });
+  };
 
   return (
     <StatContainer
       header="Attack Bonus"
       headerContent={
-        <AttackBonusRow
-          isHeader
+        <AttackBonusRowHeader
           firstColumnContent={'Total'}
           secondColumnContent={'Base'}
           thirdColumnContent={'Misc'}
-          headerTitle={''}
         />
       }
       bodyContent={
@@ -47,26 +56,44 @@ export default function AttackBonus({
         >
           <GridItem area={'melee'}>
             <AttackBonusRow
-              firstColumnContent={totalMeleeAttack.toString()}
-              secondColumnContent={attackBonusDetails.baseAttackBonus.toString()}
-              thirdColumnContent={attackBonusDetails.meleeMisc.toString()}
-              headerTitle={'Melee'}
+              total={totalMeleeAttack.toString()}
+              baseAttackBonus={attackBonusDetails.baseAttackBonus.toString()}
+              miscAttackBonus={attackBonusDetails.meleeMisc.toString()}
+              name={'Melee'}
+              onBonusChange={(bonus) =>
+                updateAttackBonus({
+                  ...attackBonusDetails,
+                  baseAttackBonus: bonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'ranged'}>
             <AttackBonusRow
-              firstColumnContent={totalRangedAttack.toString()}
-              secondColumnContent={attackBonusDetails.baseAttackBonus.toString()}
-              thirdColumnContent={attackBonusDetails.rangedMisc.toString()}
-              headerTitle={'Ranged'}
+              total={totalRangedAttack.toString()}
+              baseAttackBonus={attackBonusDetails.baseAttackBonus.toString()}
+              miscAttackBonus={attackBonusDetails.rangedMisc.toString()}
+              name={'Ranged'}
+              onBonusChange={(bonus) =>
+                updateAttackBonus({
+                  ...attackBonusDetails,
+                  baseAttackBonus: bonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'thrown'}>
             <AttackBonusRow
-              firstColumnContent={totalThrownAttack.toString()}
-              secondColumnContent={attackBonusDetails.baseAttackBonus.toString()}
-              thirdColumnContent={attackBonusDetails.thrownMisc.toString()}
-              headerTitle={'Thrown'}
+              total={totalThrownAttack.toString()}
+              baseAttackBonus={attackBonusDetails.baseAttackBonus.toString()}
+              miscAttackBonus={attackBonusDetails.thrownMisc.toString()}
+              name={'Thrown'}
+              onBonusChange={(bonus) =>
+                updateAttackBonus({
+                  ...attackBonusDetails,
+                  baseAttackBonus: bonus,
+                })
+              }
             />
           </GridItem>
         </Grid>

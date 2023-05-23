@@ -1,43 +1,54 @@
 import { Grid, GridItem } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import ArmorClassRow from './ArmorClassRow';
+import ArmorClassRowHeader from './ArmorClassRowHeader';
 import {
   AbilityScoreModifiersObject,
   ArmorClassDetailsObject,
 } from '../../../../types/character';
 import StatContainer from '../../StatContainer';
+import { CharacterContext } from '../../../../context/CharacterContext';
 
 export default function ArmorClass({
   abilityScoreModifiers,
-  armorClassDetails,
 }: {
   abilityScoreModifiers: AbilityScoreModifiersObject;
-  armorClassDetails: ArmorClassDetailsObject;
 }) {
+  const [characterState, dispatch] = useContext(CharacterContext);
+
+  const { armorClassDetails } = characterState.character;
+
   const totalEnergyAC =
     10 +
-    armorClassDetails.eacBonus +
+    (armorClassDetails.eacBonus || 0) +
     abilityScoreModifiers.dexMod +
     armorClassDetails.eacMisc;
 
   const totalKineticAC =
     10 +
-    armorClassDetails.kacBonus +
+    (armorClassDetails.kacBonus || 0) +
     abilityScoreModifiers.dexMod +
     armorClassDetails.kacMisc;
 
   const totalCombatManeuvers = 8 + totalEnergyAC;
 
+  const updateArmorClassDetails = (
+    armorClassDetails: ArmorClassDetailsObject
+  ) => {
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: { armorClassDetails },
+    });
+  };
+
   return (
     <StatContainer
       header="Armor Class"
       headerContent={
-        <ArmorClassRow
-          isHeader
+        <ArmorClassRowHeader
           firstColumnContent={'Total'}
           secondColumnContent={'Armor Bonus'}
           thirdColumnContent={'Misc'}
-          headerTitle={''}
         />
       }
       bodyContent={
@@ -50,26 +61,41 @@ export default function ArmorClass({
         >
           <GridItem area={'energyAC'}>
             <ArmorClassRow
-              firstColumnContent={totalEnergyAC.toString()}
-              secondColumnContent={armorClassDetails.eacBonus.toString()}
-              thirdColumnContent={armorClassDetails.eacMisc.toString()}
-              headerTitle={'Energy AC'}
+              total={totalEnergyAC.toString()}
+              armorBonus={armorClassDetails.eacBonus.toString()}
+              miscBonus={armorClassDetails.eacMisc.toString()}
+              name={'Energy AC'}
+              onBonusChange={(eacBonus) =>
+                updateArmorClassDetails({
+                  ...armorClassDetails,
+                  eacBonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'kineticAC'}>
             <ArmorClassRow
-              firstColumnContent={totalKineticAC.toString()}
-              secondColumnContent={armorClassDetails.kacBonus.toString()}
-              thirdColumnContent={armorClassDetails.kacMisc.toString()}
-              headerTitle={'Kinetic AC'}
+              total={totalKineticAC.toString()}
+              armorBonus={armorClassDetails.kacBonus.toString()}
+              miscBonus={armorClassDetails.kacMisc.toString()}
+              name={'Kinetic AC'}
+              onBonusChange={(kacBonus) =>
+                updateArmorClassDetails({
+                  ...armorClassDetails,
+                  kacBonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'combatManeuvers'}>
             <ArmorClassRow
-              firstColumnContent={totalCombatManeuvers.toString()}
-              secondColumnContent={''}
-              thirdColumnContent={''}
-              headerTitle={'Combat Maneuvers'}
+              total={totalCombatManeuvers.toString()}
+              armorBonus={''}
+              miscBonus={''}
+              name={'Combat Maneuvers'}
+              onBonusChange={() => {
+                return;
+              }}
             />
           </GridItem>
         </Grid>

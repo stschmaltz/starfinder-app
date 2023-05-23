@@ -8,9 +8,10 @@ export default function Languages({ languages }: { languages: string[] }) {
       header="Languages"
       bodyContent={
         <Flex
-          flexDir={'column'}
+          flexDir={'row'}
           alignItems={'center'}
-          justifyContent={'center'}
+          justifyContent={'space-between'}
+          px={10}
         >
           {languages.map((language) => (
             <Text fontWeight={'normal'} fontSize={'md'} key={language}>

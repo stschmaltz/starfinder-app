@@ -1,59 +1,66 @@
 import React from 'react';
-import { Grid, GridItem, Text } from '@chakra-ui/react';
+import {
+  Grid,
+  GridItem,
+  NumberInput,
+  NumberInputField,
+  Text,
+} from '@chakra-ui/react';
 
 export default function AttackBonusRow({
-  firstColumnContent,
-  headerTitle,
-  secondColumnContent,
-  thirdColumnContent,
-  isHeader = false,
+  total,
+  name,
+  baseAttackBonus,
+  miscAttackBonus,
+  onBonusChange,
 }: {
-  isHeader?: boolean;
-  headerTitle: string;
-  firstColumnContent: string;
-  secondColumnContent: string;
-  thirdColumnContent: string;
+  name: string;
+  total: string;
+  baseAttackBonus: string;
+  miscAttackBonus: string;
+  onBonusChange: (value: number) => void;
 }) {
   return (
-    <Grid
-      alignItems={isHeader ? 'end' : 'center'}
-      templateColumns="2fr 1fr 1fr 1fr"
-    >
+    <Grid alignItems={'center'} templateColumns="2fr 1fr 1fr 1fr">
       <GridItem alignSelf={'center'}>
         <Text
           fontWeight={'bold'}
           textAlign={'left'}
-          fontSize={isHeader ? 'xs' : 'md'}
+          fontSize={'md'}
           lineHeight={1}
         >
-          {headerTitle}
+          {name}
         </Text>
       </GridItem>
       <GridItem>
-        <Text
-          fontWeight={isHeader ? 'normal' : 'bold'}
-          textAlign={'center'}
-          fontSize={isHeader ? 'xs' : 'lg'}
-        >
-          {firstColumnContent}
+        <Text fontWeight={'bold'} textAlign={'center'} fontSize={'lg'}>
+          {total}
         </Text>
       </GridItem>
-      <GridItem>
-        <Text
-          fontWeight={isHeader ? 'normal' : 'normal'}
-          textAlign={'center'}
-          fontSize={isHeader ? 'xs' : 'md'}
+      <GridItem margin={'auto'}>
+        <NumberInput
+          variant="unstyled"
+          size="lg"
+          min={0}
+          defaultValue={baseAttackBonus}
+          max={10000}
+          onChange={(_, valueAsNumber) => {
+            onBonusChange(valueAsNumber);
+          }}
+          w={10}
+          mr={2}
         >
-          {secondColumnContent}
-        </Text>
+          <NumberInputField
+            fontWeight={'medium'}
+            textAlign={'center'}
+            fontSize={'md'}
+            p={1}
+          />
+        </NumberInput>
       </GridItem>
       <GridItem>
-        <Text
-          fontWeight={isHeader ? 'normal' : 'normal'}
-          textAlign={'center'}
-          fontSize={isHeader ? 'xs' : 'md'}
-        >
-          {thirdColumnContent}
+        <Text fontWeight={'normal'} textAlign={'center'} fontSize={'md'}>
+          {miscAttackBonus}
         </Text>
       </GridItem>
     </Grid>

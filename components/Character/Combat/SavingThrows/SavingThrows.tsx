@@ -1,11 +1,13 @@
 import { Grid, GridItem } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import SavingThrowsRow from './SavingThrowsRow';
+import SavingThrowsRowHeader from './SavingThrowsRowHeader';
 import {
   AbilityScoreModifiersObject,
   SavingThrowsDetailsObject,
 } from '../../../../types/character';
 import StatContainer from '../../StatContainer';
+import { CharacterContext } from '../../../../context/CharacterContext';
 
 export default function SavingThrows({
   savingThrowsDetails,
@@ -14,29 +16,38 @@ export default function SavingThrows({
   savingThrowsDetails: SavingThrowsDetailsObject;
   abilityScoreModifiers: AbilityScoreModifiersObject;
 }) {
+  const [_, dispatch] = useContext(CharacterContext);
+
   const totalFortitude =
-    savingThrowsDetails.fortitudeBaseSave +
+    (savingThrowsDetails.fortitudeBaseSave || 0) +
     abilityScoreModifiers.conMod +
     savingThrowsDetails.fortitudeMisc;
   const totalReflex =
-    savingThrowsDetails.reflexBaseSave +
+    (savingThrowsDetails.reflexBaseSave || 0) +
     abilityScoreModifiers.dexMod +
     savingThrowsDetails.reflexMisc;
   const totalWill =
-    savingThrowsDetails.willBaseSave +
+    (savingThrowsDetails.willBaseSave || 0) +
     abilityScoreModifiers.wisMod +
     savingThrowsDetails.willMisc;
+
+  const updateSavingThrowValues = (
+    savingThrowsDetails: SavingThrowsDetailsObject
+  ) => {
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: { savingThrowsDetails },
+    });
+  };
 
   return (
     <StatContainer
       header="Saving Throws"
       headerContent={
-        <SavingThrowsRow
-          isHeader
+        <SavingThrowsRowHeader
           firstColumnContent={'Total'}
           secondColumnContent={'Base'}
           thirdColumnContent={'Misc'}
-          headerTitle={''}
         />
       }
       bodyContent={
@@ -49,26 +60,44 @@ export default function SavingThrows({
           <GridItem key={'header'} area={'header'}></GridItem>
           <GridItem area={'fortitude'}>
             <SavingThrowsRow
-              firstColumnContent={totalFortitude.toString()}
-              secondColumnContent={savingThrowsDetails.fortitudeBaseSave.toString()}
-              thirdColumnContent={savingThrowsDetails.fortitudeMisc.toString()}
-              headerTitle={'Fortitude'}
+              total={totalFortitude.toString()}
+              baseBonus={savingThrowsDetails.fortitudeBaseSave.toString()}
+              miscBonus={savingThrowsDetails.fortitudeMisc.toString()}
+              name={'Fortitude'}
+              onBonusChange={(newBonus) =>
+                updateSavingThrowValues({
+                  ...savingThrowsDetails,
+                  fortitudeBaseSave: newBonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'reflex'}>
             <SavingThrowsRow
-              firstColumnContent={totalReflex.toString()}
-              secondColumnContent={savingThrowsDetails.reflexBaseSave.toString()}
-              thirdColumnContent={savingThrowsDetails.reflexMisc.toString()}
-              headerTitle={'Reflex'}
+              total={totalReflex.toString()}
+              baseBonus={savingThrowsDetails.reflexBaseSave.toString()}
+              miscBonus={savingThrowsDetails.reflexMisc.toString()}
+              name={'Reflex'}
+              onBonusChange={(newBonus) =>
+                updateSavingThrowValues({
+                  ...savingThrowsDetails,
+                  reflexBaseSave: newBonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'will'}>
             <SavingThrowsRow
-              firstColumnContent={totalWill.toString()}
-              secondColumnContent={savingThrowsDetails.willBaseSave.toString()}
-              thirdColumnContent={savingThrowsDetails.willMisc.toString()}
-              headerTitle={'Will'}
+              total={totalWill.toString()}
+              baseBonus={savingThrowsDetails.willBaseSave.toString()}
+              miscBonus={savingThrowsDetails.willMisc.toString()}
+              name={'Will'}
+              onBonusChange={(newBonus) =>
+                updateSavingThrowValues({
+                  ...savingThrowsDetails,
+                  willBaseSave: newBonus,
+                })
+              }
             />
           </GridItem>
         </Grid>

@@ -14,22 +14,36 @@ import {
 export default function SkillRow({
   skill,
   abilityScoreModifiersObject,
+  onSkillChange,
 }: {
   skill: SkillObject;
   abilityScoreModifiersObject: AbilityScoreModifiersObject;
+  onSkillChange: (skill: SkillObject) => void;
 }) {
   const classBonus = 3;
   const abilityScoreModifierValue =
     abilityScoreModifiersObject[skill.abilityScoreModifiersObject];
   const classBonusValue = skill.ranks && skill.isProficient ? classBonus : 0;
 
-  const skillTotal =
-    skill && abilityScoreModifiersObject
-      ? skill.ranks +
+  const calculateSkillTotal = (input: {
+    skillRanks: number;
+    miscBonus: number;
+    abilityScoreModifierValue?: number;
+  }) =>
+    abilityScoreModifiersObject
+      ? input.skillRanks +
         abilityScoreModifierValue +
         classBonusValue +
-        skill.miscBonus
+        input.miscBonus
       : 0;
+
+  const skillTotal =
+    skill &&
+    calculateSkillTotal({
+      skillRanks: skill.ranks,
+      miscBonus: skill.miscBonus,
+      abilityScoreModifierValue,
+    });
 
   return (
     <Grid
@@ -41,7 +55,7 @@ export default function SkillRow({
     >
       <GridItem>
         <Text fontWeight={'medium'} fontSize={'md'}>
-          {skill.name}
+          {skill.name} {skill.isProficient && '*'}
         </Text>
       </GridItem>
       <GridItem fontWeight={'medium'} textAlign={'center'}>
@@ -58,7 +72,16 @@ export default function SkillRow({
           defaultValue={skill.ranks}
           max={20}
           onChange={(_, valueAsNumber) => {
-            skill.ranks = valueAsNumber;
+            const newSkill = {
+              ...skill,
+              ranks: valueAsNumber,
+              skillTotal: calculateSkillTotal({
+                skillRanks: valueAsNumber,
+                miscBonus: skill.miscBonus,
+                abilityScoreModifierValue,
+              }),
+            };
+            onSkillChange(newSkill);
           }}
           w={8}
         >
@@ -79,7 +102,16 @@ export default function SkillRow({
           defaultValue={skill.miscBonus}
           max={20}
           onChange={(_, valueAsNumber) => {
-            skill.miscBonus = valueAsNumber;
+            const newSkill = {
+              ...skill,
+              miscBonus: valueAsNumber,
+              skillTotal: calculateSkillTotal({
+                skillRanks: skill.ranks,
+                miscBonus: valueAsNumber,
+                abilityScoreModifierValue,
+              }),
+            };
+            onSkillChange(newSkill);
           }}
           w={8}
         >

@@ -27,13 +27,15 @@ export default function Ability({
     if (field === 'name') setName(value);
     else setDescription(value);
 
-    const updatedAbilities = characterState.character.abilities.map((item) => {
-      if (item.name === ability.name) {
-        return { ...item, [field]: value };
-      }
+    const updatedAbilities = characterState.character.abilities.map(
+      (charAbility) => {
+        if (charAbility.name === ability.name) {
+          return { ...charAbility, [field]: value };
+        }
 
-      return item;
-    });
+        return charAbility;
+      }
+    );
 
     dispatch({
       type: 'UPDATE_CHARACTER',

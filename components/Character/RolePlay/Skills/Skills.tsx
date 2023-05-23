@@ -1,11 +1,12 @@
 import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext } from 'react';
 import SkillRow from './SkillRow';
 import {
   AbilityScoreModifiersObject,
   SkillObject,
 } from '../../../../types/character';
 import StatContainer from '../../StatContainer';
+import { CharacterContext } from '../../../../context/CharacterContext';
 
 export default function Skills({
   skills,
@@ -14,6 +15,15 @@ export default function Skills({
   skills: SkillObject[];
   abilityScoreModifiersObject: AbilityScoreModifiersObject;
 }) {
+  const [characterState, dispatch] = useContext(CharacterContext);
+
+  const updateSkills = (skills: SkillObject[]) => {
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: { skills },
+    });
+  };
+
   return (
     <StatContainer
       header="Skills"
@@ -49,6 +59,18 @@ export default function Skills({
                   key={skill.name}
                   skill={skill}
                   abilityScoreModifiersObject={abilityScoreModifiersObject}
+                  onSkillChange={(skill) => {
+                    const newSkills = characterState.character.skills.map(
+                      (s) => {
+                        if (s.name === skill.name) {
+                          return { ...skill, skillTotal: undefined };
+                        }
+
+                        return s;
+                      }
+                    );
+                    updateSkills(newSkills);
+                  }}
                 />
               ))}
           </Flex>
