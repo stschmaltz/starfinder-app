@@ -58,10 +58,26 @@ export default function SavingThrowsRow({
           />
         </NumberInput>
       </GridItem>
-      <GridItem>
-        <Text fontWeight={'normal'} textAlign={'center'} fontSize={'md'}>
-          {miscBonus}
-        </Text>
+      <GridItem margin={'auto'}>
+        <NumberInput
+          variant="unstyled"
+          size="lg"
+          min={0}
+          defaultValue={miscBonus}
+          max={10000}
+          onChange={(_, valueAsNumber) => {
+            onBonusChange(valueAsNumber);
+          }}
+          w={10}
+          mr={2}
+        >
+          <NumberInputField
+            fontWeight={'medium'}
+            textAlign={'center'}
+            fontSize={'md'}
+            p={1}
+          />
+        </NumberInput>
       </GridItem>
     </Grid>
   );

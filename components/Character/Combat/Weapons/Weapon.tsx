@@ -52,18 +52,18 @@ export default function Weapon({
                 : undefined
             }
             thirdColumn={
-              range
+              hit
                 ? {
-                    content: range,
-                    title: 'range',
+                    content: `${Number(hit) > 0 ? '+' : ''}${hit}`,
+                    title: 'hit',
                   }
                 : undefined
             }
             fourthColumn={
-              hit
+              range
                 ? {
-                    content: hit,
-                    title: 'hit',
+                    content: range,
+                    title: 'range',
                   }
                 : undefined
             }

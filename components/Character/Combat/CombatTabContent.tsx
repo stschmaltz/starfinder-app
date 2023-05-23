@@ -32,10 +32,7 @@ export default function CombatTabContent({
           <AttunementTracker />
         </GridItem>
         <GridItem area={'armorClass'}>
-          <ArmorClass
-            abilityScoreModifiers={character.abilityScoreModifiers}
-            armorClassDetails={character.armorClassDetails}
-          />
+          <ArmorClass abilityScoreModifiers={character.abilityScoreModifiers} />
         </GridItem>
         <GridItem overflowY={'auto'} area={'weapons'} minH={'140px'}>
           <WeaponsList
