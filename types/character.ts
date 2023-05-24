@@ -88,6 +88,7 @@ export interface AbilityObject {
   description: string;
   name: string;
   type: AbilityType;
+  url?: string;
 }
 
 export interface SkillObject {

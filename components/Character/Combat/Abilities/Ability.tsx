@@ -1,6 +1,7 @@
 import { InfoIcon } from '@chakra-ui/icons';
 import { Flex, IconButton, Input } from '@chakra-ui/react';
 import React, { useContext, useState } from 'react';
+import AbilityModal from './AbilityModal';
 import { CharacterContext } from '../../../../context/CharacterContext';
 import { AttunementTrackerProps } from '../../../../hooks/use-character-attunement';
 import { AbilityObject, AbilityType } from '../../../../types/character';
@@ -19,6 +20,7 @@ export default function Ability({
   ability: AbilityObject;
   currentAttunement: AttunementTrackerProps;
 }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [characterState, dispatch] = useContext(CharacterContext);
   const [name, setName] = useState(ability.name);
   const [description, setDescription] = useState(ability.description);
@@ -50,54 +52,67 @@ export default function Ability({
       currentAttunement.currentPhoton >= 3);
 
   return currentAttunement ? (
-    <Flex
-      p={1}
-      flexDir={'column'}
-      borderRadius={'lg'}
-      backgroundColor={
-        isHighlighted ? 'purple.200' : typeToBackgroundColor[ability.type]
-      }
-      key={ability.name + '-flex'}
-    >
-      <Flex h={30}>
-        <Input
-          h={25}
-          flex={1}
-          value={name}
-          fontSize={'sm'}
-          key={name} // TODO: Use an id
-          variant={'flushed'}
-          onChange={(e) => {
-            console.log(e.target.value);
+    <>
+      {ability.url && (
+        <AbilityModal
+          url={ability.url}
+          name={ability.name}
+          isOpen={isModalOpen}
+          onClose={() => {
+            setIsModalOpen(false);
           }}
-          fontWeight={'bold'}
-        ></Input>
-
-        <IconButton
-          flex={0}
-          variant="ghost"
-          size="md"
-          colorScheme="blackAlpha"
-          aria-label="Reset Attunement"
-          icon={<InfoIcon color={'primary'} />}
-          onClick={() => {
-            // TODO: Make modal
-            console.log(description);
-          }}
+          type={ability.type}
         />
+      )}
+
+      <Flex
+        p={1}
+        flexDir={'column'}
+        borderRadius={'lg'}
+        backgroundColor={
+          isHighlighted ? 'purple.200' : typeToBackgroundColor[ability.type]
+        }
+        key={ability.name + '-flex'}
+      >
+        <Flex h={30}>
+          <Input
+            h={25}
+            flex={1}
+            value={name}
+            fontSize={'sm'}
+            key={name} // TODO: Use an id
+            variant={'flushed'}
+            onChange={(e) => {
+              console.log(e.target.value);
+            }}
+            fontWeight={'bold'}
+          ></Input>
+
+          <IconButton
+            flex={0}
+            variant="ghost"
+            size="md"
+            colorScheme="blackAlpha"
+            aria-label="Reset Attunement"
+            icon={<InfoIcon color={'primary'} />}
+            onClick={() => {
+              setIsModalOpen(true);
+            }}
+          />
+        </Flex>
+        <Input
+          flex={1}
+          overflow={'hidden'}
+          textOverflow={'ellipsis'}
+          whiteSpace={'nowrap'}
+          fontSize={'sm'}
+          value={description}
+          key={`${name}-description`}
+          onChange={(e) => handleInputChange('description', e.target.value)}
+          variant={'flushed'}
+        ></Input>
       </Flex>
-      <Input
-        flex={1}
-        overflow={'hidden'}
-        textOverflow={'ellipsis'}
-        whiteSpace={'nowrap'}
-        fontSize={'sm'}
-        value={description}
-        key={`${name}-description`}
-        onChange={(e) => handleInputChange('description', e.target.value)}
-        variant={'flushed'}
-      ></Input>
-    </Flex>
+    </>
   ) : (
     <BasicLoader />
   );

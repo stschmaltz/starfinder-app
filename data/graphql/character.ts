@@ -91,6 +91,7 @@ const characterTypeDefs = /* GraphQL */ `
     description: String!
     name: String!
     type: String!
+    url: String
   }
 
   type CharacterSkills {

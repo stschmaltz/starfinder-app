@@ -75,6 +75,7 @@ const fullCharacters = `
       name
       type
       description
+      url
     }
     skills {
       name

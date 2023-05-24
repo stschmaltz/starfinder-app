@@ -90,6 +90,7 @@ const mutationTypeDefs = /* GraphQL */ `
     description: String!
     name: String!
     type: String!
+    url: String
   }
 
   input CharacterSkillsInput {
