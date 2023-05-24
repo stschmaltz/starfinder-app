@@ -2,6 +2,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from '@chakra-ui/react';
 import React from 'react';
 import CombatTabContent from './Combat/CombatTabContent';
 import RolePlayTabContent from './RolePlay/RolePlayTabContent';
+import ResourceTabContent from './Resources/ResourceTabContent';
 import { CharacterObject } from '../../types/character';
 
 function CharacterTabs({ character }: { character: CharacterObject }) {
@@ -26,7 +27,7 @@ function CharacterTabs({ character }: { character: CharacterObject }) {
           <CombatTabContent character={character} />
         </TabPanel>
         <TabPanel px={0}>
-          <p>three!</p>
+          <ResourceTabContent character={character} />
         </TabPanel>
       </TabPanels>
     </Tabs>

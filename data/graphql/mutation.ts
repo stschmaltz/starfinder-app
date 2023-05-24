@@ -107,6 +107,12 @@ const mutationTypeDefs = /* GraphQL */ `
     credits: Float!
   }
 
+  input CharacterResourcesInput {
+    name: String!
+    url: String!
+    description: String!
+  }
+
   input CharacterInput {
     _id: String!
     userId: String!
@@ -121,6 +127,7 @@ const mutationTypeDefs = /* GraphQL */ `
     skills: [CharacterSkillsInput!]!
     languages: [String!]!
     carry: CarryInput!
+    resources: [CharacterResourcesInput!]!
   }
 
   type Mutation {

@@ -105,6 +105,12 @@ export interface CarryObject {
   credits: number;
 }
 
+export interface ResourceObject {
+  name: string;
+  url: string;
+  description: string;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
@@ -120,4 +126,5 @@ export interface CharacterObject {
   skills: SkillObject[];
   languages: string[];
   carry: CarryObject;
+  resources: ResourceObject[];
 }

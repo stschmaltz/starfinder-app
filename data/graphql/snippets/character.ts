@@ -90,6 +90,11 @@ const fullCharacters = `
       maxCarry
       credits
     }
+    resources {
+      name
+      url
+      description
+    }
   `;
 
 export { fullCharacters };

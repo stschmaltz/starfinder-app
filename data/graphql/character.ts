@@ -108,6 +108,12 @@ const characterTypeDefs = /* GraphQL */ `
     credits: Float!
   }
 
+  type CharacterResources {
+    name: String!
+    url: String!
+    description: String!
+  }
+
   type Character {
     _id: String!
     userId: String!
@@ -123,6 +129,7 @@ const characterTypeDefs = /* GraphQL */ `
     skills: [CharacterSkills!]!
     languages: [String!]!
     carry: CarryObject!
+    resources: [CharacterResources!]!
   }
 `;
 
@@ -132,7 +139,16 @@ const characterResolver = {
       try {
         const characters = await getCharactersForUser(parent._id);
 
-        return characters;
+        return characters.map((character) => ({
+          ...character,
+          resources: [
+            {
+              name: 'Solarian Modes',
+              url: '/images/solarian-modes.png',
+              description: 'The two different solarian attunement modes.',
+            },
+          ],
+        }));
       } catch (error) {
         console.log(error);
 
