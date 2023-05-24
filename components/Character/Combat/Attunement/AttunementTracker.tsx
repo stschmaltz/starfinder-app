@@ -3,13 +3,16 @@ import { CloseIcon } from '@chakra-ui/icons';
 
 import React from 'react';
 import AttunementButton from './AttunementButton';
-import { useCharacterAttunement } from '../../../../hooks/use-character-attunement';
+
 import StatContainer from '../../StatContainer';
 import BasicLoader from '../../../BasicLoader';
+import {
+  defaultAttunementTrackerProps,
+  useAttunement,
+} from '../../../../context/AttunementContext';
 
 export default function AttunementTracker() {
-  const { currentAttunement, setCurrentAttunement, defaultAttunement } =
-    useCharacterAttunement();
+  const { currentAttunement, setCurrentAttunement } = useAttunement();
 
   return (
     <StatContainer
@@ -66,7 +69,7 @@ export default function AttunementTracker() {
                 aria-label="Reset Attunement"
                 icon={<CloseIcon color={'white'} />}
                 onClick={() => {
-                  setCurrentAttunement(defaultAttunement);
+                  setCurrentAttunement(defaultAttunementTrackerProps);
                 }}
               />
             </Box>

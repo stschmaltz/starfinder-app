@@ -1,4 +1,5 @@
 import React, { createContext, Dispatch, useReducer } from 'react';
+import { AttunementProvider } from './AttunementContext';
 import { CharacterObject } from '../types/character';
 
 interface CharacterState {
@@ -52,7 +53,7 @@ export const CharacterProvider: React.FC<CharacterProviderProps> = ({
 
   return (
     <CharacterContext.Provider value={[state, dispatch]}>
-      {children}
+      <AttunementProvider>{children}</AttunementProvider>
     </CharacterContext.Provider>
   );
 };

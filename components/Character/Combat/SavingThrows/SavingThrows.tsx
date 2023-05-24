@@ -8,6 +8,10 @@ import {
 } from '../../../../types/character';
 import StatContainer from '../../StatContainer';
 import { CharacterContext } from '../../../../context/CharacterContext';
+import {
+  AttunementMode,
+  useAttunement,
+} from '../../../../context/AttunementContext';
 
 export default function SavingThrows({
   savingThrowsDetails,
@@ -17,19 +21,26 @@ export default function SavingThrows({
   abilityScoreModifiers: AbilityScoreModifiersObject;
 }) {
   const [_, dispatch] = useContext(CharacterContext);
+  const { currentAttunement } = useAttunement();
 
   const totalFortitude =
     (savingThrowsDetails.fortitudeBaseSave || 0) +
     abilityScoreModifiers.conMod +
     savingThrowsDetails.fortitudeMisc;
-  const totalReflex =
-    (savingThrowsDetails.reflexBaseSave || 0) +
-    abilityScoreModifiers.dexMod +
-    savingThrowsDetails.reflexMisc;
+
   const totalWill =
     (savingThrowsDetails.willBaseSave || 0) +
     abilityScoreModifiers.wisMod +
     savingThrowsDetails.willMisc;
+
+  const reflexAttunementBonus =
+    currentAttunement.attunementMode === AttunementMode.PHOTON ? 1 : 0;
+
+  const totalReflex =
+    (savingThrowsDetails.reflexBaseSave || 0) +
+    abilityScoreModifiers.dexMod +
+    savingThrowsDetails.reflexMisc +
+    reflexAttunementBonus;
 
   const updateSavingThrowValues = (
     savingThrowsDetails: SavingThrowsDetailsObject

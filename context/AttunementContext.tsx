@@ -1,6 +1,8 @@
-import { useLocalStorage } from './use-local-storage.hook';
+import React, { createContext, useContext } from 'react';
 
-enum AttunementMode {
+import { useLocalStorage } from '../hooks/use-local-storage.hook';
+
+export enum AttunementMode {
   PHOTON,
   GRAVITON,
   UNATTUNED,
@@ -21,12 +23,20 @@ const defaultAttunementTrackerProps: AttunementTrackerProps = {
   currentGraviton: 0,
   attunementMode: AttunementMode.UNATTUNED,
 };
-
-function useCharacterAttunement(): {
+type AttunementContextType = {
   currentAttunement: AttunementTrackerProps;
   setCurrentAttunement: (attunement: AttunementTrackerProps) => void;
-  defaultAttunement: AttunementTrackerProps;
-} {
+};
+
+const AttunementContext = createContext<AttunementContextType | undefined>(
+  undefined
+);
+
+export function AttunementProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const setCurrentAttunement = (attunement: AttunementTrackerProps) => {
     const getAttunementMode = (attunement: AttunementTrackerProps) => {
       if (attunement.currentPhoton > 0) {
@@ -39,6 +49,7 @@ function useCharacterAttunement(): {
     };
 
     const attunementMode = getAttunementMode(attunement);
+
     _setCurrentAttunement({ ...attunement, attunementMode });
   };
 
@@ -48,11 +59,22 @@ function useCharacterAttunement(): {
       defaultAttunementTrackerProps
     );
 
-  return {
-    currentAttunement,
-    setCurrentAttunement,
-    defaultAttunement: defaultAttunementTrackerProps,
-  };
+  return (
+    <AttunementContext.Provider
+      value={{ currentAttunement, setCurrentAttunement }}
+    >
+      {children}
+    </AttunementContext.Provider>
+  );
 }
 
-export { useCharacterAttunement };
+export function useAttunement() {
+  const context = useContext(AttunementContext);
+  if (!context) {
+    throw new Error('useAttunement must be used within an AttunementProvider');
+  }
+
+  return context;
+}
+
+export { defaultAttunementTrackerProps };

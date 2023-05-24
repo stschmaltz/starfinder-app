@@ -3,9 +3,11 @@ import { Flex, IconButton, Input } from '@chakra-ui/react';
 import React, { useContext, useState } from 'react';
 import AbilityModal from './AbilityModal';
 import { CharacterContext } from '../../../../context/CharacterContext';
-import { AttunementTrackerProps } from '../../../../hooks/use-character-attunement';
+
 import { AbilityObject, AbilityType } from '../../../../types/character';
 import BasicLoader from '../../../BasicLoader';
+import { AttunementTrackerProps } from '../../../../context/AttunementContext';
+import { theme } from '../../../../styles/theme';
 
 const typeToBackgroundColor: Record<AbilityType, string> = {
   GRAVITON: 'purple.100',
@@ -66,12 +68,20 @@ export default function Ability({
       )}
 
       <Flex
+        //css to make noticeale when highlighted
+        boxShadow={
+          isHighlighted
+            ? `0 0 0 3px ${
+                ability.type === AbilityType.PHOTON
+                  ? theme.colors.orange['700']
+                  : theme.colors.purple['700']
+              }`
+            : ''
+        }
         p={1}
         flexDir={'column'}
         borderRadius={'lg'}
-        backgroundColor={
-          isHighlighted ? 'purple.200' : typeToBackgroundColor[ability.type]
-        }
+        backgroundColor={typeToBackgroundColor[ability.type]}
         key={ability.name + '-flex'}
       >
         <Flex h={30}>
