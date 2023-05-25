@@ -21,7 +21,7 @@ export default function SavingThrowsRow({
   onBonusChange: (valueAsNumber: number) => void;
 }) {
   return (
-    <Grid alignItems={'center'} templateColumns="2fr 1fr 1fr 1fr">
+    <Grid alignItems={'center'} templateColumns="1fr 1fr 1fr 1fr">
       <GridItem alignSelf={'center'}>
         <Text
           fontWeight={'bold'}
@@ -40,7 +40,6 @@ export default function SavingThrowsRow({
       <GridItem margin={'auto'}>
         <NumberInput
           variant="unstyled"
-          size="lg"
           min={0}
           defaultValue={baseBonus}
           max={10000}
@@ -54,14 +53,13 @@ export default function SavingThrowsRow({
             fontWeight={'medium'}
             textAlign={'center'}
             fontSize={'md'}
-            p={1}
+            p={0}
           />
         </NumberInput>
       </GridItem>
       <GridItem margin={'auto'}>
         <NumberInput
           variant="unstyled"
-          size="lg"
           min={0}
           defaultValue={miscBonus}
           max={10000}
@@ -75,7 +73,7 @@ export default function SavingThrowsRow({
             fontWeight={'medium'}
             textAlign={'center'}
             fontSize={'md'}
-            p={1}
+            p={0}
           />
         </NumberInput>
       </GridItem>

@@ -53,6 +53,7 @@ export default function AttackBonus({
           templateAreas={`"melee" "ranged" "thrown"`}
           color="blackAlpha.700"
           fontWeight="bold"
+          rowGap={0.5}
         >
           <GridItem area={'melee'}>
             <AttackBonusRow

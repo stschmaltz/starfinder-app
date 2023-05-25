@@ -21,12 +21,12 @@ export default function ArmorClassRow({
   onBonusChange: (value: number) => void;
 }) {
   return (
-    <Grid alignItems={'center'} templateColumns="2fr 1fr 1fr 1fr">
+    <Grid alignItems={'center'} templateColumns="1fr 1fr 1fr 1fr">
       <GridItem alignSelf={'center'}>
         <Text
           fontWeight={'bold'}
           textAlign={'left'}
-          fontSize={'md'}
+          fontSize={'sm'}
           lineHeight={1}
         >
           {name}
@@ -40,7 +40,6 @@ export default function ArmorClassRow({
       <GridItem m={'auto'}>
         <NumberInput
           variant="unstyled"
-          size="lg"
           min={0}
           defaultValue={armorBonus}
           max={10000}
@@ -54,14 +53,13 @@ export default function ArmorClassRow({
             fontWeight={'medium'}
             textAlign={'center'}
             fontSize={'md'}
-            p={1}
+            p={0.5}
           />
         </NumberInput>
       </GridItem>
       <GridItem m={'auto'}>
         <NumberInput
           variant="unstyled"
-          size="lg"
           min={0}
           defaultValue={miscBonus}
           max={10000}
@@ -75,7 +73,7 @@ export default function ArmorClassRow({
             fontWeight={'medium'}
             textAlign={'center'}
             fontSize={'md'}
-            p={1}
+            p={0.5}
           />
         </NumberInput>
       </GridItem>

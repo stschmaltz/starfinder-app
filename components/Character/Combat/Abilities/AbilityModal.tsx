@@ -11,6 +11,17 @@ import {
 import Image from 'next/image';
 import { AbilityType } from '../../../../types/character';
 
+const abilityTypeToColor = (type: AbilityType) => {
+  switch (type) {
+    case AbilityType.PHOTON:
+      return 'orange.50';
+    case AbilityType.GRAVITON:
+      return 'purple.100';
+    default:
+      return 'gray.100';
+  }
+};
+
 export default function AbilityModal({
   isOpen,
   onClose,
@@ -28,7 +39,7 @@ export default function AbilityModal({
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent
-        outlineColor={type === AbilityType.PHOTON ? 'orange.50' : 'purple.100'}
+        outlineColor={abilityTypeToColor(type)}
         outline={'12px solid'}
         mt={'40%'}
       >

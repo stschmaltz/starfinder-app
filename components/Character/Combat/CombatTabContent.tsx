@@ -24,8 +24,8 @@ export default function CombatTabContent({
         gridTemplateRows={'0.5fr 1fr 1fr 1fr'}
         gridTemplateColumns={'1fr 1fr'}
         h="60vh"
-        rowGap="3"
-        columnGap="3"
+        rowGap="2"
+        columnGap="2"
         color="blackAlpha.700"
       >
         <GridItem area={'attunement'}>
@@ -34,7 +34,7 @@ export default function CombatTabContent({
         <GridItem area={'armorClass'}>
           <ArmorClass abilityScoreModifiers={character.abilityScoreModifiers} />
         </GridItem>
-        <GridItem overflowY={'auto'} area={'weapons'} minH={'140px'}>
+        <GridItem overflowY={'auto'} area={'weapons'} minH={'200px'}>
           <WeaponsList
             weapons={character.weapons}
             abilityScoreModifiers={character.abilityScoreModifiers}

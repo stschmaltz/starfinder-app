@@ -11,7 +11,7 @@ export default function ArmorClassRowHeader({
   thirdColumnContent: string;
 }) {
   return (
-    <Grid alignItems={'end'} templateColumns="2fr 1fr 1fr 1fr">
+    <Grid alignItems={'end'} templateColumns="1fr 1fr 1fr 1fr">
       <GridItem></GridItem>
       <GridItem>
         <Text fontWeight={'normal'} textAlign={'center'} fontSize={'xs'}>

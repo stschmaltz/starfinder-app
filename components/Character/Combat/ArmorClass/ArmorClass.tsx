@@ -54,10 +54,9 @@ export default function ArmorClass({
       bodyContent={
         <Grid
           templateAreas={`"energyAC" "kineticAC" "combatManeuvers"`}
-          rowGap="0.5"
           color="blackAlpha.700"
           fontWeight="bold"
-          overflowY={'clip'}
+          rowGap={1}
         >
           <GridItem area={'energyAC'}>
             <ArmorClassRow
