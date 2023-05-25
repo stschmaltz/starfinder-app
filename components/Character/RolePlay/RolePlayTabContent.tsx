@@ -25,8 +25,8 @@ export default function RolePlayTabContent({
         gridTemplateRows={'1fr 1fr 0.4fr 0.4fr'}
         gridTemplateColumns={'1fr 1fr'}
         h="60vh"
-        rowGap="3"
-        columnGap="3"
+        rowGap="2"
+        columnGap="2"
         color="blackAlpha.700"
       >
         <GridItem area={'skills'}>

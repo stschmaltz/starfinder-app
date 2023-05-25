@@ -24,9 +24,9 @@ export default function AbilityScoreRow({
           onChange={onChange}
           w={8}
         >
-          <NumberInputField textAlign={'center'} p={1} />
+          <NumberInputField fontWeight={'medium'} textAlign={'center'} p={1} />
         </NumberInput>
-        <Text fontWeight={'semibold'} fontSize={'md'}>
+        <Text fontWeight={'bold'} fontSize={'md'}>
           ({abilityScoreModifier > 0 ? '+' : ''}
           {abilityScoreModifier})
         </Text>

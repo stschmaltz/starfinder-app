@@ -17,7 +17,7 @@ export default function Resource({ resource }: { resource: ResourceObject }) {
           setIsModalOpen(false);
         }}
       />
-      <Flex w={'80%'} justifyContent={'space-between'}>
+      <Flex mb={3} w={'85%'} justifyContent={'space-between'}>
         <Text fontWeight={'bold'} flex={1} fontSize={'md'}>
           {resource.name}
         </Text>
