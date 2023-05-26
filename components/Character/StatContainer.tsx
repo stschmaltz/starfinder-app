@@ -27,7 +27,7 @@ export default function StatContainer({
             {header}
           </Text>
           {actionContent ? (
-            <Box position={'absolute'} top={1} right={0}>
+            <Box position={'absolute'} top={0} right={0.5}>
               {actionContent}
             </Box>
           ) : null}

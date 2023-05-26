@@ -7,6 +7,7 @@ import {
   AccordionPanel,
 } from '@chakra-ui/react';
 import WeaponRow from './WeaponRow';
+import { WeaponObject } from '../../../../types/character';
 
 export default function Weapon({
   hit,
@@ -17,16 +18,7 @@ export default function Weapon({
   range,
   ammoUsage,
   critical,
-}: {
-  special?: string;
-  name: string;
-  damage?: string;
-  range?: string;
-  ammoUsage?: string;
-  critical?: string;
-  type: string;
-  hit: string;
-}) {
+}: WeaponObject) {
   return (
     <Accordion defaultIndex={undefined} allowMultiple>
       <AccordionItem
@@ -54,7 +46,7 @@ export default function Weapon({
             thirdColumn={
               hit
                 ? {
-                    content: `${Number(hit) > 0 ? '+' : ''}${hit}`,
+                    content: `${hit > 0 ? '+' : ''}${hit}`,
                     title: 'hit',
                   }
                 : undefined
@@ -62,7 +54,7 @@ export default function Weapon({
             fourthColumn={
               range
                 ? {
-                    content: range,
+                    content: range.toString(),
                     title: 'range',
                   }
                 : undefined

@@ -27,3 +27,7 @@
 .scrollTouch {
   -webkit-overflow-scrolling: touch; /* Lets it scroll lazy */
 }
+
+.required-text {
+  margin-top: 0 !important;
+}

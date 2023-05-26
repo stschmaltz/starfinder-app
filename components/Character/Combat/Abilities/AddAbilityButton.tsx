@@ -2,7 +2,7 @@ import { AddIcon } from '@chakra-ui/icons';
 import {
   Button,
   Flex,
-  Input,
+  IconButton,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -10,60 +10,125 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  useToast,
+  VStack,
 } from '@chakra-ui/react';
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { CharacterContext } from '../../../../context/CharacterContext';
+import { AbilityObject, AbilityType } from '../../../../types/character';
+import FormInputField from '../../../Inputs/FormInputField';
+import FormSelectInputField from '../../../Inputs/FormSelectInputField';
 
-export default function AddAbilityButton({
-  addAbilityFn,
-}: {
-  addAbilityFn: () => void;
-}) {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const onClose = () => setIsOpen(false);
-  const onAdd = () => {
-    addAbilityFn();
+export default function AddAbilityButton() {
+  const toast = useToast();
+  const [isOpen, setIsOpen] = useState(false);
+  const [abilityName, setAbilityName] = useState('');
+  const [abilityDescription, setAbilityDescription] = useState('');
+  const [abilityType, setAbilityType] = useState(AbilityType.NEUTRAL);
+  const [, dispatch] = useContext(CharacterContext);
+
+  const onClose = () => {
     setIsOpen(false);
+  };
+
+  const onAdd = () => {
+    if (!abilityName || !abilityDescription || !abilityType) {
+      toast({
+        title: 'Submission Error.',
+        description: 'All fields are required!',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+
+      return;
+    }
+
+    const newAbility: AbilityObject = {
+      name: abilityName,
+      description: abilityDescription,
+      type: abilityType,
+    };
+
+    dispatch({
+      type: 'UPDATE_CHARACTER',
+      payload: {
+        abilities: [newAbility],
+      },
+    });
+
+    setAbilityName('');
+    setAbilityDescription('');
+    setAbilityType(AbilityType.NEUTRAL);
+    setIsOpen(false);
+  };
+
+  const emptyRequiredFields = () => {
+    return !abilityName || !abilityDescription || !abilityType;
   };
 
   return (
     <>
-      <Flex alignItems={'center'}>
-        <Button
-          colorScheme={'brandPrimary'}
-          bgColor={'brandPrimary.100'}
-          color={'black'}
-          variant={'solid'}
-          size={'xs'}
-          aria-label="add ability"
-          rightIcon={<AddIcon w={2} h={2} fontSize={'xs'} />}
+      <Flex alignItems="center">
+        <IconButton
+          colorScheme="brandPrimary"
+          fontSize="sm"
           onClick={() => setIsOpen(true)}
-        >
-          Add
-        </Button>
+          w={6}
+          h={6}
+          borderRadius="50%"
+          size="xxs"
+          aria-label="add ability"
+          icon={<AddIcon />}
+        />
       </Flex>
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent
-          outlineColor={'brandPrimary.100'}
-          outline={'12px solid'}
-          mt={'40%'}
+          outlineColor="brandPrimary.100"
+          outline="12px solid"
+          mt="40%"
         >
           <ModalHeader ml={5}>Add Ability</ModalHeader>
 
           <ModalCloseButton />
           <ModalBody>
-            <Flex mx={'auto'} mb={4} flexDir={'column'} maxWidth={'90%'}>
-              <Input placeholder="Ability Name" />
-              <Input placeholder="Ability Description" />
-              <Input placeholder="Ability Image" />
-            </Flex>
+            <VStack spacing={4}>
+              <FormInputField
+                value={abilityName}
+                onChange={(e) => setAbilityName(e.target.value)}
+                placeholder="Ability Name"
+                required
+              />
+              <FormInputField
+                value={abilityDescription}
+                onChange={(e) => setAbilityDescription(e.target.value)}
+                placeholder="Ability Description"
+                required
+              />
+              <FormSelectInputField
+                value={abilityType}
+                onChange={(e) => setAbilityType(e.target.value as AbilityType)}
+                isRequired
+                placeholder="Ability Type"
+                options={Object.values(AbilityType).map((abilityType) => ({
+                  label: abilityType,
+                  value: abilityType,
+                }))}
+              />
+            </VStack>
           </ModalBody>
 
           <ModalFooter>
             <Button colorScheme="brandSecondary" mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme="brandPrimary" mr={3} onClick={onAdd}>
+            <Button
+              disabled={emptyRequiredFields()}
+              colorScheme="brandPrimary"
+              mr={3}
+              onClick={onAdd}
+            >
               Add
             </Button>
           </ModalFooter>

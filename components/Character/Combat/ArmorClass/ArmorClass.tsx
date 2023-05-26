@@ -57,6 +57,7 @@ export default function ArmorClass({
           color="blackAlpha.700"
           fontWeight="bold"
           rowGap={1}
+          overflowY="hidden"
         >
           <GridItem area={'energyAC'}>
             <ArmorClassRow

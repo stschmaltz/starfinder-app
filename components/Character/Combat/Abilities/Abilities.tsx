@@ -18,13 +18,7 @@ export default function Abilities({
   return (
     <StatContainer
       header="Abilities"
-      actionContent={
-        <AddAbilityButton
-          addAbilityFn={() => {
-            console.log('Add ability');
-          }}
-        />
-      }
+      actionContent={<AddAbilityButton />}
       bodyContent={
         <Flex overflowY="auto" flexDir={'column'} rowGap={1} p={0.5}>
           {abilities.map((ability) => (

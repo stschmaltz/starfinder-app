@@ -2,6 +2,7 @@ import { Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
 // import WeaponRow from './WeaponRow';
 import Weapon from './Weapon';
+import AddWeaponButton from './AddWeapon';
 import {
   AbilityScoreModifiersObject,
   WeaponObject,
@@ -18,6 +19,7 @@ export default function WeaponsList({
   return (
     <StatContainer
       header="Weapons"
+      actionContent={<AddWeaponButton />}
       bodyContent={
         <Grid
           gridTemplateRows={`repeat(${weapons.length})`}
@@ -29,6 +31,8 @@ export default function WeaponsList({
             return (
               <GridItem key={weapon.name}>
                 <Weapon
+                  damageBonusStat={weapon.damageBonusStat}
+                  level={weapon.level}
                   name={weapon.name}
                   damage={
                     weapon.damageBonusStat
@@ -39,12 +43,12 @@ export default function WeaponsList({
                         }`
                       : weapon.damage
                   }
-                  range={weapon.range?.toString()}
+                  range={weapon.range}
                   special={weapon.special}
                   ammoUsage={weapon.ammoUsage}
                   critical={weapon.critical}
                   type={weapon.type}
-                  hit={weapon.hit.toString()}
+                  hit={weapon.hit}
                 />
               </GridItem>
             );

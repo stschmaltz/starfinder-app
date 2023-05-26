@@ -33,6 +33,9 @@ const characterReducer = (
         character: {
           ...state.character,
           ...action.payload,
+          abilities: action.payload.abilities
+            ? [...state.character.abilities, ...action.payload.abilities]
+            : state.character.abilities,
         },
         isDirty: true,
       };
