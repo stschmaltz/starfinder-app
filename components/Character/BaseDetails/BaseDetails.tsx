@@ -7,10 +7,10 @@ import {
 } from '@chakra-ui/react';
 import React, { useCallback, useContext } from 'react';
 import HealthDetailRow from './HealthDetailRow';
-import { displayCase } from '../../../../lib/string-helpers';
-import { theme } from '../../../../styles/theme';
-import { BaseCharacterDetails, HealthStats } from '../../../../types/character';
-import { CharacterContext } from '../../../../context/CharacterContext';
+import { displayCase } from '../../../lib/string-helpers';
+import { theme } from '../../../styles/theme';
+import { BaseCharacterDetails, HealthStats } from '../../../types/character';
+import { CharacterContext } from '../../../context/CharacterContext';
 
 function BaseDetails({
   baseDetails,
@@ -41,19 +41,50 @@ function BaseDetails({
     [dispatch, baseDetails]
   );
 
+  const updateLevel = useCallback(
+    (level: number) => {
+      dispatch({
+        type: 'UPDATE_CHARACTER',
+        payload: { baseDetails: { ...baseDetails, level } },
+      });
+    },
+    [dispatch, baseDetails]
+  );
+
   return (
     <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
-      <Text as="b" fontSize="2xl">
-        {baseDetails.name}
-      </Text>
+      <Flex flexDir={'column'} mb={2}>
+        <Text as="b" fontSize="2xl">
+          {baseDetails.name}
+        </Text>
+        <Text mt={-2} fontWeight={'medium'} fontSize="lg">
+          {displayCase(baseDetails.race)} {displayCase(baseDetails.class)}
+        </Text>
+      </Flex>
       <Flex justifyContent={'space-between'}>
         <Flex flexDir={'column'}>
-          <Text fontSize="lg">
-            {displayCase(baseDetails.race)} {displayCase(baseDetails.class)}
-          </Text>
-          <Text mr={1} as="b" fontSize="md">
-            Level {baseDetails.level}
-          </Text>
+          <Flex alignItems={'center'}>
+            <Text fontWeight={'medium'} mr={1} fontSize="md">
+              Level:
+            </Text>
+            <NumberInput
+              variant="unstyled"
+              min={0}
+              defaultValue={baseDetails.level}
+              max={10000}
+              onChange={(_, valueAsNumber) => {
+                updateLevel(valueAsNumber);
+              }}
+              w={4}
+            >
+              <NumberInputField
+                fontWeight={'bold'}
+                textAlign={'center'}
+                fontSize={'md'}
+                p={0.5}
+              />
+            </NumberInput>
+          </Flex>
 
           <Flex justifyContent={'center'} alignItems={'center'}>
             <Text fontSize="md">
@@ -75,17 +106,21 @@ function BaseDetails({
           </Flex>
         </Flex>
         <Box>
-          <Text fontSize="lg">
+          <Text fontSize="md">
             Speed: <b>{baseDetails.speed}ft </b>
           </Text>
-          <Text fontSize="lg">
+          <Text fontSize="md">
             Size: <b>{displayCase(baseDetails.size)}</b>
           </Text>
-          <Text fontSize="lg">
+          {/* TODO: Add deity to base details */}
+          <Text fontSize="md">
+            Deity: <b>{'Desna'}</b>
+          </Text>
+          <Text fontSize="md">
             Home World: <b>{baseDetails.homeWorld}</b>
           </Text>
         </Box>
-        <Box maxW={'250px'} border={'2px'} borderRadius={4} p={2}>
+        <Box mt={-3} maxW={'250px'} border={'2px'} borderRadius={4} p={2}>
           <HealthDetailRow
             title={'Stamina'}
             currentValue={healthStats.currentStamina}

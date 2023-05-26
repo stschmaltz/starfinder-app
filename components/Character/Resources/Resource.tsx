@@ -1,4 +1,4 @@
-import { Button, Flex, Text } from '@chakra-ui/react';
+import { Button, Divider, Flex, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import ResourceModal from './ResourceModal';
@@ -42,6 +42,12 @@ export default function Resource({ resource }: { resource: ResourceObject }) {
           />
         </Button>
       </Flex>
+      <Divider
+        opacity={0.2}
+        borderColor={'brandPrimary.300'}
+        mb={3}
+        borderBottomWidth={2}
+      />
     </>
   );
 }

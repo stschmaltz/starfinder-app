@@ -139,6 +139,7 @@ const characterResolver = {
       try {
         const characters = await getCharactersForUser(parent._id);
 
+        // TODO: add resources to database
         return characters.map((character) => ({
           ...character,
           resources: [
@@ -146,6 +147,11 @@ const characterResolver = {
               name: 'Solarian Modes',
               url: '/images/solarian-modes.png',
               description: 'The two different solarian attunement modes.',
+            },
+            {
+              name: 'Disproportionate Revelations',
+              url: '/images/disproportionate-revelations.png',
+              description: 'Keeping your revelations in balance.',
             },
           ],
         }));

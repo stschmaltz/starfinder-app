@@ -14,7 +14,8 @@ export default function ResourceTabContent({
       header="Resources"
       bodyContent={
         <Flex
-          my={5}
+          mt={5}
+          mb={10}
           bgColor={'brandPrimary.50'}
           alignItems={'center'}
           justifyContent={'center'}
