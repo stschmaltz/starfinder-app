@@ -22,8 +22,8 @@ export default function HealthDetailRow({
 }) {
   return (
     <Flex maxW={'175px'} alignItems={'center'} justifyContent={'space-between'}>
-      <Box minWidth="80px">
-        <Text fontWeight={'semibold'} fontSize="lg">
+      <Box minWidth="68px">
+        <Text fontWeight={'normal'} fontSize="lg">
           {title}:
         </Text>
       </Box>
@@ -36,8 +36,9 @@ export default function HealthDetailRow({
           defaultValue={currentValue}
           max={maxValue}
           onChange={onCurrentChange}
+          variant="unstyled"
         >
-          <NumberInputField textAlign={'center'} p={1} />
+          <NumberInputField fontWeight={'bold'} textAlign={'center'} p={1} />
         </NumberInput>
         /
         <NumberInput
@@ -47,8 +48,9 @@ export default function HealthDetailRow({
           min={0}
           defaultValue={maxValue}
           max={1000}
+          variant="unstyled"
         >
-          <NumberInputField textAlign={'center'} p={1} />
+          <NumberInputField fontWeight={'bold'} textAlign={'center'} p={1} />
         </NumberInput>
       </Flex>
     </Flex>

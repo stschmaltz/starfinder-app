@@ -4,6 +4,7 @@ import {
   NumberInput,
   NumberInputField,
   Text,
+  VStack,
 } from '@chakra-ui/react';
 import React, { useCallback, useContext } from 'react';
 import HealthDetailRow from './HealthDetailRow';
@@ -120,7 +121,14 @@ function BaseDetails({
             Home World: <b>{baseDetails.homeWorld}</b>
           </Text>
         </Box>
-        <Box mt={-3} maxW={'250px'} border={'2px'} borderRadius={4} p={2}>
+        <VStack
+          spacing={0}
+          mt={-3}
+          maxW={'250px'}
+          border={'2px'}
+          borderRadius={4}
+          p={2}
+        >
           <HealthDetailRow
             title={'Stamina'}
             currentValue={healthStats.currentStamina}
@@ -172,7 +180,7 @@ function BaseDetails({
               });
             }}
           />
-        </Box>
+        </VStack>
       </Flex>
     </Box>
   );
