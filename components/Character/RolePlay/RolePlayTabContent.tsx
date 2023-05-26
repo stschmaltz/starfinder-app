@@ -5,8 +5,8 @@ import Skills from './Skills/Skills';
 import Languages from './Languages/Languages';
 import CarryContainer from './CarryContainer/CarryContainer';
 import CharacterNotes from './CharacterNotes/CharacterNotes';
+import RolePlayAbilities from './Abilities/RolePlayAbilities';
 import { CharacterObject } from '../../../types/character';
-import Abilities from '../Combat/Abilities/Abilities';
 
 export default function RolePlayTabContent({
   character,
@@ -43,7 +43,7 @@ export default function RolePlayTabContent({
           />
         </GridItem>
         <GridItem area={'abilities'} maxH={60}>
-          <Abilities
+          <RolePlayAbilities
             abilities={character.abilities.filter(
               (ability) => ability.type === 'NEUTRAL'
             )}
