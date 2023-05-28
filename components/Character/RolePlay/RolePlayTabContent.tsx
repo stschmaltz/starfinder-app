@@ -13,8 +13,6 @@ export default function RolePlayTabContent({
 }: {
   character: CharacterObject;
 }) {
-  console.log('Role Play Tab', character);
-
   return (
     <Box>
       <Grid
