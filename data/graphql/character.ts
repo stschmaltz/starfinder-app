@@ -166,7 +166,7 @@ const characterResolver = {
               name: 'Vesk Cover',
               url: '/images/vesk-cover.png',
               description:
-                '+2 Str, +2 Con, -2 Int. Medium. 30ft. low-light vision. When wearing armor.',
+                '+2 Str, +2 Con, -2 Int. Medium. 30ft. low-light vision. When wearing armor +1 bonus to AC. Penalty to armor check on heavy armor reduced by 1.',
             },
           ],
         }));
