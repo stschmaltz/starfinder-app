@@ -58,5 +58,3 @@ export default function StatContainer({
     </Box>
   );
 }
-
-// ... rest of the code

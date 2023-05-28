@@ -9,15 +9,10 @@ import BasicLoader from '../../../BasicLoader';
 import { AttunementTrackerProps } from '../../../../context/AttunementContext';
 import { theme } from '../../../../styles/theme';
 
-const typeToBackgroundColor: Record<AbilityType, string> = {
-  GRAVITON: 'graviton.50',
-  PHOTON: 'photon.50',
-  NEUTRAL: 'gray.50',
-};
-const typeToOutlineColor: Record<AbilityType, string> = {
-  GRAVITON: 'graviton.500',
-  PHOTON: 'photon.500',
-  NEUTRAL: 'gray.400',
+const typeToColorScheme: Record<AbilityType, string> = {
+  GRAVITON: 'graviton',
+  PHOTON: 'photon',
+  NEUTRAL: 'gray',
 };
 
 export default function Ability({
@@ -73,7 +68,6 @@ export default function Ability({
       )}
 
       <Flex
-        //css to make noticeale when highlighted
         boxShadow={
           isHighlighted
             ? `0 0 0 3px ${
@@ -83,12 +77,14 @@ export default function Ability({
               }`
             : ''
         }
-        border={isHighlighted ? '' : '1px solid'}
-        borderColor={`${typeToOutlineColor[ability.type]}`}
+        border={isHighlighted ? 'none' : '1px solid'}
+        borderColor={`${typeToColorScheme[ability.type]}.400`}
         p={1}
         flexDir={'column'}
         borderRadius={'lg'}
-        backgroundColor={typeToBackgroundColor[ability.type]}
+        backgroundColor={`${typeToColorScheme[ability.type]}.${
+          isHighlighted ? '300' : '50'
+        }`}
         key={ability.name + '-flex'}
       >
         <Flex h={30}>

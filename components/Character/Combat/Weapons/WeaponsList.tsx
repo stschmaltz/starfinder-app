@@ -1,6 +1,5 @@
 import { Grid, GridItem } from '@chakra-ui/react';
 import React from 'react';
-// import WeaponRow from './WeaponRow';
 import Weapon from './Weapon';
 import AddWeaponButton from './AddWeapon';
 import {

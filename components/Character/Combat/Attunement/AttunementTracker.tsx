@@ -15,7 +15,12 @@ export default function AttunementTracker() {
       header="Attunement Tracker"
       bodyContent={
         currentAttunement ? (
-          <Flex flexDir={'column'}>
+          <Flex
+            h={'120px'}
+            flexDir={'column'}
+            justifyContent={'center'}
+            alignItems={'center'}
+          >
             <AttunementRow
               currentAttunement={currentAttunement}
               setCurrentAttunement={setCurrentAttunement}

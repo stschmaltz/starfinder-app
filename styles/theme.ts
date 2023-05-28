@@ -1,13 +1,13 @@
 import { extendTheme } from '@chakra-ui/react';
 
-const brandPrimary = '#7FBFC9'; // Slightly lighter Ocean Blue
-const brandDark = '#1D6F92'; // Slightly lighter Dark Ocean Blue
-const brandLight = '#C4DCE4'; // Very Light Ocean Blue
-const firstAccent = '#68BFDE'; // Turquoise Blue
-const secondAccent = '#F0D411'; // Yellow (Retained from your previous theme)
+const brandPrimary = '#7FBFC9';
+const brandDark = '#1D6F92';
+const brandLight = '#C4DCE4';
+const firstAccent = '#68BFDE';
+const secondAccent = '#F0D411';
 
 const colors = {
-  backgroundColor: '#061727', // Dark Space Background
+  backgroundColor: '#061727',
   brandPrimary,
   brandLight,
   brandDark,
@@ -38,24 +38,24 @@ const colors = {
     '900': '#004556',
   },
   accent1: {
-    '50': '#FFF0F5', // Slightly lighter shade of accent1
+    '50': '#FFF0F5',
     '100': '#FFD2E5',
     '200': '#FFB6D4',
     '300': '#FF9AC3',
     '400': '#FF7FAF',
-    '500': '#FF649C', // New accent1 color (Pink)
+    '500': '#FF649C',
     '600': '#E65B8A',
     '700': '#CC5278',
     '800': '#B04865',
     '900': '#964552',
   },
   accent2: {
-    '50': '#FCEAE9', // Lighter shade of accent2
+    '50': '#FCEAE9',
     '100': '#F8D5D4',
     '200': '#F4BFBF',
     '300': '#F0AAAA',
     '400': '#EC9595',
-    '500': '#E88181', // New accent2 color (Coral)
+    '500': '#E88181',
     '600': '#C87171',
     '700': '#A96161',
     '800': '#874F4F',
@@ -67,7 +67,7 @@ const colors = {
     '200': '#DFD1FF',
     '300': '#D2C1FF',
     '400': '#C5B1FF',
-    '500': '#B8A2FF', // Purple color for graviton
+    '500': '#B8A2FF',
     '600': '#AB92FF',
     '700': '#9E83FF',
     '800': '#9173FF',
@@ -79,7 +79,7 @@ const colors = {
     '200': '#FFDFA1',
     '300': '#FFD381',
     '400': '#FFC661',
-    '500': '#FFB942', // Yellow color for photon
+    '500': '#FFB942',
     '600': '#FFAC23',
     '700': '#FFA104',
     '800': '#FF9604',
@@ -127,13 +127,13 @@ const theme = extendTheme({
       },
     },
     fonts: {
-      heading: `'Montserrat', sans-serif`, // Use Montserrat for headings.
-      body: `'Open Sans', sans-serif`, // Use Open Sans for body text.
+      heading: `'Montserrat', sans-serif`,
+      body: `'Open Sans', sans-serif`,
     },
     Text: {
       baseStyle: {
         color: 'gray.800',
-        fontSize: 'lg', // Slightly smaller base font size.
+        fontSize: 'lg',
       },
       variants: {
         bold: {
@@ -187,7 +187,7 @@ const theme = extendTheme({
         minHeight: '100vh',
       },
       a: {
-        fontSize: 'lg', // Slightly smaller link font size.
+        fontSize: 'lg',
         color: colors.brandDark,
         _hover: {
           textDecoration: 'underline',

@@ -50,7 +50,6 @@ export default function SkillRow({
       alignItems={'center'}
       justifyContent={'center'}
       overflowY={'hidden'}
-      // h={7}
       templateColumns="2fr 1fr 1fr 1fr 1fr"
     >
       <GridItem>
