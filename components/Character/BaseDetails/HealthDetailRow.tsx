@@ -22,7 +22,7 @@ export default function HealthDetailRow({
 }) {
   return (
     <Flex maxW={'175px'} alignItems={'center'} justifyContent={'space-between'}>
-      <Box minWidth="68px">
+      <Box minWidth="70px">
         <Text fontWeight={'normal'} fontSize="lg">
           {title}:
         </Text>
