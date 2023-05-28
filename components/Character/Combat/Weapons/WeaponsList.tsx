@@ -23,13 +23,13 @@ export default function WeaponsList({
       bodyContent={
         <Grid
           gridTemplateRows={`repeat(${weapons.length})`}
-          rowGap="0.5"
+          rowGap="0"
           color="blackAlpha.700"
           fontWeight="bold"
         >
           {weapons.map((weapon) => {
             return (
-              <GridItem key={weapon.name}>
+              <GridItem key={weapon.name} mb={1}>
                 <Weapon
                   damageBonusStat={weapon.damageBonusStat}
                   level={weapon.level}

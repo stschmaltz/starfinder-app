@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
+
 import BaseDetails from './BaseDetails/BaseDetails';
 import AbilityScores from './AbilityScores/AbilityScores';
 import CharacterTabs from './Tabs';
@@ -38,26 +39,9 @@ function Character(props: CharacterObject) {
 
   return (
     <>
-      <Flex>
-        <Button
-          colorScheme={'brandPrimary'}
-          isDisabled={!characterState.isDirty}
-          onClick={saveCharacter}
-        >
-          Save
-        </Button>
-        <Button
-          ml={2}
-          mb={2}
-          colorScheme={'brandSecondary'}
-          isDisabled={!characterState.isDirty}
-          onClick={saveCharacter}
-        >
-          Reset
-        </Button>
-      </Flex>
-
       <BaseDetails
+        isCharacterDirty={characterState.isDirty}
+        saveCharacter={saveCharacter}
         baseDetails={character.baseDetails}
         healthStats={character.healthStats}
       />

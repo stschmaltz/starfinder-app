@@ -16,10 +16,10 @@ export default function ResourceTabContent({
         <Flex
           mt={5}
           mb={10}
-          bgColor={'brandPrimary.50'}
           alignItems={'center'}
-          justifyContent={'center'}
           flexDir={'column'}
+          h={'52.5vh'}
+          overflowY={'auto'}
         >
           <Flex w={'85%'} justifyContent={'space-between'} mb={3}>
             <Text fontWeight={'semibold'} flex={1} fontSize={'sm'}>

@@ -52,7 +52,7 @@ export default function Skills({
               <Text fontSize={'xs'}>Misc Mod</Text>
             </GridItem>
           </Grid>
-          <Flex flexDir={'column'} rowGap={'3.7px'}>
+          <Flex maxH={'55vh'} flexDir={'column'} rowGap={'3.7px'}>
             {skills &&
               skills.map((skill) => (
                 <SkillRow

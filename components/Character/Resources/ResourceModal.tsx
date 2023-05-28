@@ -25,12 +25,12 @@ export default function ResourceModal({
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent
-        outlineColor={'blackAlpha.200'}
         outline={'12px solid'}
+        outlineColor={'brandPrimary.500'}
         mt={'40%'}
       >
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody mt={10}>
           <Image src={url} alt={name} width={400} height={400} />
         </ModalBody>
 

@@ -10,7 +10,7 @@ export default function BasicLoader() {
       width="100vw"
     >
       <Spinner
-        color={theme.colors.brandPrimary['500']}
+        color={theme.colors.brandPrimary['300']}
         colorScheme={'brandPrimary'}
         size={'xl'}
       />

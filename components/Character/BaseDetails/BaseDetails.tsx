@@ -8,17 +8,21 @@ import {
 } from '@chakra-ui/react';
 import React, { useCallback, useContext } from 'react';
 import HealthDetailRow from './HealthDetailRow';
+import SaveCharacterButtonRow from './SaveCharacterButtonRow';
 import { displayCase } from '../../../lib/string-helpers';
-import { theme } from '../../../styles/theme';
 import { BaseCharacterDetails, HealthStats } from '../../../types/character';
 import { CharacterContext } from '../../../context/CharacterContext';
 
 function BaseDetails({
   baseDetails,
   healthStats,
+  isCharacterDirty,
+  saveCharacter,
 }: {
   baseDetails: BaseCharacterDetails;
   healthStats: HealthStats;
+  isCharacterDirty: boolean;
+  saveCharacter: () => void;
 }) {
   const [_characterState, dispatch] = useContext(CharacterContext);
 
@@ -53,14 +57,39 @@ function BaseDetails({
   );
 
   return (
-    <Box borderRadius={12} p={4} bgColor={theme.colors.brandPrimary['50']}>
-      <Flex flexDir={'column'} mb={2}>
-        <Text as="b" fontSize="2xl">
-          {baseDetails.name}
-        </Text>
-        <Text mt={-2} fontWeight={'medium'} fontSize="lg">
-          {displayCase(baseDetails.race)} {displayCase(baseDetails.class)}
-        </Text>
+    <Box
+      p={4}
+      borderRadius={'md'}
+      boxShadow={'xl'}
+      bg="brandPrimary.50"
+      border="5px solid"
+      borderColor="brandPrimary.900"
+      h="18vh"
+      mb={2.5}
+    >
+      <Flex justifyContent={'space-between'}>
+        <Flex
+          borderRadius={'md'}
+          px={3}
+          border={'1px'}
+          borderColor={'brandPrimary.500'}
+          bgColor={'brandPrimary.300'}
+          fontWeight="bold"
+          fontSize={'lg'}
+          flexDir={'column'}
+          mb={2}
+        >
+          <Text as="b" fontSize="2xl">
+            {baseDetails.name}
+          </Text>
+          <Text mt={-2} fontWeight={'medium'} fontSize="lg">
+            {displayCase(baseDetails.race)} {displayCase(baseDetails.class)}
+          </Text>
+        </Flex>
+        <SaveCharacterButtonRow
+          saveCharacter={saveCharacter}
+          isDirty={isCharacterDirty}
+        ></SaveCharacterButtonRow>
       </Flex>
       <Flex justifyContent={'space-between'}>
         <Flex flexDir={'column'}>
@@ -125,9 +154,9 @@ function BaseDetails({
           spacing={0}
           mt={-3}
           maxW={'250px'}
-          border={'2px'}
           borderRadius={4}
           p={2}
+          bgColor={'brandPrimary.300'}
         >
           <HealthDetailRow
             title={'Stamina'}

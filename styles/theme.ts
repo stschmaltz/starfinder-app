@@ -1,87 +1,99 @@
 import { extendTheme } from '@chakra-ui/react';
 
-const brandPrimary = '#E63946';
-const brandLight = '#FFdddd';
-const firstAccent = '#a8dadc';
-const secondAccent = '#1D3557';
-const thirdAccent = '#EB603E';
-const brandSecondary = '#457b9d';
+const brandPrimary = '#7FBFC9'; // Slightly lighter Ocean Blue
+const brandDark = '#1D6F92'; // Slightly lighter Dark Ocean Blue
+const brandLight = '#C4DCE4'; // Very Light Ocean Blue
+const firstAccent = '#68BFDE'; // Turquoise Blue
+const secondAccent = '#F0D411'; // Yellow (Retained from your previous theme)
 
 const colors = {
-  backgroundColor: '#FBFFF8',
+  backgroundColor: '#061727', // Dark Space Background
   brandPrimary,
   brandLight,
-  brandSecondary,
+  brandDark,
   firstAccent,
   secondAccent,
-  thirdAccent,
   brandPrimaryColors: {
-    '50': brandLight,
-    '100': '#FF7582',
-    '200': '#FF6B78',
-    '300': '#FF616E',
-    '400': '#FF5764',
-    '500': '#FA4D5A',
-    '600': brandPrimary,
-    '700': '#DC2F3C',
-    '800': '#DC2F3C',
-    '900': '#C81B28',
+    '50': '#C0DEE5',
+    '100': '#B3D8E2',
+    '200': '#A7D2DF',
+    '300': '#9ACCD9',
+    '400': brandPrimary,
+    '500': '#7FBFC9',
+    '600': '#72B8BF',
+    '700': '#65B2B6',
+    '800': '#58ACAD',
+    '900': '#4BA5A3',
   },
   brandSecondaryColors: {
-    '50': '#8BC1E3',
-    '100': '#81B7D9',
-    '200': '#77ADCF',
-    '300': '#6399BB',
-    '400': '#598FB1',
-    '500': '#4F85A7',
-    '600': brandSecondary,
-    '700': '#3B7193',
-    '800': '#316789',
-    '900': '#275D7F',
+    '50': '#478CA2',
+    '100': '#3A8699',
+    '200': '#2D8190',
+    '300': brandDark,
+    '400': '#206C84',
+    '500': '#13657B',
+    '600': '#065F72',
+    '700': '#005868',
+    '800': '#004E5F',
+    '900': '#004556',
   },
   accent1: {
-    '50': '#F8FFFF',
-    '100': '#EEFFFF',
-    '200': '#E4FFFF',
-    '300': '#DAFFFF',
-    '400': '#D0FFFF',
-    '500': '#C6F8FA',
-    '600': '#BCEEF0',
-    '700': '#B2E4E6',
-    '800': '#A8DADC',
-    '900': '#9ED0D2',
+    '50': '#FFF0F5', // Slightly lighter shade of accent1
+    '100': '#FFD2E5',
+    '200': '#FFB6D4',
+    '300': '#FF9AC3',
+    '400': '#FF7FAF',
+    '500': '#FF649C', // New accent1 color (Pink)
+    '600': '#E65B8A',
+    '700': '#CC5278',
+    '800': '#B04865',
+    '900': '#964552',
   },
   accent2: {
-    '50': '#778FB1',
-    '100': '#6D85A7',
-    '200': '#597193',
-    '300': '#4F6789',
-    '400': '#455D7F',
-    '500': '#3B5375',
-    '600': '#31496B',
-    '700': '#273F61',
-    '800': '#1D3557',
-    '900': '#132B4D',
+    '50': '#FCEAE9', // Lighter shade of accent2
+    '100': '#F8D5D4',
+    '200': '#F4BFBF',
+    '300': '#F0AAAA',
+    '400': '#EC9595',
+    '500': '#E88181', // New accent2 color (Coral)
+    '600': '#C87171',
+    '700': '#A96161',
+    '800': '#874F4F',
+    '900': '#653E3E',
   },
-  accent3: {
-    '50': '#FFB08E',
-    '100': '#FFA684',
-    '200': '#FF9C7A',
-    '300': '#FF9270',
-    '400': '#FF8866',
-    '500': '#FF7E5C',
-    '600': '#F56A48',
-    '700': '#EB603E',
-    '800': '#E15634',
-    '900': '#D74C2A',
+  graviton: {
+    '50': '#F6F0FF',
+    '100': '#ECE1FF',
+    '200': '#DFD1FF',
+    '300': '#D2C1FF',
+    '400': '#C5B1FF',
+    '500': '#B8A2FF', // Purple color for graviton
+    '600': '#AB92FF',
+    '700': '#9E83FF',
+    '800': '#9173FF',
+    '900': '#8464FF',
+  },
+  photon: {
+    '50': '#FFF6E0',
+    '100': '#FFECC1',
+    '200': '#FFDFA1',
+    '300': '#FFD381',
+    '400': '#FFC661',
+    '500': '#FFB942', // Yellow color for photon
+    '600': '#FFAC23',
+    '700': '#FFA104',
+    '800': '#FF9604',
+    '900': '#FF8904',
   },
 };
+
 const activeLabelStyles = {
   transform: 'scale(0.85) translateY(24px)',
 };
+
 const theme = extendTheme({
   config: {
-    initialColorMode: 'light',
+    initialColorMode: 'dark',
     useSystemColorMode: false,
   },
   components: {
@@ -115,13 +127,13 @@ const theme = extendTheme({
       },
     },
     fonts: {
-      heading: `'Open Sans', sans-serif`,
-      body: `'Raleway', sans-serif`,
+      heading: `'Montserrat', sans-serif`, // Use Montserrat for headings.
+      body: `'Open Sans', sans-serif`, // Use Open Sans for body text.
     },
     Text: {
       baseStyle: {
         color: 'gray.800',
-        fontSize: '2xl',
+        fontSize: 'lg', // Slightly smaller base font size.
       },
       variants: {
         bold: {
@@ -130,17 +142,17 @@ const theme = extendTheme({
           display: 'inline-block',
         },
         h1: {
-          color: colors.brandPrimary,
+          color: 'gray.800',
           fontWeight: 'bold',
           fontSize: '4xl',
         },
         h2: {
-          color: colors.brandSecondary,
+          color: 'gray.800',
           fontWeight: 'bold',
           fontSize: '3xl',
         },
         h3: {
-          color: colors.brandSecondary,
+          color: 'gray.800',
           fontWeight: 'bold',
           fontSize: '2xl',
         },
@@ -151,35 +163,31 @@ const theme = extendTheme({
     transparent: 'transparent',
     lightShade: '#FBFFF8',
     primary: colors.brandPrimary,
-    secondary: colors.brandSecondary,
+    secondary: colors.brandDark,
     firstAccent: colors.firstAccent,
     secondAccent: colors.secondAccent,
-    thirdAccent: colors.thirdAccent,
 
     brandPrimary: colors.brandPrimaryColors,
     brandSecondary: colors.brandSecondaryColors,
     accent1: colors.accent1,
     accent2: colors.accent2,
-    accent3: colors.accent3,
-
-    teal: colors.accent1,
-    blue: colors.brandSecondaryColors,
-    red: colors.brandPrimaryColors,
-    orange: colors.accent3,
+    graviton: colors.graviton,
+    photon: colors.photon,
   },
-
   styles: {
     global: {
       body: {
-        bg: colors.backgroundColor,
+        bgImage: "url('/images/dark-space-background.jpg')",
+        bgPosition: 'center',
+        bgRepeat: 'no-repeat',
+        bgSize: 'cover',
         p: 0,
         m: 0,
-        lineHeight: 1.6,
+        lineHeight: '1.5',
       },
-
       a: {
-        fontSize: 'xl',
-        color: colors.brandSecondary,
+        fontSize: 'lg', // Slightly smaller link font size.
+        color: colors.brandDark,
         _hover: {
           textDecoration: 'underline',
         },

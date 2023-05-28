@@ -16,21 +16,36 @@ export default function StatContainer({
     <Box
       overflowY="hidden"
       h="100%"
-      borderRadius={'2xl'}
+      borderRadius={'md'}
+      boxShadow={'xl'}
       bg="brandPrimary.50"
+      border="5px solid"
+      borderColor="brandPrimary.600"
       px={4}
       py={3}
+      _hover={{
+        boxShadow: '2xl',
+      }}
     >
       <Flex h="100%" flexDir="column" width="100%">
-        <Flex justifyContent={'center'} position={'relative'}>
-          <Text fontWeight="bold" fontSize={'md'} mb={2}>
+        <Flex justifyContent={'space-between'} position={'relative'}>
+          <Text
+            border={'1px'}
+            borderColor={'brandPrimary.500'}
+            borderRadius={'md'}
+            px={3}
+            bgColor={'brandPrimary.300'}
+            fontWeight="bold"
+            fontSize={'lg'}
+            mb={2}
+          >
             {header}
           </Text>
           {actionContent ? (
             <Box position={'absolute'} top={0} right={0.5}>
               {actionContent}
             </Box>
-          ) : null}
+          ) : null}{' '}
         </Flex>
         {headerContent}
         {bodyContent && (
@@ -42,3 +57,5 @@ export default function StatContainer({
     </Box>
   );
 }
+
+// ... rest of the code

@@ -22,11 +22,11 @@ export default function RolePlayTabContent({
                   "skills characterNotes"
                   "skills languages"
                   "skills carry"`}
-        gridTemplateRows={'1fr 1fr 0.4fr 0.4fr'}
+        gridTemplateRows={'1fr 1fr 0.3fr 0.3fr'}
         gridTemplateColumns={'1fr 1fr'}
-        h="60vh"
-        rowGap="2"
-        columnGap="2"
+        h="63vh"
+        rowGap="2.5"
+        columnGap="2.5"
         color="blackAlpha.700"
       >
         <GridItem area={'skills'}>

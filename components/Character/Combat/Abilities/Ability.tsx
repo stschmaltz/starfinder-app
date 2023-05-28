@@ -10,9 +10,14 @@ import { AttunementTrackerProps } from '../../../../context/AttunementContext';
 import { theme } from '../../../../styles/theme';
 
 const typeToBackgroundColor: Record<AbilityType, string> = {
-  GRAVITON: 'purple.100',
-  PHOTON: 'orange.50',
-  NEUTRAL: 'white',
+  GRAVITON: 'graviton.300',
+  PHOTON: 'photon.300',
+  NEUTRAL: 'gray.50',
+};
+const typeToOutlineColor: Record<AbilityType, string> = {
+  GRAVITON: 'graviton.500',
+  PHOTON: 'photon.500',
+  NEUTRAL: 'gray.200',
 };
 
 export default function Ability({
@@ -73,11 +78,13 @@ export default function Ability({
           isHighlighted
             ? `0 0 0 3px ${
                 ability.type === AbilityType.PHOTON
-                  ? theme.colors.orange['700']
-                  : theme.colors.purple['700']
+                  ? theme.colors.photon['700']
+                  : theme.colors.graviton['700']
               }`
             : ''
         }
+        border={isHighlighted ? '' : '0.5px solid'}
+        borderColor={`${typeToOutlineColor[ability.type]}`}
         p={1}
         flexDir={'column'}
         borderRadius={'lg'}
@@ -104,7 +111,7 @@ export default function Ability({
             size="md"
             colorScheme="blackAlpha"
             aria-label="Reset Attunement"
-            icon={<InfoIcon color={'primary'} />}
+            icon={<InfoIcon color={'secondary'} />}
             onClick={() => {
               setIsModalOpen(true);
             }}

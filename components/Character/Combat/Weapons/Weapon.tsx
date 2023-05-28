@@ -27,6 +27,8 @@ export default function Weapon({
         borderRadius={7}
         overflow={'hidden'}
         border={'1px'}
+        borderColor={'brandPrimary.800'}
+        bg={'brandPrimary.100'}
       >
         <AccordionButton p={0}>
           <WeaponRow

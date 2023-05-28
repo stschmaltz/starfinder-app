@@ -89,7 +89,7 @@ export default function AddWeaponButton() {
     <>
       <Flex alignItems="center">
         <IconButton
-          colorScheme="brandPrimary"
+          colorScheme="brandSecondary"
           fontSize="sm"
           onClick={() => setIsOpen(true)}
           w={6}
@@ -103,7 +103,7 @@ export default function AddWeaponButton() {
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent
-          outlineColor="brandPrimary.100"
+          outlineColor="brandPrimary.50"
           outline="12px solid"
           m={'auto'}
         >

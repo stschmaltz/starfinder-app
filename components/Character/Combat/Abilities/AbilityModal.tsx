@@ -14,11 +14,11 @@ import { AbilityType } from '../../../../types/character';
 const abilityTypeToColor = (type: AbilityType) => {
   switch (type) {
     case AbilityType.PHOTON:
-      return 'orange.50';
+      return 'photon.600';
     case AbilityType.GRAVITON:
-      return 'purple.100';
+      return 'graviton.600';
     default:
-      return 'gray.100';
+      return 'gray.600';
   }
 };
 
@@ -39,12 +39,13 @@ export default function AbilityModal({
     <Modal isOpen={isOpen} onClose={onClose}>
       <ModalOverlay />
       <ModalContent
+        backgroundColor={'gray.50'}
         outlineColor={abilityTypeToColor(type)}
         outline={'12px solid'}
         mt={'40%'}
       >
         <ModalCloseButton />
-        <ModalBody>
+        <ModalBody mt={10}>
           <Image src={url} alt={name} width={400} height={400} />
         </ModalBody>
 

@@ -41,7 +41,7 @@ function AbilityScores(props: {
     <StatContainer
       header="Ability Scores"
       bodyContent={
-        <Flex justifyContent={'space-between'}>
+        <Flex h={'4vh'} justifyContent={'space-between'}>
           <AbilityScoreRow
             onChange={(_, valueAsNumber) => {
               updateAbilityScores({

@@ -10,23 +10,37 @@ function CharacterTabs({ character }: { character: CharacterObject }) {
     <Tabs
       isFitted
       variant="solid-rounded"
-      colorScheme="brandPrimary"
+      colorScheme="brandSecondary"
       defaultIndex={1}
     >
-      <TabList>
-        <Tab key="RP">Role Play</Tab>
-        <Tab key="C">Combat</Tab>
-        <Tab key="R">Resources</Tab>
+      <TabList
+        mt={2.5}
+        borderRadius={'md'}
+        boxShadow={'xl'}
+        bg="brandPrimary.50"
+        border="5px solid"
+        borderColor="brandPrimary.900"
+        mb={-1.5}
+      >
+        <Tab borderRadius={'md'} key="RP">
+          Role Play
+        </Tab>
+        <Tab borderRadius={'md'} key="C">
+          Combat
+        </Tab>
+        <Tab borderRadius={'md'} key="R">
+          Resources
+        </Tab>
       </TabList>
 
       <TabPanels>
-        <TabPanel px={0}>
+        <TabPanel px={0} h={'100%'}>
           <RolePlayTabContent character={character} />
         </TabPanel>
-        <TabPanel px={0}>
+        <TabPanel px={0} h={'100%'}>
           <CombatTabContent character={character} />
         </TabPanel>
-        <TabPanel px={0}>
+        <TabPanel px={0} h={'100%'}>
           <ResourceTabContent character={character} />
         </TabPanel>
       </TabPanels>

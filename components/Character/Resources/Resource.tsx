@@ -21,7 +21,7 @@ export default function Resource({ resource }: { resource: ResourceObject }) {
         <Text fontWeight={'bold'} flex={1} fontSize={'md'}>
           {resource.name}
         </Text>
-        <Text flex={2} fontSize="xs">
+        <Text flex={2} fontSize="sm">
           {resource.description}
         </Text>
         <Button

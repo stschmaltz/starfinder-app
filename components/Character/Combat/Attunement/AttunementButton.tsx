@@ -12,7 +12,10 @@ export default function AttunementButton(props: {
 
   return (
     <Button
+      border={'1px'}
       colorScheme={colorScheme}
+      bgColor={`${colorScheme}.300`}
+      borderColor={`${colorScheme}.900`}
       onClick={setCurrentValue}
       borderRadius={'2xl'}
       size="md"

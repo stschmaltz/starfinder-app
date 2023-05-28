@@ -1,4 +1,4 @@
-import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
 import React from 'react';
 import ArmorClass from './ArmorClass/ArmorClass';
 import AttunementTracker from './Attunement/AttunementTracker';
@@ -15,64 +15,62 @@ export default function CombatTabContent({
   character: CharacterObject;
 }) {
   return (
-    <Box>
-      <Grid
-        templateAreas={`"attunement savingThrows"
+    <Grid
+      templateAreas={`"attunement savingThrows"
                   "abilities armorClass"
                   "abilities weapons"
-                  "equipment hit"`}
-        gridTemplateRows={'0.5fr 1fr 1fr 1fr'}
-        gridTemplateColumns={'1fr 1fr'}
-        h="60vh"
-        rowGap="2"
-        columnGap="2"
-        color="blackAlpha.700"
-      >
-        <GridItem area={'attunement'}>
-          <AttunementTracker />
-        </GridItem>
-        <GridItem area={'armorClass'}>
-          <ArmorClass abilityScoreModifiers={character.abilityScoreModifiers} />
-        </GridItem>
-        <GridItem overflowY={'auto'} area={'weapons'} minH={'200px'}>
-          <WeaponsList
-            weapons={character.weapons}
-            abilityScoreModifiers={character.abilityScoreModifiers}
-          />
-        </GridItem>
-        <GridItem area={'abilities'}>
-          <Abilities abilities={character.abilities} />
-        </GridItem>
-        <GridItem area={'savingThrows'}>
-          <SavingThrows
-            abilityScoreModifiers={character.abilityScoreModifiers}
-            savingThrowsDetails={character.savingThrowsDetails}
-          />
-        </GridItem>
-        <GridItem area={'hit'}>
-          <AttackBonus
-            abilityScoreModifiers={character.abilityScoreModifiers}
-            attackBonusDetails={character.attackBonusDetails}
-          />
-        </GridItem>
-        <GridItem area={'equipment'}>
-          <StatContainer
-            header="Equipment"
-            bodyContent={
-              <Flex justifyContent={'center'} alignItems={'center'} h={50}>
-                <Text
-                  textAlign={'center'}
-                  fontSize={'md'}
-                  as="i"
-                  color={'gray.600'}
-                >
-                  You have no equipment
-                </Text>
-              </Flex>
-            }
-          ></StatContainer>
-        </GridItem>
-      </Grid>
-    </Box>
+                  "abilities weapons"
+                  "equipment attackBonus"`}
+      gridTemplateRows={'0.5fr 0.8fr 0.8fr 0.2fr 0.8fr'}
+      gridTemplateColumns={'1fr 1fr'}
+      rowGap="2.5"
+      columnGap="2.5"
+      color="blackAlpha.700"
+    >
+      <GridItem area={'attunement'}>
+        <AttunementTracker />
+      </GridItem>
+      <GridItem area={'armorClass'}>
+        <ArmorClass abilityScoreModifiers={character.abilityScoreModifiers} />
+      </GridItem>
+      <GridItem area={'weapons'} h={'210px'}>
+        <WeaponsList
+          weapons={character.weapons}
+          abilityScoreModifiers={character.abilityScoreModifiers}
+        />
+      </GridItem>
+      <GridItem area={'abilities'}>
+        <Abilities abilities={character.abilities} />
+      </GridItem>
+      <GridItem area={'savingThrows'}>
+        <SavingThrows
+          abilityScoreModifiers={character.abilityScoreModifiers}
+          savingThrowsDetails={character.savingThrowsDetails}
+        />
+      </GridItem>
+      <GridItem area={'attackBonus'}>
+        <AttackBonus
+          abilityScoreModifiers={character.abilityScoreModifiers}
+          attackBonusDetails={character.attackBonusDetails}
+        />
+      </GridItem>
+      <GridItem area={'equipment'}>
+        <StatContainer
+          header="Equipment"
+          bodyContent={
+            <Flex justifyContent={'center'} alignItems={'center'} h={45}>
+              <Text
+                textAlign={'center'}
+                fontSize={'md'}
+                as="i"
+                color={'gray.600'}
+              >
+                You have no equipment
+              </Text>
+            </Flex>
+          }
+        ></StatContainer>
+      </GridItem>
+    </Grid>
   );
 }
