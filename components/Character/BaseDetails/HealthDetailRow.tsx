@@ -21,8 +21,8 @@ export default function HealthDetailRow({
   onMaxChange: (valueAsString: string, valueAsNumber: number) => void;
 }) {
   return (
-    <Flex maxW={'175px'} alignItems={'center'} justifyContent={'space-between'}>
-      <Box minWidth="70px">
+    <Flex maxW={'180px'} alignItems={'center'} justifyContent={'space-between'}>
+      <Box minWidth="72px">
         <Text fontWeight={'normal'} fontSize="lg">
           {title}:
         </Text>
