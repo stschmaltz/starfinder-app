@@ -62,22 +62,27 @@ function BaseDetails({
       borderRadius={'md'}
       boxShadow={'xl'}
       bg="brandPrimary.50"
-      border="5px solid"
+      border="3px solid"
       borderColor="brandPrimary.900"
       h="18vh"
       mb={2.5}
     >
       <Flex justifyContent={'space-between'}>
         <Flex
-          borderRadius={'md'}
           px={3}
-          border={'1px'}
-          borderColor={'brandPrimary.500'}
+          pr={10}
+          pb={3}
+          borderBottomRightRadius={'md'}
+          borderRight={'4px'}
+          borderBottom={'4px'}
+          borderColor={'brandPrimary.400'}
           bgColor={'brandPrimary.300'}
           fontWeight="bold"
           fontSize={'lg'}
           flexDir={'column'}
           mb={2}
+          ml={-4}
+          mt={-4}
         >
           <Text as="b" fontSize="2xl">
             {baseDetails.name}
@@ -94,7 +99,7 @@ function BaseDetails({
       <Flex justifyContent={'space-between'}>
         <Flex flexDir={'column'}>
           <Flex alignItems={'center'}>
-            <Text fontWeight={'medium'} mr={1} fontSize="md">
+            <Text fontWeight={'medium'} mr={1} fontSize="lg">
               Level:
             </Text>
             <NumberInput
@@ -110,13 +115,13 @@ function BaseDetails({
               <NumberInputField
                 fontWeight={'bold'}
                 textAlign={'center'}
-                fontSize={'md'}
+                fontSize={'lg'}
                 p={0.5}
               />
             </NumberInput>
           </Flex>
 
-          <Flex justifyContent={'center'} alignItems={'center'}>
+          <Flex justifyContent={'flex-start'} alignItems={'center'}>
             <Text fontSize="md">
               <b> Exp Earned:</b>
             </Text>

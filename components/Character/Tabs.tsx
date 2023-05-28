@@ -18,17 +18,17 @@ function CharacterTabs({ character }: { character: CharacterObject }) {
         borderRadius={'md'}
         boxShadow={'xl'}
         bg="brandPrimary.50"
-        border="5px solid"
+        border="3px solid"
         borderColor="brandPrimary.900"
         mb={-1.5}
       >
-        <Tab borderRadius={'md'} key="RP">
+        <Tab borderRadius={'md'} key="RP" fontSize={'xl'}>
           Role Play
         </Tab>
-        <Tab borderRadius={'md'} key="C">
+        <Tab borderRadius={'md'} key="C" fontSize={'xl'}>
           Combat
         </Tab>
-        <Tab borderRadius={'md'} key="R">
+        <Tab borderRadius={'md'} key="R" fontSize={'xl'}>
           Resources
         </Tab>
       </TabList>

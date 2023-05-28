@@ -12,7 +12,7 @@ export default function Layout(input: {
   const { children } = input;
 
   return (
-    <Container maxW={'50rem'}>
+    <Container maxW={'50rem'} minH={'100vh'}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta name="description" content="App to help organize exercises" />

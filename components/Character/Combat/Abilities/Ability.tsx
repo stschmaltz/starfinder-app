@@ -10,14 +10,14 @@ import { AttunementTrackerProps } from '../../../../context/AttunementContext';
 import { theme } from '../../../../styles/theme';
 
 const typeToBackgroundColor: Record<AbilityType, string> = {
-  GRAVITON: 'graviton.300',
-  PHOTON: 'photon.300',
+  GRAVITON: 'graviton.50',
+  PHOTON: 'photon.50',
   NEUTRAL: 'gray.50',
 };
 const typeToOutlineColor: Record<AbilityType, string> = {
   GRAVITON: 'graviton.500',
   PHOTON: 'photon.500',
-  NEUTRAL: 'gray.200',
+  NEUTRAL: 'gray.400',
 };
 
 export default function Ability({
@@ -83,7 +83,7 @@ export default function Ability({
               }`
             : ''
         }
-        border={isHighlighted ? '' : '0.5px solid'}
+        border={isHighlighted ? '' : '1px solid'}
         borderColor={`${typeToOutlineColor[ability.type]}`}
         p={1}
         flexDir={'column'}

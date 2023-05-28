@@ -20,15 +20,16 @@ export default function Weapon({
   critical,
 }: WeaponObject) {
   return (
-    <Accordion defaultIndex={undefined} allowMultiple>
+    <Accordion defaultIndex={undefined} allowMultiple borderRadius={7} px={2}>
       <AccordionItem
-        py={0.5}
-        px={2}
+        border={'1px solid'}
+        borderColor={'accent1.900'}
+        outline={'1px solid'}
+        outlineColor={'accent1.900'}
         borderRadius={7}
+        p={1}
+        py={0.5}
         overflow={'hidden'}
-        border={'1px'}
-        borderColor={'brandPrimary.800'}
-        bg={'brandPrimary.100'}
       >
         <AccordionButton p={0}>
           <WeaponRow

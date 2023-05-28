@@ -43,7 +43,7 @@ export default function Resource({ resource }: { resource: ResourceObject }) {
         </Button>
       </Flex>
       <Divider
-        opacity={0.2}
+        opacity={0.6}
         borderColor={'brandPrimary.300'}
         mb={3}
         borderBottomWidth={2}

@@ -11,10 +11,10 @@ export default function CharacterNotes({
     <StatContainer
       header="Character Notes"
       bodyContent={
-        <Flex height={'200px'} overflowY={'auto'} flexDir={'column'}>
+        <Flex height={'215px'} overflowY={'auto'} flexDir={'column'}>
           {characterNotes.map((note) => {
             return (
-              <Text fontSize={'13.6px'} key={note.slice(0, 10)}>
+              <Text fontSize={'0.87rem'} key={note.slice(0, 10)}>
                 ▸ {note}
               </Text>
             );

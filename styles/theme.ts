@@ -184,6 +184,7 @@ const theme = extendTheme({
         p: 0,
         m: 0,
         lineHeight: '1.5',
+        minHeight: '100vh',
       },
       a: {
         fontSize: 'lg', // Slightly smaller link font size.

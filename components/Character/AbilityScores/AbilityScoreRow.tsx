@@ -17,7 +17,7 @@ export default function AbilityScoreRow({
       <Flex alignItems={'center'}>
         <NumberInput
           variant="unstyled"
-          size="md"
+          size="14rem"
           min={0}
           defaultValue={abilityScoreValue}
           max={20}
@@ -26,14 +26,14 @@ export default function AbilityScoreRow({
         >
           <NumberInputField fontWeight={'medium'} textAlign={'center'} p={1} />
         </NumberInput>
-        <Text fontWeight={'bold'} fontSize={'md'}>
+        <Text fontWeight={'bold'} fontSize={'lg'}>
           ({abilityScoreModifier > 0 ? '+' : ''}
           {abilityScoreModifier})
         </Text>
       </Flex>
 
       <Text mt={-2} fontSize={'sm'}>
-        {abilityScoreTitle}{' '}
+        {abilityScoreTitle}
       </Text>
     </Flex>
   );

@@ -19,7 +19,7 @@ export default function StatContainer({
       borderRadius={'md'}
       boxShadow={'xl'}
       bg="brandPrimary.50"
-      border="5px solid"
+      border="3px solid"
       borderColor="brandPrimary.600"
       px={4}
       py={3}
@@ -38,6 +38,7 @@ export default function StatContainer({
             fontWeight="bold"
             fontSize={'lg'}
             mb={2}
+            ml={-2}
           >
             {header}
           </Text>
