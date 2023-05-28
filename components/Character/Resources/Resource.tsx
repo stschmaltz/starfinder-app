@@ -33,6 +33,7 @@ export default function Resource({ resource }: { resource: ResourceObject }) {
           onClick={() => {
             setIsModalOpen(true);
           }}
+          ml={2}
         >
           <Image
             src={resource.url}

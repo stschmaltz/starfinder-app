@@ -22,10 +22,9 @@ export default function Weapon({
   return (
     <Accordion defaultIndex={undefined} allowMultiple borderRadius={7} px={2}>
       <AccordionItem
-        border={'1px solid'}
-        borderColor={'accent1.900'}
+        mt={0.3}
         outline={'1px solid'}
-        outlineColor={'accent1.900'}
+        outlineColor={'brandPrimary.700'}
         borderRadius={7}
         p={1}
         py={0.5}

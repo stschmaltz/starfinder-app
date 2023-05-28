@@ -1,4 +1,4 @@
-import { Grid, GridItem } from '@chakra-ui/react';
+import { Grid, GridItem, Text } from '@chakra-ui/react';
 import React, { useContext } from 'react';
 import SavingThrowsRow from './SavingThrowsRow';
 import SavingThrowsRowHeader from './SavingThrowsRowHeader';
@@ -67,6 +67,7 @@ export default function SavingThrows({
           color="blackAlpha.700"
           fontWeight="bold"
           rowGap={0.5}
+          overflowY={'hidden'}
         >
           <GridItem key={'header'} area={'header'}></GridItem>
           <GridItem area={'fortitude'}>
@@ -111,6 +112,9 @@ export default function SavingThrows({
               }
             />
           </GridItem>
+          <Text mb={-1} ml={'7.5rem'} fontSize={'xs'}>
+            +2 to fear saves
+          </Text>
         </Grid>
       }
     ></StatContainer>

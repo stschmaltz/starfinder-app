@@ -24,7 +24,7 @@ export default function RolePlayTabContent({
                   "skills carry"`}
         gridTemplateRows={'1fr 1fr 0.3fr 0.3fr'}
         gridTemplateColumns={'1fr 1fr'}
-        h="63vh"
+        h="63.8vh"
         rowGap="2.5"
         columnGap="2.5"
         color="blackAlpha.700"
@@ -50,19 +50,7 @@ export default function RolePlayTabContent({
           />
         </GridItem>
         <GridItem area={'characterNotes'}>
-          <CharacterNotes
-            characterNotes={[
-              'Values rugged self-reliance and natural beauty.',
-              'Always curious, ready for the next adventure.',
-              'Honors parents through his combat skills and justice.',
-              'Fearless in combat, prioritizes melee engagement.',
-              'Highly protective of crew members.',
-              'Prefers straightforward, honest negotiations.',
-              'Respects strength and resolve in others.',
-              'Strong sense of justice, intolerant of theft and deceit.',
-              'Weapon Focus (adv)',
-            ]}
-          />
+          <CharacterNotes notes={character.notes} />
         </GridItem>
         <GridItem area={'languages'}>
           <Languages languages={character.languages} />

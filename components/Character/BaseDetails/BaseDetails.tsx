@@ -162,6 +162,8 @@ function BaseDetails({
           borderRadius={4}
           p={2}
           bgColor={'brandPrimary.300'}
+          border={'2px solid'}
+          borderColor={'brandPrimary.600'}
         >
           <HealthDetailRow
             title={'Stamina'}

@@ -31,7 +31,7 @@ export default function ResourceModal({
       >
         <ModalCloseButton />
         <ModalBody mt={10}>
-          <Image src={url} alt={name} width={400} height={400} />
+          <Image src={url} alt={name} width={450} height={450} />
         </ModalBody>
 
         <ModalFooter>

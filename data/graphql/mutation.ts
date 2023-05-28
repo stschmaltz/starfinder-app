@@ -127,7 +127,8 @@ const mutationTypeDefs = /* GraphQL */ `
     skills: [CharacterSkillsInput!]!
     languages: [String!]!
     carry: CarryInput!
-    resources: [CharacterResourcesInput!]!
+    resources: [CharacterResourcesInput!]
+    notes: [String!]!
   }
 
   type Mutation {

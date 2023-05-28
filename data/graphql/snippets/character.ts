@@ -95,6 +95,7 @@ const fullCharacters = `
       url
       description
     }
+    notes
   `;
 
 export { fullCharacters };

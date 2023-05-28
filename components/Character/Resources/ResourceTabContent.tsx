@@ -18,7 +18,7 @@ export default function ResourceTabContent({
           mb={10}
           alignItems={'center'}
           flexDir={'column'}
-          h={'52.5vh'}
+          h={'53.3vh'}
           overflowY={'auto'}
         >
           <Flex w={'85%'} justifyContent={'space-between'} mb={3}>

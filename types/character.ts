@@ -127,4 +127,5 @@ export interface CharacterObject {
   languages: string[];
   carry: CarryObject;
   resources: ResourceObject[];
+  notes: string[];
 }

@@ -12,7 +12,8 @@ function SaveCharacterButtonRow({
     <Flex>
       <Button
         size={'md'}
-        w={100}
+        fontSize={'lg'}
+        w={120}
         colorScheme={'accent1'}
         isDisabled={!isDirty}
         onClick={saveCharacter}

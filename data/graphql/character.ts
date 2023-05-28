@@ -130,6 +130,7 @@ const characterTypeDefs = /* GraphQL */ `
     languages: [String!]!
     carry: CarryObject!
     resources: [CharacterResources!]!
+    notes: [String!]!
   }
 `;
 
@@ -146,12 +147,26 @@ const characterResolver = {
             {
               name: 'Solarian Modes',
               url: '/images/solarian-modes.png',
-              description: 'The two different solarian attunement modes.',
+              description:
+                'The two different solarian attunement modes. Photon and Graviton.',
             },
             {
               name: 'Disproportionate Revelations',
               url: '/images/disproportionate-revelations.png',
-              description: 'Keeping your revelations in balance.',
+              description:
+                'Keeping your revelations in balance. Can have 1 more revelation of a lower level than the other.',
+            },
+            {
+              name: 'Vesk Physical Description',
+              url: '/images/vesk-physical-description.png',
+              description:
+                '7ft tall, thick with muscle, tough/scaly skin. Alpha Lizards.',
+            },
+            {
+              name: 'Vesk Cover',
+              url: '/images/vesk-cover.png',
+              description:
+                '+2 Str, +2 Con, -2 Int. Medium. 30ft. low-light vision. When wearing armor.',
             },
           ],
         }));
