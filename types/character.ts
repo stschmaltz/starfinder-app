@@ -111,6 +111,12 @@ export interface ResourceObject {
   description: string;
 }
 
+export interface EquipmentObject {
+  name: string;
+  url: string;
+  description: string;
+}
+
 export interface CharacterObject {
   _id: ObjectId;
   userId: ObjectId;
@@ -128,4 +134,5 @@ export interface CharacterObject {
   carry: CarryObject;
   resources: ResourceObject[];
   notes: string[];
+  equipment: EquipmentObject[];
 }

@@ -108,7 +108,13 @@ const characterTypeDefs = /* GraphQL */ `
     credits: Float!
   }
 
-  type CharacterResources {
+  type CharacterResource {
+    name: String!
+    url: String!
+    description: String!
+  }
+
+  type CharacterEquipment {
     name: String!
     url: String!
     description: String!
@@ -129,8 +135,9 @@ const characterTypeDefs = /* GraphQL */ `
     skills: [CharacterSkills!]!
     languages: [String!]!
     carry: CarryObject!
-    resources: [CharacterResources!]!
+    resources: [CharacterResource!]!
     notes: [String!]!
+    equipment: [CharacterEquipment!]!
   }
 `;
 
@@ -143,30 +150,12 @@ const characterResolver = {
         // TODO: add resources to database
         return characters.map((character) => ({
           ...character,
-          resources: [
+          equipment: [
             {
-              name: 'Solarian Modes',
-              url: '/images/solarian-modes.png',
+              name: 'Laser Pistol',
+              url: 'https://www.aonsrd.com/EquipmentWeaponsDisplay.aspx?ItemName=Laser%20pistol&Family=Laser',
               description:
-                'The two different solarian attunement modes. Photon and Graviton.',
-            },
-            {
-              name: 'Disproportionate Revelations',
-              url: '/images/disproportionate-revelations.png',
-              description:
-                'Keeping your revelations in balance. Can have 1 more revelation of a lower level than the other.',
-            },
-            {
-              name: 'Vesk Physical Description',
-              url: '/images/vesk-physical-description.png',
-              description:
-                '7ft tall, thick with muscle, tough/scaly skin. Alpha Lizards.',
-            },
-            {
-              name: 'Vesk Cover',
-              url: '/images/vesk-cover.png',
-              description:
-                '+2 Str, +2 Con, -2 Int. Medium. 30ft. low-light vision. When wearing armor +1 bonus to AC. Penalty to armor check on heavy armor reduced by 1.',
+                'A laser pistol is a one-handed, battery-powered, ranged weapon that fires a single laser beam at a target. It has the analog, aurora, and bright special properties.',
             },
           ],
         }));

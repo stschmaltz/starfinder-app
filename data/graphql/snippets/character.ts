@@ -96,6 +96,11 @@ const fullCharacters = `
       description
     }
     notes
+    equipment {
+      name
+      url
+      description
+    }
   `;
 
 export { fullCharacters };
