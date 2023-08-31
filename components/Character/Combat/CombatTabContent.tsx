@@ -6,7 +6,7 @@ import SavingThrows from './SavingThrows/SavingThrows';
 import AttackBonus from './AttackBonus/AttackBonus';
 import WeaponsList from './Weapons/WeaponsList';
 import Abilities from './Abilities/Abilities';
-import Equipment from './Equipment/Equipment';
+import EquipmentList from './Equipment/EquipmentList';
 import { CharacterObject } from '../../../types/character';
 
 export default function CombatTabContent({
@@ -55,7 +55,7 @@ export default function CombatTabContent({
         />
       </GridItem>
       <GridItem area={'equipment'}>
-        <Equipment equipment={character.equipment} />
+        <EquipmentList equipment={character.equipment} />
       </GridItem>
     </Grid>
   );
