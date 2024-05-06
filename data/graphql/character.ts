@@ -147,7 +147,7 @@ const characterResolver = {
       try {
         const characters = await getCharactersForUser(parent._id);
 
-        // TODO: add resources to database
+        // TODO: add equipment to database
         return characters.map((character) => ({
           ...character,
           equipment: [

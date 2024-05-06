@@ -82,6 +82,12 @@ export default function SavingThrows({
                   fortitudeBaseSave: newBonus,
                 })
               }
+              onMiscChange={(newBonus) =>
+                updateSavingThrowValues({
+                  ...savingThrowsDetails,
+                  fortitudeMisc: newBonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'reflex'}>
@@ -96,6 +102,12 @@ export default function SavingThrows({
                   reflexBaseSave: newBonus,
                 })
               }
+              onMiscChange={(newBonus) =>
+                updateSavingThrowValues({
+                  ...savingThrowsDetails,
+                  reflexMisc: newBonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'will'}>
@@ -108,6 +120,12 @@ export default function SavingThrows({
                 updateSavingThrowValues({
                   ...savingThrowsDetails,
                   willBaseSave: newBonus,
+                })
+              }
+              onMiscChange={(newBonus) =>
+                updateSavingThrowValues({
+                  ...savingThrowsDetails,
+                  willMisc: newBonus,
                 })
               }
             />

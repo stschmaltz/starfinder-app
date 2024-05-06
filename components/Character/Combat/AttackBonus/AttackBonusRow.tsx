@@ -13,12 +13,14 @@ export default function AttackBonusRow({
   baseAttackBonus,
   miscAttackBonus,
   onBonusChange,
+  onMiscChange,
 }: {
   name: string;
   total: string;
   baseAttackBonus: string;
   miscAttackBonus: string;
   onBonusChange: (value: number) => void;
+  onMiscChange: (value: number) => void;
 }) {
   return (
     <Grid alignItems={'center'} templateColumns="1fr 1fr 1fr 1fr">
@@ -66,7 +68,7 @@ export default function AttackBonusRow({
           defaultValue={miscAttackBonus}
           max={10000}
           onChange={(_, valueAsNumber) => {
-            onBonusChange(valueAsNumber);
+            onMiscChange(valueAsNumber);
           }}
           w={10}
           mr={2}

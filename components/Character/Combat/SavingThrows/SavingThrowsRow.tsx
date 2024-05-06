@@ -13,12 +13,14 @@ export default function SavingThrowsRow({
   baseBonus,
   miscBonus,
   onBonusChange,
+  onMiscChange,
 }: {
   name: string;
   total: string;
   baseBonus: string;
   miscBonus: string;
   onBonusChange: (valueAsNumber: number) => void;
+  onMiscChange: (valueAsNumber: number) => void;
 }) {
   return (
     <Grid alignItems={'center'} templateColumns="1fr 1fr 1fr 1fr">
@@ -64,7 +66,7 @@ export default function SavingThrowsRow({
           defaultValue={miscBonus}
           max={10000}
           onChange={(_, valueAsNumber) => {
-            onBonusChange(valueAsNumber);
+            onMiscChange(valueAsNumber);
           }}
           w={10}
           mr={2}

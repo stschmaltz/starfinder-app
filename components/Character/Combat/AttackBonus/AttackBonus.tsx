@@ -67,6 +67,12 @@ export default function AttackBonus({
                   baseAttackBonus: bonus,
                 })
               }
+              onMiscChange={(bonus) =>
+                updateAttackBonus({
+                  ...attackBonusDetails,
+                  meleeMisc: bonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'ranged'}>
@@ -81,6 +87,12 @@ export default function AttackBonus({
                   baseAttackBonus: bonus,
                 })
               }
+              onMiscChange={(bonus) =>
+                updateAttackBonus({
+                  ...attackBonusDetails,
+                  meleeMisc: bonus,
+                })
+              }
             />
           </GridItem>
           <GridItem area={'thrown'}>
@@ -92,7 +104,13 @@ export default function AttackBonus({
               onBonusChange={(bonus) =>
                 updateAttackBonus({
                   ...attackBonusDetails,
-                  baseAttackBonus: bonus,
+                  rangedMisc: bonus,
+                })
+              }
+              onMiscChange={(bonus) =>
+                updateAttackBonus({
+                  ...attackBonusDetails,
+                  thrownMisc: bonus,
                 })
               }
             />
