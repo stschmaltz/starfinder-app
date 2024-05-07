@@ -147,18 +147,14 @@ const characterResolver = {
       try {
         const characters = await getCharactersForUser(parent._id);
 
-        // TODO: add equipment to database
-        return characters.map((character) => ({
-          ...character,
-          equipment: [
-            {
-              name: 'Laser Pistol',
-              url: 'https://www.aonsrd.com/EquipmentWeaponsDisplay.aspx?ItemName=Laser%20pistol&Family=Laser',
-              description:
-                'A laser pistol is a one-handed, battery-powered, ranged weapon that fires a single laser beam at a target. It has the analog, aurora, and bright special properties.',
-            },
-          ],
-        }));
+        return characters.map((character) => {
+          const equipment = character.equipment ? character.equipment : [];
+
+          return {
+            ...character,
+            equipment,
+          };
+        });
       } catch (error) {
         console.log(error);
 

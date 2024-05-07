@@ -113,6 +113,12 @@ const mutationTypeDefs = /* GraphQL */ `
     description: String!
   }
 
+  input EquipmentObjectInput {
+    name: String!
+    url: String!
+    description: String!
+  }
+
   input CharacterInput {
     _id: String!
     userId: String!
@@ -129,6 +135,7 @@ const mutationTypeDefs = /* GraphQL */ `
     carry: CarryInput!
     resources: [CharacterResourcesInput!]
     notes: [String!]!
+    equipment: [EquipmentObjectInput!]
   }
 
   type Mutation {

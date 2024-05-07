@@ -6,7 +6,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import React, { useCallback, useContext } from 'react';
+import React, { useCallback, useContext, useMemo } from 'react';
 import HealthDetailRow from './HealthDetailRow';
 import SaveCharacterButtonRow from './SaveCharacterButtonRow';
 import { displayCase } from '../../../lib/string-helpers';
@@ -18,11 +18,13 @@ function BaseDetails({
   healthStats,
   isCharacterDirty,
   saveCharacter,
+  saveDCAbilityModifier,
 }: {
   baseDetails: BaseCharacterDetails;
   healthStats: HealthStats;
   isCharacterDirty: boolean;
   saveCharacter: () => void;
+  saveDCAbilityModifier: number;
 }) {
   const [_characterState, dispatch] = useContext(CharacterContext);
 
@@ -55,6 +57,12 @@ function BaseDetails({
     },
     [dispatch, baseDetails]
   );
+
+  // Save DC=10+half your character level+key ability modifier
+  // convert to useMemo
+  const saveDc = useMemo(() => {
+    return 10 + Math.floor(baseDetails.level / 2) + saveDCAbilityModifier;
+  }, [baseDetails.level, saveDCAbilityModifier]);
 
   return (
     <Box
@@ -138,6 +146,11 @@ function BaseDetails({
             >
               <NumberInputField textAlign={'center'} p={1} />
             </NumberInput>
+          </Flex>
+          <Flex justifyContent={'flex-start'} alignItems={'center'}>
+            <Text fontSize="md">
+              <b>Save DC: {saveDc}</b>
+            </Text>
           </Flex>
         </Flex>
         <Box>

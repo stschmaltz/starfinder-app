@@ -1,4 +1,4 @@
-import { Flex, Grid, GridItem, Text } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
 import React from 'react';
 import AddEquipment from './AddEquipment';
 import Equipment from './Equipment';
@@ -17,28 +17,24 @@ export default function EquipmentList(props: { equipment: EquipmentObject[] }) {
       );
     } else {
       return equipment?.map((equipment) => (
-        <GridItem key={equipment.name} mb={1}>
-          <Equipment equipment={equipment} />
-        </GridItem>
+        <Equipment key={equipment.name} equipment={equipment} />
       ));
     }
   };
 
   return (
     <StatContainer
-      header="Weapons"
+      header="Equipment"
       actionContent={<AddEquipment />}
       bodyContent={
-        <Grid
-          gridTemplateRows={`repeat(${equipment.length})`}
-          rowGap="0"
-          color="blackAlpha.700"
-          fontWeight="bold"
+        <Flex
+          justifyContent={'center'}
+          alignItems={'center'}
+          flexDirection={'column'}
+          maxHeight={'200px'}
         >
-          <Flex justifyContent={'center'} alignItems={'center'} h={45}>
-            {renderEquipment()}
-          </Flex>
-        </Grid>
+          {renderEquipment()}
+        </Flex>
       }
     ></StatContainer>
   );

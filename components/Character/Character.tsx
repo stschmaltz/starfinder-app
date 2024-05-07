@@ -44,6 +44,7 @@ function Character(props: CharacterObject) {
         saveCharacter={saveCharacter}
         baseDetails={character.baseDetails}
         healthStats={character.healthStats}
+        saveDCAbilityModifier={character.abilityScoreModifiers.chaMod}
       />
       <Box mt={2}></Box>
       <AbilityScores
