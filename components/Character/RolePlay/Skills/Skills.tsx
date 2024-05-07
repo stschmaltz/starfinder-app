@@ -73,6 +73,9 @@ export default function Skills({
                   }}
                 />
               ))}
+            <Text fontSize={'sm'}>
+              <b>* +1d6 for bluff and diplomacy</b>
+            </Text>
           </Flex>
         </>
       }
